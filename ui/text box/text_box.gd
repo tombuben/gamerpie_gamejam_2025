@@ -37,7 +37,7 @@ func _display_letter():
 	label.text += text[letter_index]
 	
 	letter_index += 1
-	if letter_index >= text.lenght():
+	if letter_index >= text.length():
 		finished_displaying.emit()
 		return
 		
