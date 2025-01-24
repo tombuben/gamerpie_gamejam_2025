@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cxjyxcbcxxydo"]
+[gd_scene load_steps=5 format=3 uid="uid://cxjyxcbcxxydo"]
 
 [ext_resource type="PackedScene" uid="uid://b81oqoehgfrkh" path="res://player_character.tscn" id="1_q2wdn"]
 [ext_resource type="Texture2D" uid="uid://byntaf3m6vhfi" path="res://assets/sketch_level_1.png" id="1_t1s7n"]
 [ext_resource type="PackedScene" uid="uid://c80xvbx7tdgob" path="res://npc_character.tscn" id="3_tl17o"]
+[ext_resource type="Script" path="res://levels/dialog_bubble.gd" id="4_ise4s"]
 
 [node name="Level1" type="Node2D"]
 
@@ -24,13 +25,19 @@ friction = 0.2
 position = Vector2(393, 435)
 
 [node name="BubbleSlot" type="Node2D" parent="NpcCharacter"]
+script = ExtResource("4_ise4s")
+lines = Array[String](["NPC 1 dialog"])
 
 [node name="NpcCharacter2" parent="." instance=ExtResource("3_tl17o")]
 position = Vector2(720, 408)
 
 [node name="BubbleSlot" type="Node2D" parent="NpcCharacter2"]
+script = ExtResource("4_ise4s")
+lines = Array[String](["NPC 2 dialog"])
 
 [node name="NpcCharacter3" parent="." instance=ExtResource("3_tl17o")]
 position = Vector2(726, 790)
 
 [node name="BubbleSlot" type="Node2D" parent="NpcCharacter3"]
+script = ExtResource("4_ise4s")
+lines = Array[String](["NPC 3 dialog"])
