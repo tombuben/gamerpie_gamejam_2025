@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxjyxcbcxxydo"]
+
+[ext_resource type="PackedScene" uid="uid://b81oqoehgfrkh" path="res://player_character.tscn" id="1_q2wdn"]
+[ext_resource type="Texture2D" uid="uid://byntaf3m6vhfi" path="res://assets/sketch_level_1.png" id="1_t1s7n"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="SketchLevel1" type="Sprite2D" parent="."]
+position = Vector2(595, 424)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("1_t1s7n")
+
+[node name="PlayerCharacter" parent="." instance=ExtResource("1_q2wdn")]
+position = Vector2(578, 415)
+player_speed = 200
