@@ -17,7 +17,7 @@ texture = ExtResource("1_t1s7n")
 polygon = PackedVector2Array(-1902.86, 565.714, -888.571, 571.429, -934.286, -448.571, 765.714, -508.571, 791.429, 574.286, 1877.14, 577.143, 1868.57, -1351.43, -1868.57, -1314.29)
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_q2wdn")]
-position = Vector2(578, 415)
+position = Vector2(555, 543)
 friction = 0.2
 
 [node name="NpcCharacter" parent="." instance=ExtResource("3_tl17o")]
