@@ -23,8 +23,14 @@ friction = 0.2
 [node name="NpcCharacter" parent="." instance=ExtResource("3_tl17o")]
 position = Vector2(393, 435)
 
+[node name="BubbleSlot" type="Node2D" parent="NpcCharacter"]
+
 [node name="NpcCharacter2" parent="." instance=ExtResource("3_tl17o")]
 position = Vector2(720, 408)
 
+[node name="BubbleSlot" type="Node2D" parent="NpcCharacter2"]
+
 [node name="NpcCharacter3" parent="." instance=ExtResource("3_tl17o")]
 position = Vector2(726, 790)
+
+[node name="BubbleSlot" type="Node2D" parent="NpcCharacter3"]
