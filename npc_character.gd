@@ -1,6 +1,6 @@
 extends Node2D
 
-bubble_slot : Node2D = $BubbleSlot
+@onready var bubble_slot : Node2D = $BubbleSlot
 
 signal npc_triggered
 
