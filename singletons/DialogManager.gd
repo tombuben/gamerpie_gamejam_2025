@@ -35,6 +35,11 @@ func _show_text_box():
 func _on_text_box_finished_displaying():
 	can_advance_line = true
 	
+func _end_dialog():
+	text_box.queue_free()
+	is_dialog_active = false
+	current_line_index = 0
+	return
 	
 func _unhandled_input(event):
 	if (
