@@ -3,6 +3,8 @@ extends MarginContainer
 @onready var label = $MarginContainer/Label
 @onready var timer = $LetterDisplayTimer
 
+@export var swap_button: Control
+
 const MAX_WIDTH = 400
 
 var text = ""
