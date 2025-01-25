@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://cxjyxcbcxxydo"]
+[gd_scene load_steps=9 format=3 uid="uid://cxjyxcbcxxydo"]
 
 [ext_resource type="PackedScene" uid="uid://b81oqoehgfrkh" path="res://player_character.tscn" id="1_q2wdn"]
 [ext_resource type="Texture2D" uid="uid://byntaf3m6vhfi" path="res://assets/sketch_level_1.png" id="1_t1s7n"]
 [ext_resource type="Script" path="res://levels/player_bubble_manager.gd" id="3_ccnok"]
 [ext_resource type="PackedScene" uid="uid://c80xvbx7tdgob" path="res://npc_character.tscn" id="3_tl17o"]
 [ext_resource type="Script" path="res://levels/dialog_bubble.gd" id="4_ise4s"]
-[ext_resource type="PackedScene" uid="uid://do3g3w77pww5q" path="res://door.tscn" id="6_0flo3"]
+[ext_resource type="PackedScene" path="res://door.tscn" id="6_0flo3"]
+[ext_resource type="Script" path="res://levels/bubble_slot.gd" id="6_c67vb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mmaku"]
 size = Vector2(581.5, 20)
@@ -35,26 +36,38 @@ friction = 0.2
 [node name="PlayerBubbleSlot" type="Node2D" parent="PlayerCharacter"]
 script = ExtResource("3_ccnok")
 
+[node name="Bubble" type="Node2D" parent="PlayerCharacter/PlayerBubbleSlot"]
+script = ExtResource("4_ise4s")
+checkValue = ""
+
 [node name="NpcCharacter" parent="." instance=ExtResource("3_tl17o")]
 position = Vector2(382, 370)
 
 [node name="BubbleSlot" type="Node2D" parent="NpcCharacter"]
+script = ExtResource("6_c67vb")
+
+[node name="Bubble" type="Node2D" parent="NpcCharacter/BubbleSlot"]
 script = ExtResource("4_ise4s")
-lines = Array[String](["NPC 1 dialog"])
+lines = Array[String](["OPEN"])
+checkValue = "open"
 
 [node name="NpcCharacter2" parent="." instance=ExtResource("3_tl17o")]
 position = Vector2(733, 341)
 
 [node name="BubbleSlot" type="Node2D" parent="NpcCharacter2"]
+script = ExtResource("6_c67vb")
+
+[node name="Bubble" type="Node2D" parent="NpcCharacter2/BubbleSlot"]
 script = ExtResource("4_ise4s")
-lines = Array[String](["NPC 2 dialog"])
 
 [node name="NpcCharacter3" parent="." instance=ExtResource("3_tl17o")]
 position = Vector2(726, 790)
 
 [node name="BubbleSlot" type="Node2D" parent="NpcCharacter3"]
+script = ExtResource("6_c67vb")
+
+[node name="Bubble" type="Node2D" parent="NpcCharacter3/BubbleSlot"]
 script = ExtResource("4_ise4s")
-lines = Array[String](["NPC 3 dialog"])
 
 [node name="Door" parent="." instance=ExtResource("6_0flo3")]
 
