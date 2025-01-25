@@ -21,6 +21,8 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	toggle_sprite_highlight()
 	body._clean_npc_storage()
 	bubble_slot._end_dialog()
+	body.swap_box.queue_free()
+		
 	
 func toggle_sprite_highlight():
 	if base_sprite != null && highlight_sprite != null:

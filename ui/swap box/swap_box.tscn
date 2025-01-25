@@ -1,0 +1,163 @@
+[gd_scene load_steps=7 format=3 uid="uid://d4lmg3qm73sci"]
+
+[ext_resource type="Script" path="res://ui/swap box/swap_box_container.gd" id="1_3pspb"]
+[ext_resource type="Texture2D" uid="uid://djjyqu4d33i62" path="res://ui/text box/bublina_base-bigger.png" id="2_c87j4"]
+[ext_resource type="Script" path="res://ui/swap box/swap_box.gd" id="2_qvf1o"]
+[ext_resource type="Texture2D" uid="uid://cbjvmobuhdgs" path="res://ui/text box/tail.png" id="3_4fjh0"]
+[ext_resource type="Texture2D" uid="uid://24ap7tirtxxp" path="res://ui/text box/Swap_button_base.png" id="4_30kwx"]
+[ext_resource type="FontFile" uid="uid://deige1vwgfcp2" path="res://ui/text box/Daydream.ttf" id="5_w7gki"]
+
+[node name="SwapBox" type="Control" node_paths=PackedStringArray("left_box", "right_box")]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -354.0
+offset_top = -53.5
+offset_right = 354.0
+offset_bottom = 53.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_3pspb")
+left_box = NodePath("LeftBox")
+right_box = NodePath("RightBox")
+
+[node name="LeftBox" type="MarginContainer" parent="." node_paths=PackedStringArray("label")]
+layout_mode = 2
+offset_left = -2.0
+offset_top = -1.0
+offset_right = 225.0
+offset_bottom = 101.0
+script = ExtResource("2_qvf1o")
+max_width = 250
+label = NodePath("MarginContainer/Label")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="LeftBox"]
+layout_mode = 2
+texture = ExtResource("2_c87j4")
+region_rect = Rect2(0, 0, 96, 96)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+
+[node name="Control" type="Control" parent="LeftBox/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="LeftBox/NinePatchRect/Control"]
+position = Vector2(11.5, 53)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("3_4fjh0")
+
+[node name="Swap" type="Control" parent="LeftBox/NinePatchRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="LeftBox/NinePatchRect/Swap"]
+texture_filter = 1
+position = Vector2(57, 38)
+scale = Vector2(7, 7)
+texture = ExtResource("4_30kwx")
+
+[node name="MarginContainer" type="MarginContainer" parent="LeftBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="Label" type="Label" parent="LeftBox/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_w7gki")
+theme_override_font_sizes/font_size = 20
+text = "left box"
+vertical_alignment = 1
+
+[node name="RightBox" type="MarginContainer" parent="." node_paths=PackedStringArray("label")]
+layout_mode = 2
+offset_left = 491.0
+offset_top = -4.0
+offset_right = 714.0
+offset_bottom = 103.0
+script = ExtResource("2_qvf1o")
+max_width = 250
+label = NodePath("MarginContainer/Label")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="RightBox"]
+layout_mode = 2
+texture = ExtResource("2_c87j4")
+region_rect = Rect2(0, 0, 96, 96)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+
+[node name="Control" type="Control" parent="RightBox/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="RightBox/NinePatchRect/Control"]
+position = Vector2(11.5, 53)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("3_4fjh0")
+
+[node name="MarginContainer" type="MarginContainer" parent="RightBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="Label" type="Label" parent="RightBox/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_w7gki")
+theme_override_font_sizes/font_size = 20
+text = "right box"
+vertical_alignment = 1
+
+[node name="SwapIcon" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 318.0
+offset_top = 21.5
+offset_right = 358.0
+offset_bottom = 61.5
+
+[node name="Sprite2D" type="Sprite2D" parent="SwapIcon"]
+texture_filter = 1
+position = Vector2(44, -40)
+scale = Vector2(8, 8)
+texture = ExtResource("4_30kwx")
