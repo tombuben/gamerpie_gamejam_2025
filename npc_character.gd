@@ -5,11 +5,11 @@ extends Node2D
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name != "PlayerCharacter":
 		return
-	DialogManager.start_dialog(bubble_slot.global_position, bubble_slot.bubble.lines, bubble_slot)
-	body._get_active_npc_bubble(bubble_slot)
+	bubble_slot.start_dialog()
+	body._get_active_npc_bubble(self, bubble_slot)
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	print("npc exited")
-	DialogManager._end_dialog()
+	bubble_slot._end_dialog()
 	
