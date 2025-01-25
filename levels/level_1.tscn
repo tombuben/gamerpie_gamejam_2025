@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxjyxcbcxxydo"]
+[gd_scene load_steps=6 format=3 uid="uid://cxjyxcbcxxydo"]
 
 [ext_resource type="PackedScene" uid="uid://b81oqoehgfrkh" path="res://player_character.tscn" id="1_q2wdn"]
 [ext_resource type="Texture2D" uid="uid://byntaf3m6vhfi" path="res://assets/sketch_level_1.png" id="1_t1s7n"]
+[ext_resource type="Script" path="res://levels/player_bubble_manager.gd" id="3_ccnok"]
 [ext_resource type="PackedScene" uid="uid://c80xvbx7tdgob" path="res://npc_character.tscn" id="3_tl17o"]
 [ext_resource type="Script" path="res://levels/dialog_bubble.gd" id="4_ise4s"]
 
@@ -23,6 +24,9 @@ polygon = PackedVector2Array(-1905.71, 785.714, -817.143, 765.714, -817.143, -40
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_q2wdn")]
 position = Vector2(555, 543)
 friction = 0.2
+
+[node name="PlayerBubbleSlot" type="Node2D" parent="PlayerCharacter"]
+script = ExtResource("3_ccnok")
 
 [node name="NpcCharacter" parent="." instance=ExtResource("3_tl17o")]
 position = Vector2(382, 370)
