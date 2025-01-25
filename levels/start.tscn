@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://ypxn1te6of48"]
+
+[ext_resource type="Script" path="res://levels/start.gd" id="1_7an6l"]
+[ext_resource type="PackedScene" uid="uid://b5o03n2r0xmnc" path="res://levels/intro_1.tscn" id="2_u8h2g"]
+[ext_resource type="Script" path="res://scripts/flasher.gd" id="3_sgylp"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_7an6l")
+scene = ExtResource("2_u8h2g")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 202.0
+offset_top = 268.0
+offset_right = 956.0
+offset_bottom = 405.0
+theme_override_font_sizes/font_size = 100
+text = "PIRATE TWABLE"
+
+[node name="SpaceBar" type="Node2D" parent="." node_paths=PackedStringArray("f1", "f2")]
+position = Vector2(1001, 811)
+script = ExtResource("3_sgylp")
+f1 = NodePath("ColorRect2")
+f2 = NodePath("ColorRect3")
+
+[node name="ColorRect2" type="ColorRect" parent="SpaceBar"]
+offset_right = 149.0
+offset_bottom = 40.0
+
+[node name="ColorRect3" type="ColorRect" parent="SpaceBar"]
+offset_right = 149.0
+offset_bottom = 40.0
+color = Color(0.414066, 0.414066, 0.414066, 1)

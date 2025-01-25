@@ -6,6 +6,9 @@ signal advance_bubble
 @export var level22 : Dictionary
 @export var level23 : Dictionary
 
+@export var num_of_states : int
+@export var scene : PackedScene
+
 @onready var states = [level21, level22, level23]
 var current_state : int = 0
 
@@ -27,7 +30,9 @@ func check_current_state():
 	var current_state = states[current_state]
 	var valid : bool = true;
 	for key in current_state:
-		var value = get_node(key).bubble.checkValue
+		var node = get_node(key)
+		var bubble = node.bubble
+		var value = bubble.checkValue
 		if value != current_state[key]:
 			valid = false;
 			
@@ -39,3 +44,7 @@ func check_current_state():
 func advance_state():
 	current_state += 1
 	advance_bubble.emit()
+	
+	if (current_state >= num_of_states):
+		await get_tree().create_timer(3.0).timeout
+		get_tree().change_scene_to_packed(scene)

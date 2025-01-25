@@ -12,14 +12,12 @@ func _ready() -> void:
 	textBox.display_text(text)
 	button.global_position.y += 100
 
-
 func _input(event: InputEvent) -> void:
 	if not can_continue:
 		return
 	
 	if event.is_action_pressed("bubble_switch"):
 		get_tree().change_scene_to_packed(scene)
-
 
 func _on_text_box_finished_displaying() -> void:
 	can_continue = true

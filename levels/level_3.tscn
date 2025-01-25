@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://c5icoj7eo4vaf"]
+[gd_scene load_steps=10 format=3 uid="uid://c5icoj7eo4vaf"]
 
 [ext_resource type="Script" path="res://scripts/state_checker.gd" id="1_47snb"]
 [ext_resource type="Texture2D" uid="uid://dtb2357cbneo5" path="res://assets/level_2/sketch_level_2.png" id="2_cbatb"]
+[ext_resource type="PackedScene" uid="uid://brvly23kxkjhu" path="res://levels/outro.tscn" id="2_gatvb"]
 [ext_resource type="PackedScene" uid="uid://b81oqoehgfrkh" path="res://player_character.tscn" id="3_7vndf"]
 [ext_resource type="Script" path="res://scripts/bubble_slot_manager.gd" id="4_vbdgx"]
 [ext_resource type="Script" path="res://scripts/dialog_bubble.gd" id="5_ahv56"]
@@ -24,6 +25,8 @@ level22 = {
 NodePath("C2/BubbleSlot"): "Code",
 NodePath("W2/BubbleSlot"): "MoneyHere"
 }
+num_of_states = 2
+scene = ExtResource("2_gatvb")
 
 [node name="SketchLevel1" type="Sprite2D" parent="."]
 texture_filter = 1

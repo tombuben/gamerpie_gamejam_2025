@@ -1,20 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://c3ggxrvsseq0d"]
+[gd_scene load_steps=6 format=3 uid="uid://dmdwu8xu7h45d"]
 
-[ext_resource type="Script" path="res://scripts/intro_crawl.gd" id="1_i8wab"]
-[ext_resource type="PackedScene" uid="uid://crrtoqghkde4t" path="res://levels/level_2.tscn" id="2_kxljh"]
-[ext_resource type="Script" path="res://ui/text box/text_box.gd" id="3_pyvsm"]
-[ext_resource type="FontFile" uid="uid://deige1vwgfcp2" path="res://ui/text box/Daydream.ttf" id="4_isxlh"]
-[ext_resource type="Script" path="res://scripts/flasher.gd" id="5_847kd"]
+[ext_resource type="Script" path="res://scripts/intro_crawl.gd" id="1_nxjmx"]
+[ext_resource type="PackedScene" uid="uid://c5icoj7eo4vaf" path="res://levels/level_3.tscn" id="2_x2b3i"]
+[ext_resource type="Script" path="res://ui/text box/text_box.gd" id="3_1j21l"]
+[ext_resource type="FontFile" uid="uid://deige1vwgfcp2" path="res://ui/text box/Daydream.ttf" id="4_tbbna"]
+[ext_resource type="Script" path="res://scripts/flasher.gd" id="5_bt47j"]
 
-[node name="Intro2" type="Node2D" node_paths=PackedStringArray("button")]
-script = ExtResource("1_i8wab")
+[node name="Intro3" type="Node2D" node_paths=PackedStringArray("button")]
+script = ExtResource("1_nxjmx")
 text = "Your name: Lizzy Silvertongue
-Your situation: Moderate
+Your situation: Slightly Sunny
 
-With your silver tongue, you managed to confuse the guard who let you escape the prison. Now, it's time to figure out where the stolen money went.
-
-Next destination: The Golden Mast, a local pirate pub, whete the damned Piratesson likes to hang out."
-scene = ExtResource("2_kxljh")
+You have determination. You know your destination. Now to get that code so you'll be able to get the money from the bank without making a fuss about it."
+scene = ExtResource("2_x2b3i")
 button = NodePath("SpaceBar")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -30,14 +28,14 @@ offset_left = 492.0
 offset_top = 426.0
 offset_right = 571.0
 offset_bottom = 453.0
-script = ExtResource("3_pyvsm")
+script = ExtResource("3_1j21l")
 label = NodePath("Label")
 max_width = 800
 
 [node name="Label" type="Label" parent="TextBox"]
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_fonts/font = ExtResource("4_isxlh")
+theme_override_fonts/font = ExtResource("4_tbbna")
 theme_override_font_sizes/font_size = 20
 
 [node name="LetterDisplayTimer" type="Timer" parent="TextBox"]
@@ -45,7 +43,7 @@ one_shot = true
 
 [node name="SpaceBar" type="Node2D" parent="." node_paths=PackedStringArray("f1", "f2")]
 position = Vector2(1001, 811)
-script = ExtResource("5_847kd")
+script = ExtResource("5_bt47j")
 f1 = NodePath("ColorRect2")
 f2 = NodePath("ColorRect3")
 
