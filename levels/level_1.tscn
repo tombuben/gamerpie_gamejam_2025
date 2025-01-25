@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c80xvbx7tdgob" path="res://npc_character.tscn" id="3_tl17o"]
 [ext_resource type="Script" path="res://levels/bubble_slot_manager.gd" id="3_umfwp"]
 [ext_resource type="Script" path="res://levels/dialog_bubble.gd" id="4_ise4s"]
-[ext_resource type="PackedScene" uid="uid://do3g3w77pww5q" path="res://door.tscn" id="6_0flo3"]
+[ext_resource type="PackedScene" path="res://door.tscn" id="6_0flo3"]
 [ext_resource type="Texture2D" uid="uid://4bn4bma2ck8t" path="res://assets/level_1/wall.png" id="8_yaoi7"]
 [ext_resource type="Script" path="res://scripts/move_when.gd" id="9_ennpd"]
 
