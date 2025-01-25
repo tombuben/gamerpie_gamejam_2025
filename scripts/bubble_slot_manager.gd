@@ -52,13 +52,22 @@ func _bubble_slot_changed(check_value : String):
 	start_dialog()
 
 func _advance_dialog():
-	print(bubble.lines)
+	
+	var old_line = bubble.lines[line_index]
+	
 	if line_index + 1 <= len(bubble.lines) - 1:
 		line_index += 1;
 		
-		if is_dialog_active:
-			_end_dialog()
+		var new_line = bubble.lines[line_index]
+		
+		if old_line != new_line:
+			if is_dialog_active:
+				_end_dialog()
 			start_dialog()
+			
+			await get_tree().create_timer(1.0).timeout
+			# todo: hide the dialog again in a while
+			# if it doesn't overlap with player
 
 func _on_level_2_advance_bubble() -> void:
 	_advance_dialog()
