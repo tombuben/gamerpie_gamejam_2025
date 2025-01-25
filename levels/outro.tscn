@@ -68,4 +68,5 @@ offset_right = 149.0
 offset_bottom = 40.0
 color = Color(0.414066, 0.414066, 0.414066, 1)
 
+[connection signal="finished_displaying" from="TextBox" to="." method="_on_text_box_finished_displaying"]
 [connection signal="timeout" from="TextBox/LetterDisplayTimer" to="TextBox" method="_on_letter_display_timer_timeout"]
