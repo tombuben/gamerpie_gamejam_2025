@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://crrtoqghkde4t"]
+[gd_scene load_steps=6 format=3 uid="uid://bi72dl5k2odar"]
 
 [ext_resource type="Texture2D" uid="uid://dtb2357cbneo5" path="res://assets/level_2/sketch_level_2.png" id="1_7aaha"]
 [ext_resource type="PackedScene" uid="uid://b81oqoehgfrkh" path="res://player_character.tscn" id="3_u8qeu"]
@@ -33,7 +33,7 @@ script = ExtResource("4_kk4t1")
 
 [node name="Bubble" type="Node2D" parent="PlayerCharacter/BubbleSlot"]
 script = ExtResource("5_f23u2")
-line = ""
+lines = Array[String](["..."])
 checkValue = ""
 
 [node name="TavernKeep" parent="." instance=ExtResource("6_c784s")]
@@ -45,7 +45,7 @@ script = ExtResource("4_kk4t1")
 
 [node name="Bubble" type="Node2D" parent="TavernKeep/BubbleSlot"]
 script = ExtResource("5_f23u2")
-line = "Do you want a drink?"
+lines = Array[String](["Do you want a drink?"])
 checkValue = ""
 
 [node name="CardPlayer1" parent="." instance=ExtResource("6_c784s")]
@@ -57,7 +57,7 @@ script = ExtResource("4_kk4t1")
 
 [node name="Bubble" type="Node2D" parent="CardPlayer1/BubbleSlot"]
 script = ExtResource("5_f23u2")
-line = ""
+lines = Array[String]([""])
 checkValue = ""
 
 [node name="CardPlayer2" parent="." instance=ExtResource("6_c784s")]
@@ -69,7 +69,7 @@ script = ExtResource("4_kk4t1")
 
 [node name="Bubble" type="Node2D" parent="CardPlayer2/BubbleSlot"]
 script = ExtResource("5_f23u2")
-line = "I win again!"
+lines = Array[String](["I win again!"])
 checkValue = ""
 
 [node name="CardPlayer3" parent="." instance=ExtResource("6_c784s")]
@@ -81,7 +81,7 @@ script = ExtResource("4_kk4t1")
 
 [node name="Bubble" type="Node2D" parent="CardPlayer3/BubbleSlot"]
 script = ExtResource("5_f23u2")
-line = "Another round."
+lines = Array[String](["Another round."])
 checkValue = ""
 
 [node name="Traitor" parent="." instance=ExtResource("6_c784s")]
@@ -93,7 +93,7 @@ script = ExtResource("4_kk4t1")
 
 [node name="Bubble" type="Node2D" parent="Traitor/BubbleSlot"]
 script = ExtResource("5_f23u2")
-line = "I'm so rich."
+lines = Array[String](["I'm so rich."])
 checkValue = ""
 
 [node name="Drunk" parent="." instance=ExtResource("6_c784s")]
@@ -105,5 +105,5 @@ script = ExtResource("4_kk4t1")
 
 [node name="Bubble" type="Node2D" parent="Drunk/BubbleSlot"]
 script = ExtResource("5_f23u2")
-line = "You're lying."
+lines = Array[String](["You're lying."])
 checkValue = ""

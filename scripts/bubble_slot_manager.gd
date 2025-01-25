@@ -12,6 +12,7 @@ var text_box
 var text_box_position: Vector2
 var bubble_slot: Node2D
 
+var line_index = 0
 
 var is_dialog_active = false
 
@@ -23,7 +24,7 @@ func start_dialog():
 	elif is_dialog_active:
 		return
 	bubble_slot = self
-	dialog_line = bubble.line
+	dialog_line = bubble.lines[line_index]
 	text_box_position = global_position
 	_show_text_box()
 	
@@ -48,3 +49,7 @@ func _bubble_slot_changed(check_value : String):
 	print("bubble slot changed")
 	_end_dialog()
 	start_dialog()
+
+func _advance_dialog():
+	if line_index + 1 < bubble.lines.lenght - 1:
+		line_index += 1;
