@@ -14,10 +14,9 @@ script = ExtResource("1_hxc5b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -62)
+position = Vector2(0, -30)
 scale = Vector2(8, 8)
 texture = ExtResource("2_1n513")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -32)
 shape = SubResource("CircleShape2D_b0oem")

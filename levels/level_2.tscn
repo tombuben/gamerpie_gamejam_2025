@@ -59,10 +59,10 @@ lines = Array[String](["...", "...", "...", "..."])
 checkValue = ""
 
 [node name="CardPlayer1" parent="." instance=ExtResource("6_c784s")]
-position = Vector2(664, 381)
+position = Vector2(706, 402)
 
 [node name="BubbleSlot" type="Node2D" parent="CardPlayer1"]
-position = Vector2(150, -100)
+position = Vector2(48, -107)
 script = ExtResource("4_kk4t1")
 
 [node name="Bubble" type="Node2D" parent="CardPlayer1/BubbleSlot"]
@@ -71,7 +71,7 @@ lines = Array[String](["", "", "", ""])
 checkValue = ""
 
 [node name="CardPlayer2" parent="." instance=ExtResource("6_c784s")]
-position = Vector2(402, 326)
+position = Vector2(381, 359)
 
 [node name="BubbleSlot" type="Node2D" parent="CardPlayer2"]
 position = Vector2(-150, -150)

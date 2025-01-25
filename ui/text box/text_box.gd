@@ -4,6 +4,7 @@ extends MarginContainer
 
 @export var swap_button: Control
 @export var label : Label
+@export var min_width = 100
 @export var max_width = 400
 
 var text = ""
@@ -20,7 +21,7 @@ func display_text(text_to_display: String):
 	label.text = text_to_display
 	
 	await resized
-	custom_minimum_size.x = min(size.x, max_width)
+	custom_minimum_size.x = min(max(min_width, size.x), max_width)
 	
 	if size.x > max_width:
 		label.autowrap_mode = TextServer.AUTOWRAP_WORD

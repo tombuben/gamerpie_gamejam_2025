@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var bubble_slot : Node2D = $BubbleSlot
+@onready var sprite : Sprite2D = $Sprite2D
 
 @export var player_speed = 200
 @export var friction = 0.01
@@ -27,6 +28,9 @@ func _physics_process(_delta):
 		velocity = velocity.lerp(direction.normalized() * player_speed, acceleration)
 	else:
 		velocity = velocity.lerp(Vector2.ZERO, friction)
+	
+	sprite.flip_h = velocity.x < 0
+	
 	move_and_slide()
 	
 func _get_active_npc_bubble(parent: Node2D, bubble_slot: Node2D):

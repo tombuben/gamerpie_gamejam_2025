@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cxjyxcbcxxydo"]
+[gd_scene load_steps=26 format=3 uid="uid://cxjyxcbcxxydo"]
 
 [ext_resource type="Texture2D" uid="uid://b8jqx1thoeery" path="res://assets/level_1/background.png" id="1_7ekwj"]
 [ext_resource type="PackedScene" uid="uid://b81oqoehgfrkh" path="res://player_character.tscn" id="1_q2wdn"]
@@ -21,8 +21,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mmaku"]
 size = Vector2(579.688, 72)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7u0k"]
+size = Vector2(1180.84, 72)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_um8bn"]
-radius = 45.0111
+radius = 68.0661
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gbypd"]
 radius = 29.1548
@@ -38,6 +41,9 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 100, 402, 326, 111, -197, -111, 197, 173, 556)
 }
 point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5pdep"]
+size = Vector2(155, 312.5)
 
 [node name="Level1" type="Node2D"]
 y_sort_enabled = true
@@ -72,6 +78,10 @@ centered = false
 position = Vector2(240.312, -26)
 shape = SubResource("RectangleShape2D_mmaku")
 
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Wall/StaticBody2D"]
+position = Vector2(604, 199)
+shape = SubResource("RectangleShape2D_s7u0k")
+
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall/StaticBody2D"]
 position = Vector2(910.844, -30)
 shape = SubResource("RectangleShape2D_mmaku")
@@ -90,7 +100,7 @@ lines = Array[String](["..."])
 checkValue = ""
 
 [node name="Rat" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
-position = Vector2(447, 316)
+position = Vector2(445, 342)
 script = ExtResource("7_7o32d")
 base_sprite = NodePath("Rat")
 highlight_sprite = NodePath("Rat_Highlight")
@@ -122,7 +132,7 @@ scale = Vector2(8, 8)
 texture = ExtResource("8_1taqk")
 
 [node name="BubbleSlot" type="Node2D" parent="Rat"]
-position = Vector2(150, -100)
+position = Vector2(-26, -79)
 script = ExtResource("3_umfwp")
 
 [node name="Bubble" type="Node2D" parent="Rat/BubbleSlot"]
@@ -215,7 +225,7 @@ scale = Vector2(8, 8)
 texture = ExtResource("13_tdbup")
 
 [node name="BubbleSlot" type="Node2D" parent="Run/PathFollow2D/Cellmate"]
-position = Vector2(-150, -150)
+position = Vector2(66, -149)
 script = ExtResource("3_umfwp")
 
 [node name="Bubble" type="Node2D" parent="Run/PathFollow2D/Cellmate/BubbleSlot"]
@@ -236,8 +246,13 @@ parameters/looping = true
 script = ExtResource("16_a7mtj")
 scene = ExtResource("17_x1ffy")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WinArea"]
-polygon = PackedVector2Array(-35, 718, 116, 716, 122, 851, 1032, 850, 1043, 691, 1248, 669, 1249, 1015, -111, 980)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WinArea"]
+position = Vector2(47.5, 798.75)
+shape = SubResource("RectangleShape2D_5pdep")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WinArea"]
+position = Vector2(1162, 800)
+shape = SubResource("RectangleShape2D_5pdep")
 
 [connection signal="body_entered" from="Rat/Area2D" to="Rat" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Rat/Area2D" to="Rat" method="_on_area_2d_body_exited"]

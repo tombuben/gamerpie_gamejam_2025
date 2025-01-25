@@ -11,8 +11,8 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_top = -900.0
-offset_right = 150.0
-offset_bottom = -825.0
+offset_right = 64.0
+offset_bottom = -829.0
 grow_vertical = 0
 pivot_offset = Vector2(56.74, 147.12)
 size_flags_horizontal = 0
@@ -79,7 +79,7 @@ layout_mode = 2
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_l0u3c")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 17
 
 [node name="LetterDisplayTimer" type="Timer" parent="."]
 one_shot = true
