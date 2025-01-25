@@ -1,6 +1,5 @@
 extends PathFollow2D
 
-@export var move_thing : Node2D
 @export var move_when : String
 
 func _on_bubble_slot_on_slot_changed(check_value: String) -> void:
