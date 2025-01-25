@@ -1,4 +1,4 @@
-extends Node2D
+class_name BubbleSlot extends Node2D
 
 @onready var text_box_scene = preload("res://ui/text box/text_box.tscn")
 
@@ -24,6 +24,7 @@ func start_dialog():
 	elif is_dialog_active:
 		return
 	bubble_slot = self
+	print(bubble.lines)
 	dialog_line = bubble.lines[line_index]
 	text_box_position = global_position
 	_show_text_box()
@@ -51,5 +52,13 @@ func _bubble_slot_changed(check_value : String):
 	start_dialog()
 
 func _advance_dialog():
-	if line_index + 1 < bubble.lines.lenght - 1:
+	print(bubble.lines)
+	if line_index + 1 <= len(bubble.lines) - 1:
 		line_index += 1;
+		
+		if is_dialog_active:
+			_end_dialog()
+			start_dialog()
+
+func _on_level_2_advance_bubble() -> void:
+	_advance_dialog()

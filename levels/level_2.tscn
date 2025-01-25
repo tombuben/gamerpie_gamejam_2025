@@ -1,13 +1,28 @@
-[gd_scene load_steps=6 format=3 uid="uid://bi72dl5k2odar"]
+[gd_scene load_steps=7 format=3 uid="uid://crrtoqghkde4t"]
 
 [ext_resource type="Texture2D" uid="uid://dtb2357cbneo5" path="res://assets/level_2/sketch_level_2.png" id="1_7aaha"]
+[ext_resource type="Script" path="res://scripts/state_checker.gd" id="1_jttpe"]
 [ext_resource type="PackedScene" uid="uid://b81oqoehgfrkh" path="res://player_character.tscn" id="3_u8qeu"]
 [ext_resource type="Script" path="res://scripts/bubble_slot_manager.gd" id="4_kk4t1"]
 [ext_resource type="Script" path="res://scripts/dialog_bubble.gd" id="5_f23u2"]
 [ext_resource type="PackedScene" uid="uid://c80xvbx7tdgob" path="res://npc_character.tscn" id="6_c784s"]
 
-[node name="Level1" type="Node2D"]
+[node name="Level2" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_jttpe")
+level21 = {
+NodePath("CardPlayer1/BubbleSlot"): "YouAreLying",
+NodePath("CardPlayer2/BubbleSlot"): "IWinAgain"
+}
+level22 = {
+NodePath("Traitor/BubbleSlot"): "ImSoRich",
+NodePath("Drunk/BubbleSlot"): "YouAreLying"
+}
+level23 = {
+NodePath("TavernKeep/BubbleSlot"): &"WantADrink",
+NodePath("Traitor/BubbleSlot"): &"ImSoRich",
+NodePath("Drunk/BubbleSlot"): &"AnotherRound"
+}
 
 [node name="SketchLevel1" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -33,7 +48,7 @@ script = ExtResource("4_kk4t1")
 
 [node name="Bubble" type="Node2D" parent="PlayerCharacter/BubbleSlot"]
 script = ExtResource("5_f23u2")
-lines = Array[String](["..."])
+lines = Array[String](["...", "...", "...", "..."])
 checkValue = ""
 
 [node name="TavernKeep" parent="." instance=ExtResource("6_c784s")]
@@ -44,9 +59,10 @@ position = Vector2(150, -100)
 script = ExtResource("4_kk4t1")
 
 [node name="Bubble" type="Node2D" parent="TavernKeep/BubbleSlot"]
+position = Vector2(0, 1)
 script = ExtResource("5_f23u2")
-lines = Array[String](["Do you want a drink?"])
-checkValue = ""
+lines = Array[String](["Do you want a drink?", "Do you want a drink?", "Do you want a drink?", "Do you want a drink?"])
+checkValue = "WantADrink"
 
 [node name="CardPlayer1" parent="." instance=ExtResource("6_c784s")]
 position = Vector2(664, 381)
@@ -57,7 +73,7 @@ script = ExtResource("4_kk4t1")
 
 [node name="Bubble" type="Node2D" parent="CardPlayer1/BubbleSlot"]
 script = ExtResource("5_f23u2")
-lines = Array[String]([""])
+lines = Array[String](["", "", "", ""])
 checkValue = ""
 
 [node name="CardPlayer2" parent="." instance=ExtResource("6_c784s")]
@@ -69,11 +85,11 @@ script = ExtResource("4_kk4t1")
 
 [node name="Bubble" type="Node2D" parent="CardPlayer2/BubbleSlot"]
 script = ExtResource("5_f23u2")
-lines = Array[String](["I win again!"])
-checkValue = ""
+lines = Array[String](["I win again!", "I win again!", "I win again!", "I win again!"])
+checkValue = "IWinAgain"
 
 [node name="CardPlayer3" parent="." instance=ExtResource("6_c784s")]
-position = Vector2(573, 299)
+position = Vector2(561, 217)
 
 [node name="BubbleSlot" type="Node2D" parent="CardPlayer3"]
 position = Vector2(-150, -150)
@@ -81,8 +97,8 @@ script = ExtResource("4_kk4t1")
 
 [node name="Bubble" type="Node2D" parent="CardPlayer3/BubbleSlot"]
 script = ExtResource("5_f23u2")
-lines = Array[String](["Another round."])
-checkValue = ""
+lines = Array[String](["Another round.", "Another round.", "Another round.", "Another round."])
+checkValue = "AnotherRound"
 
 [node name="Traitor" parent="." instance=ExtResource("6_c784s")]
 position = Vector2(877, 674)
@@ -93,8 +109,8 @@ script = ExtResource("4_kk4t1")
 
 [node name="Bubble" type="Node2D" parent="Traitor/BubbleSlot"]
 script = ExtResource("5_f23u2")
-lines = Array[String](["I'm so rich."])
-checkValue = ""
+lines = Array[String](["I'm so rich.", "I'm so rich.", "I'm not telling you sober.", "It's in the bank."])
+checkValue = "ImSoRich"
 
 [node name="Drunk" parent="." instance=ExtResource("6_c784s")]
 position = Vector2(621, 663)
@@ -105,5 +121,18 @@ script = ExtResource("4_kk4t1")
 
 [node name="Bubble" type="Node2D" parent="Drunk/BubbleSlot"]
 script = ExtResource("5_f23u2")
-lines = Array[String](["You're lying."])
-checkValue = ""
+lines = Array[String](["You're lying.", "Where did you hide it?", "Where did you hide it?", "Where did you hide it?"])
+checkValue = "YouAreLying"
+
+[connection signal="advance_bubble" from="." to="PlayerCharacter/BubbleSlot" method="_on_level_2_advance_bubble"]
+[connection signal="advance_bubble" from="." to="TavernKeep/BubbleSlot" method="_on_level_2_advance_bubble"]
+[connection signal="advance_bubble" from="." to="CardPlayer1/BubbleSlot" method="_on_level_2_advance_bubble"]
+[connection signal="advance_bubble" from="." to="CardPlayer2/BubbleSlot" method="_on_level_2_advance_bubble"]
+[connection signal="advance_bubble" from="." to="CardPlayer3/BubbleSlot" method="_on_level_2_advance_bubble"]
+[connection signal="advance_bubble" from="." to="Traitor/BubbleSlot" method="_on_level_2_advance_bubble"]
+[connection signal="advance_bubble" from="." to="Drunk/BubbleSlot" method="_on_level_2_advance_bubble"]
+[connection signal="on_slot_changed" from="CardPlayer1/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
+[connection signal="on_slot_changed" from="CardPlayer2/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
+[connection signal="on_slot_changed" from="CardPlayer3/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
+[connection signal="on_slot_changed" from="Traitor/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
+[connection signal="on_slot_changed" from="Drunk/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]

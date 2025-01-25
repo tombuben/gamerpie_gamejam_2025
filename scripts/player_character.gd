@@ -54,6 +54,7 @@ func _bubble_switch():
 	
 	my_bubble_slot.add_child(npc_bubble)
 	other_bubble_slot.add_child(player_bubble)
+	my_bubble_slot.bubble = npc_bubble
 	other_bubble_slot.bubble = player_bubble
 		
 	my_bubble_slot.start_dialog()
