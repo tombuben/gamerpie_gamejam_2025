@@ -11,11 +11,10 @@ var has_bubble = false
 
 @export var checkValue = "Test"
 
-func load_bubble(position: Vector2, line: String):
+func load_bubble(position: Vector2):
 	if has_bubble:
 		return # tady bude switch bubble s cílem
 	
-	bubble_line = line
 	text_box_position = position
 	_show_text_box()
 	

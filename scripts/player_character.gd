@@ -48,7 +48,9 @@ func _bubble_switch():
 	if npc_bubble != null:
 		print(npc_bubble.lines[0])
 		$PlayerBubbleSlot.bubble_line = npc_bubble.lines[0]
+		$PlayerBubbleSlot.checkValue = npc_bubble.checkValue
 		print($PlayerBubbleSlot.bubble_line)
+		$PlayerBubbleSlot.load_bubble(global_position)
 	else:
 		print("npc bubble empty")
 	
