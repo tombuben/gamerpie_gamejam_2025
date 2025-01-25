@@ -36,7 +36,7 @@ scale = Vector2(0.35, 0.35)
 polygon = PackedVector2Array(-1905.71, 785.714, -817.143, 765.714, -817.143, -405.714, 771.429, -400, 751.429, 745.714, 1780, 754.286, 1868.57, -1351.43, -1868.57, -1314.29)
 
 [node name="Wall" type="Node2D" parent="."]
-position = Vector2(0, 700)
+position = Vector2(0, 708)
 
 [node name="Wall2" type="Sprite2D" parent="Wall"]
 texture_filter = 1
