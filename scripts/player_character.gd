@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var sprite : Sprite2D = $Sprite2D
 
 @onready var swap_box_scene = preload("res://ui/swap box/swap_box.tscn")
+@onready var bubble_ico_scene = preload("res://ui/bubble ico/bubble_ico.tscn")
 
 @export var player_speed = 200
 @export var friction = 0.01
@@ -14,6 +15,9 @@ extends CharacterBody2D
 
 var swap_box
 var swap_active = false
+
+var bubble_ico
+var bubble_ico_active = false
 
 func get_input():
 	var input = Vector2()
@@ -71,11 +75,24 @@ func _bubble_switch():
 	my_bubble_slot.bubble = npc_bubble
 	other_bubble_slot.bubble = player_bubble
 		
-	my_bubble_slot.start_dialog()
+	#my_bubble_slot.start_dialog()
+	toggle_bubble_icon()
 	npc_bubble_slot._bubble_slot_changed(npc_bubble_slot.bubble.checkValue)
 	
 	_clean_npc_storage()
 	_close_swap_ui()
+	
+func toggle_bubble_icon():
+	if bubble_ico_active && bubble_slot.bubble.checkValue == "empty":
+		#bubble_ico.queue_free()
+		bubble_slot.remove_child(bubble_ico)
+		bubble_ico_active = false
+		return
+	
+	if bubble_slot != null:
+		bubble_ico = bubble_ico_scene.instantiate()
+		bubble_slot.add_child(bubble_ico)
+		bubble_ico_active = true
 	
 func _clean_npc_storage():
 	npc_parent = null
