@@ -1,12 +1,12 @@
 extends CharacterBody2D
 
-@onready var bubble_slot : Node2D = $PlayerBubbleSlot
+@onready var bubble_slot : Node2D = $PlayerBubbleSlot/Bubble
 
 @export var player_speed = 200
 @export var friction = 0.01
 @export var acceleration = 0.1
 
-@export var npc_bubble = null
+@export var npc_bubble_slot = null
 
 func get_input():
 	var input = Vector2()
@@ -28,15 +28,12 @@ func _physics_process(_delta):
 		velocity = velocity.lerp(Vector2.ZERO, friction)
 	move_and_slide()
 	
-func _get_active_npc_bubble(bubble: Node2D):
-	npc_bubble = bubble
-	print("npc bubble got")
-	print(npc_bubble.name)
-	print(npc_bubble.checkValue)
-	if npc_bubble != null:
-		print("npc bubble saved")
+func _get_active_npc_bubble(bubble_slot: Node2D):
+	npc_bubble_slot = bubble_slot
+	if npc_bubble_slot != null:
+		print("npc bubble slot saved")
 	else:
-		print("npc bubble not saved")
+		print("npc bubble slot not saved")
 	
 	
 func _process(delta):
@@ -45,12 +42,18 @@ func _process(delta):
 		_bubble_switch()
 
 func _bubble_switch():
+	var npc_bubble = npc_bubble_slot.bubble
 	if npc_bubble != null:
 		print(npc_bubble.lines[0])
-		$PlayerBubbleSlot.bubble_line = npc_bubble.lines[0]
-		$PlayerBubbleSlot.checkValue = npc_bubble.checkValue
-		print($PlayerBubbleSlot.bubble_line)
+		var tempLine = bubble_slot.lines[0]
+		var tempCheck = bubble_slot.checkValue
+		bubble_slot.lines[0] = npc_bubble.lines[0]
+		bubble_slot.checkValue = npc_bubble.checkValue
+		npc_bubble.lines[0] = tempLine
+		npc_bubble.checkValue = tempCheck
+		print(bubble_slot.lines[0])
 		$PlayerBubbleSlot.load_bubble(global_position)
+		npc_bubble_slot._bubble_slot_changed()
 	else:
 		print("npc bubble empty")
 	
