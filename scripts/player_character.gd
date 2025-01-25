@@ -3,12 +3,16 @@ extends CharacterBody2D
 @onready var bubble_slot : Node2D = $BubbleSlot
 @onready var sprite : Sprite2D = $Sprite2D
 
+@onready var swap_box_scene = preload("res://ui/swap box/swap_box.tscn")
+
 @export var player_speed = 200
 @export var friction = 0.01
 @export var acceleration = 0.1
 
 @export var npc_parent = null
 @export var npc_bubble_slot = null
+
+var swap_box
 
 func get_input():
 	var input = Vector2()
@@ -47,8 +51,8 @@ func _process(delta):
 		print("bubble_switch")
 		if npc_parent == null:
 			return
-			
-		_bubble_switch()
+		_open_swap_ui()	
+		#_bubble_switch()
 
 func _bubble_switch():
 	var my_bubble_slot = bubble_slot
@@ -73,3 +77,9 @@ func _clean_npc_storage():
 	npc_parent = null
 	npc_bubble_slot = null
 	
+func _open_swap_ui():
+	var npc_text = npc_bubble_slot.bubble.lines[0]
+	var player_text = bubble_slot.bubble.lines[0]
+	swap_box = swap_box_scene.instantiate()
+	get_tree().root.add_child(swap_box)
+	swap_box.display_text(npc_text, player_text)
