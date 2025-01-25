@@ -41,6 +41,9 @@ func _get_active_npc_bubble(parent: Node2D, bubble_slot: Node2D):
 func _process(delta):
 	if Input.is_action_just_pressed('bubble_switch'):
 		print("bubble_switch")
+		if npc_parent == null:
+			return
+			
 		_bubble_switch()
 
 func _bubble_switch():
@@ -59,3 +62,10 @@ func _bubble_switch():
 		
 	my_bubble_slot.start_dialog()
 	npc_bubble_slot._bubble_slot_changed(npc_bubble_slot.bubble.checkValue)
+	
+	_clean_npc_storage()
+	
+func _clean_npc_storage():
+	npc_parent = null
+	npc_bubble_slot = null
+	
