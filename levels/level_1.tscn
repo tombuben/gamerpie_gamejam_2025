@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cxjyxcbcxxydo"]
+[gd_scene load_steps=19 format=3 uid="uid://cxjyxcbcxxydo"]
 
 [ext_resource type="Texture2D" uid="uid://b8jqx1thoeery" path="res://assets/level_1/background.png" id="1_7ekwj"]
 [ext_resource type="PackedScene" uid="uid://b81oqoehgfrkh" path="res://player_character.tscn" id="1_q2wdn"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://4bn4bma2ck8t" path="res://assets/level_1/wall.png" id="8_yaoi7"]
 [ext_resource type="Script" path="res://scripts/move_when.gd" id="9_ennpd"]
 [ext_resource type="Texture2D" uid="uid://dixd3op3kyt2u" path="res://assets/characters/skeleton.png" id="10_msrvs"]
+[ext_resource type="AudioStream" uid="uid://4rk5e7ll6v1m" path="res://assets/audio/music/jail_cell_bgmusic.mp3" id="12_7mmrr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mmaku"]
 size = Vector2(579.688, 72)
@@ -193,6 +194,11 @@ checkValue = "CellmateBubble"
 [node name="Door" parent="." instance=ExtResource("6_0flo3")]
 position = Vector2(579, 709)
 open_when = "CellmateBubble"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_7mmrr")
+autoplay = true
+parameters/looping = true
 
 [connection signal="body_entered" from="Rat/Area2D" to="Rat" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Rat/Area2D" to="Rat" method="_on_area_2d_body_exited"]
