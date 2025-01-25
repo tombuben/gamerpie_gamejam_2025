@@ -5,8 +5,8 @@
 [ext_resource type="FontFile" uid="uid://deige1vwgfcp2" path="res://ui/text box/Daydream.ttf" id="2_l0u3c"]
 
 [node name="TextBox" type="MarginContainer"]
-offset_right = 163.0
-offset_bottom = 114.0
+offset_right = 128.0
+offset_bottom = 64.0
 script = ExtResource("1_vf4pf")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
@@ -29,7 +29,7 @@ theme_override_constants/margin_bottom = 8
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_l0u3c")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 20
 vertical_alignment = 1
 
 [node name="LetterDisplayTimer" type="Timer" parent="."]
