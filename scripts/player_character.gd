@@ -82,7 +82,7 @@ func _bubble_switch():
 
 	#my_bubble_slot.start_dialog()
 	toggle_bubble_icon()
-	closest_npc.bubble_slot._bubble_slot_changed(npc_bubble_slot.bubble.checkValue)
+	closest_npc.bubble_slot._bubble_slot_changed(closest_npc.bubble_slot.bubble.checkValue)
 	
 	other_bubble_slot = closest_npc.bubble_slot
 	other_bubble_slot._bubble_slot_changed(other_bubble_slot.bubble.checkValue)
