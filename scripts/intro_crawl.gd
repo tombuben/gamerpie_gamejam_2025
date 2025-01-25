@@ -16,8 +16,11 @@ func _input(event: InputEvent) -> void:
 	if not can_continue:
 		return
 	
-	if event.is_action_pressed("bubble_switch"):
-		get_tree().change_scene_to_packed(scene)
+	if scene:
+		if event.is_action_pressed("bubble_switch"):
+			get_tree().change_scene_to_packed(scene)
+	else:
+		get_tree().change_scene_to_file("res://levels/start.tscn")
 
 func _on_text_box_finished_displaying() -> void:
 	can_continue = true
