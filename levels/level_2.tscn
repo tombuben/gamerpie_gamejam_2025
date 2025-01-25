@@ -119,6 +119,7 @@ lines = Array[String](["You're lying.", "Where did you hide it?", "Where did you
 checkValue = "YouAreLying"
 
 [node name="TavernPath" type="Path2D" parent="."]
+y_sort_enabled = true
 position = Vector2(927.21, 267.01)
 curve = SubResource("Curve2D_fl1dp")
 
