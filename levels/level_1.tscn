@@ -108,11 +108,11 @@ script = ExtResource("3_umfwp")
 [node name="Bubble" type="Node2D" parent="Run/PathFollow2D/Cellmate/BubbleSlot"]
 script = ExtResource("4_ise4s")
 line = "Come here, you rat!"
-checkValue = "GuardBubble"
+checkValue = "CellmateBubble"
 
 [node name="Door" parent="." instance=ExtResource("6_0flo3")]
 position = Vector2(579, 707)
-open_when = "GuardBubble"
+open_when = "CellmateBubble"
 
 [connection signal="on_slot_changed" from="Guard/BubbleSlot" to="Door" method="_on_bubble_slot_on_slot_changed"]
 [connection signal="on_slot_changed" from="Run/PathFollow2D/Cellmate/BubbleSlot" to="Run/PathFollow2D" method="_on_bubble_slot_on_slot_changed"]
