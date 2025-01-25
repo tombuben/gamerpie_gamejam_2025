@@ -13,8 +13,8 @@
 [ext_resource type="Script" path="res://scripts/move_when.gd" id="9_ennpd"]
 [ext_resource type="Texture2D" uid="uid://blcfm1xpn21bv" path="res://assets/characters/guard_outline.png" id="10_78vdi"]
 [ext_resource type="Texture2D" uid="uid://dixd3op3kyt2u" path="res://assets/characters/skeleton.png" id="10_msrvs"]
-[ext_resource type="AudioStream" uid="uid://4rk5e7ll6v1m" path="res://assets/audio/music/jail_cell_bgmusic.mp3" id="12_7mmrr"]
 [ext_resource type="Texture2D" uid="uid://v83jmcxx3ft1" path="res://assets/characters/skeleton_outline.png" id="13_tdbup"]
+[ext_resource type="AudioStream" uid="uid://bmnwxb7x2qh72" path="res://assets/audio/music/jail_cell_bgmusic-v2.mp3" id="15_frws4"]
 [ext_resource type="Script" path="res://scripts/win_area.gd" id="16_a7mtj"]
 [ext_resource type="PackedScene" uid="uid://c3ggxrvsseq0d" path="res://levels/intro_2.tscn" id="17_x1ffy"]
 
@@ -238,7 +238,7 @@ position = Vector2(579, 709)
 open_when = "CellmateBubble"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("12_7mmrr")
+stream = ExtResource("15_frws4")
 autoplay = true
 parameters/looping = true
 
