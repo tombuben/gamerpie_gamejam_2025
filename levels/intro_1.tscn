@@ -1,10 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://b5o03n2r0xmnc"]
+[gd_scene load_steps=8 format=3 uid="uid://b5o03n2r0xmnc"]
 
 [ext_resource type="Script" path="res://ui/text box/text_box.gd" id="1_fo401"]
 [ext_resource type="FontFile" uid="uid://deige1vwgfcp2" path="res://ui/text box/Daydream.ttf" id="1_wrgbl"]
 [ext_resource type="PackedScene" uid="uid://cxjyxcbcxxydo" path="res://levels/level_1.tscn" id="2_wak5t"]
 [ext_resource type="Script" path="res://scripts/intro_crawl.gd" id="2_y1nqs"]
 [ext_resource type="Script" path="res://scripts/flasher.gd" id="5_dldwo"]
+
+[sub_resource type="Theme" id="Theme_phwj2"]
+default_font = ExtResource("1_wrgbl")
+default_font_size = 20
+
+[sub_resource type="Theme" id="Theme_1pbxp"]
+default_font = ExtResource("1_wrgbl")
+default_font_size = 20
 
 [node name="Intro1" type="Node2D" node_paths=PackedStringArray("button")]
 script = ExtResource("2_y1nqs")
@@ -26,19 +34,22 @@ color = Color(0, 0, 0, 1)
 
 [node name="TextBox" type="MarginContainer" parent="." node_paths=PackedStringArray("label")]
 clip_contents = true
-offset_left = 492.0
-offset_top = 426.0
-offset_right = 571.0
-offset_bottom = 453.0
+offset_left = 81.0
+offset_top = 94.0
+offset_right = 118.0
+offset_bottom = 121.0
+theme = SubResource("Theme_phwj2")
 script = ExtResource("1_fo401")
 label = NodePath("Label")
+min_width = 800
 max_width = 800
 
-[node name="Label" type="Label" parent="TextBox"]
+[node name="Label" type="RichTextLabel" parent="TextBox"]
+clip_contents = false
 layout_mode = 2
-size_flags_vertical = 1
-theme_override_fonts/font = ExtResource("1_wrgbl")
-theme_override_font_sizes/font_size = 20
+theme = SubResource("Theme_1pbxp")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+fit_content = true
 
 [node name="LetterDisplayTimer" type="Timer" parent="TextBox"]
 one_shot = true
@@ -58,5 +69,4 @@ offset_right = 149.0
 offset_bottom = 40.0
 color = Color(0.414066, 0.414066, 0.414066, 1)
 
-[connection signal="finished_displaying" from="TextBox" to="." method="_on_text_box_finished_displaying"]
 [connection signal="timeout" from="TextBox/LetterDisplayTimer" to="TextBox" method="_on_letter_display_timer_timeout"]

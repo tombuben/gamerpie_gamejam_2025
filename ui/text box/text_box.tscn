@@ -10,16 +10,16 @@
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -900.0
+offset_top = -923.0
 offset_right = 64.0
-offset_bottom = -829.0
+offset_bottom = -859.0
 grow_vertical = 0
 pivot_offset = Vector2(56.74, 147.12)
 size_flags_horizontal = 0
 size_flags_vertical = 8
 script = ExtResource("1_vf4pf")
 swap_button = NodePath("NinePatchRect/Swap")
-label = NodePath("MarginContainer/Label")
+label = NodePath("MarginContainer/RichTextLabel")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 2
@@ -74,12 +74,15 @@ theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
-[node name="Label" type="Label" parent="MarginContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer"]
 layout_mode = 2
-size_flags_vertical = 1
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_l0u3c")
-theme_override_font_sizes/font_size = 17
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_l0u3c")
+theme_override_font_sizes/normal_font_size = 17
+fit_content = true
+autowrap_mode = 0
+visible_characters = 1000
+visible_ratio = 83.3333
 
 [node name="LetterDisplayTimer" type="Timer" parent="."]
 one_shot = true

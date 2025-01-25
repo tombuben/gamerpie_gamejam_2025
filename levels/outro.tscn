@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://brvly23kxkjhu"]
+[gd_scene load_steps=7 format=3 uid="uid://brvly23kxkjhu"]
 
 [ext_resource type="Script" path="res://scripts/intro_crawl.gd" id="1_d2j3e"]
 [ext_resource type="Script" path="res://ui/text box/text_box.gd" id="3_b7kwo"]
 [ext_resource type="FontFile" uid="uid://deige1vwgfcp2" path="res://ui/text box/Daydream.ttf" id="4_krb5u"]
 [ext_resource type="Script" path="res://scripts/flasher.gd" id="5_7mxqf"]
+
+[sub_resource type="Theme" id="Theme_s1ybf"]
+default_font = ExtResource("4_krb5u")
+default_font_size = 20
+
+[sub_resource type="Theme" id="Theme_5h237"]
+default_font = ExtResource("4_krb5u")
+default_font_size = 20
 
 [node name="Outro" type="Node2D" node_paths=PackedStringArray("button")]
 script = ExtResource("1_d2j3e")
@@ -24,19 +32,22 @@ color = Color(0, 0, 0, 1)
 
 [node name="TextBox" type="MarginContainer" parent="." node_paths=PackedStringArray("label")]
 clip_contents = true
-offset_left = 492.0
-offset_top = 426.0
-offset_right = 571.0
-offset_bottom = 453.0
+offset_left = 81.0
+offset_top = 94.0
+offset_right = 118.0
+offset_bottom = 121.0
+theme = SubResource("Theme_s1ybf")
 script = ExtResource("3_b7kwo")
 label = NodePath("Label")
+min_width = 800
 max_width = 800
 
-[node name="Label" type="Label" parent="TextBox"]
+[node name="Label" type="RichTextLabel" parent="TextBox"]
+clip_contents = false
 layout_mode = 2
-size_flags_vertical = 1
-theme_override_fonts/font = ExtResource("4_krb5u")
-theme_override_font_sizes/font_size = 20
+theme = SubResource("Theme_5h237")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+fit_content = true
 
 [node name="LetterDisplayTimer" type="Timer" parent="TextBox"]
 one_shot = true
@@ -56,5 +67,4 @@ offset_right = 149.0
 offset_bottom = 40.0
 color = Color(0.414066, 0.414066, 0.414066, 1)
 
-[connection signal="finished_displaying" from="TextBox" to="." method="_on_text_box_finished_displaying"]
 [connection signal="timeout" from="TextBox/LetterDisplayTimer" to="TextBox" method="_on_letter_display_timer_timeout"]

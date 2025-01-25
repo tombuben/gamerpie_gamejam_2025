@@ -3,7 +3,7 @@ extends MarginContainer
 @onready var timer = $LetterDisplayTimer
 
 @export var swap_button: Control
-@export var label : Label
+@export var label : RichTextLabel
 @export var min_width = 100
 @export var max_width = 400
 
@@ -19,24 +19,24 @@ signal finished_displaying()
 func display_text(text_to_display: String):
 	text = text_to_display
 	label.text = text_to_display
+	label.visible_characters_behavior = TextServer.VC_CHARS_AFTER_SHAPING
+	label.visible_characters = letter_index
 	
 	await resized
 	custom_minimum_size.x = min(max(min_width, size.x), max_width)
-	
 	if size.x > max_width:
-		label.autowrap_mode = TextServer.AUTOWRAP_WORD
-		await resized # wait for x resize
+		label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		await resized # wait for y resize
 		custom_minimum_size.y = size.y
 	
 	global_position.x -= size.x / 2
 	global_position.y -= size.y + 24
 	
-	label.text = ""
 	_display_letter()
 	
 func _display_letter():
-	label.text += text[letter_index]
+	
+	label.visible_characters = letter_index
 	
 	letter_index += 1
 	if letter_index >= text.length():
