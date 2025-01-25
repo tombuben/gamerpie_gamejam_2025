@@ -23,6 +23,7 @@ y_sort_enabled = true
 
 [node name="SketchLevel1" type="Sprite2D" parent="."]
 texture_filter = 1
+position = Vector2(10, 8)
 scale = Vector2(8, 8)
 texture = ExtResource("1_7ekwj")
 centered = false
@@ -71,6 +72,7 @@ checkValue = ""
 position = Vector2(733, 341)
 
 [node name="BubbleSlot" type="Node2D" parent="Rat"]
+position = Vector2(150, -100)
 script = ExtResource("3_umfwp")
 
 [node name="Bubble" type="Node2D" parent="Rat/BubbleSlot"]
@@ -82,7 +84,7 @@ checkValue = ""
 position = Vector2(644, 736)
 
 [node name="BubbleSlot" type="Node2D" parent="Guard"]
-position = Vector2(102.62, -99.47)
+position = Vector2(150, -100)
 script = ExtResource("3_umfwp")
 
 [node name="Bubble" type="Node2D" parent="Guard/BubbleSlot"]
@@ -103,11 +105,12 @@ move_when = "GuardBubble"
 [node name="Cellmate" parent="Run/PathFollow2D" instance=ExtResource("3_tl17o")]
 
 [node name="BubbleSlot" type="Node2D" parent="Run/PathFollow2D/Cellmate"]
+position = Vector2(-150, -150)
 script = ExtResource("3_umfwp")
 
 [node name="Bubble" type="Node2D" parent="Run/PathFollow2D/Cellmate/BubbleSlot"]
 script = ExtResource("4_ise4s")
-line = "Come here, you rat!"
+line = "Come here, you little rat!"
 checkValue = "CellmateBubble"
 
 [node name="Door" parent="." instance=ExtResource("6_0flo3")]
