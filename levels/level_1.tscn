@@ -33,6 +33,7 @@ position = Vector2(568, 543)
 friction = 0.2
 
 [node name="PlayerBubbleSlot" type="Node2D" parent="PlayerCharacter"]
+position = Vector2(0, -123.53)
 script = ExtResource("3_ccnok")
 
 [node name="Bubble" type="Node2D" parent="PlayerCharacter/PlayerBubbleSlot"]
@@ -59,11 +60,13 @@ script = ExtResource("6_c67vb")
 [node name="Bubble" type="Node2D" parent="NpcCharacter2/BubbleSlot"]
 script = ExtResource("4_ise4s")
 lines = Array[String](["Come here, you rat!"])
+checkValue = "ComeHereRat"
 
 [node name="NpcCharacter3" parent="." instance=ExtResource("3_tl17o")]
 position = Vector2(644, 736)
 
 [node name="BubbleSlot" type="Node2D" parent="NpcCharacter3"]
+position = Vector2(102.62, -99.47)
 script = ExtResource("6_c67vb")
 
 [node name="Bubble" type="Node2D" parent="NpcCharacter3/BubbleSlot"]
@@ -72,6 +75,7 @@ lines = Array[String](["You are never getting out of here!"])
 
 [node name="Door" parent="." instance=ExtResource("6_0flo3")]
 position = Vector2(579, 707)
+open_when = "ComeHereRat"
 
 [node name="Wall" type="Node2D" parent="."]
 position = Vector2(0, 700)
@@ -92,3 +96,5 @@ shape = SubResource("RectangleShape2D_mmaku")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall/StaticBody2D"]
 position = Vector2(907, -1)
 shape = SubResource("RectangleShape2D_mmaku")
+
+[connection signal="on_slot_changed" from="NpcCharacter3/BubbleSlot" to="Door" method="_on_bubble_slot_on_slot_changed"]

@@ -4,4 +4,4 @@ extends Node2D
 	"This is a test dialogue."
 ]
 
-@export var checkValue = "Test"
+@export var checkValue : String = "Test"
