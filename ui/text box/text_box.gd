@@ -39,7 +39,7 @@ func display_text(text_to_display: String):
 	
 func _display_letter():
 	
-	label.visible_characters = letter_index
+	label.visible_characters = letter_index + 1
 	
 	letter_index += 1
 	if letter_index >= text.length():
