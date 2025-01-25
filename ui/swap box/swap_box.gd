@@ -3,7 +3,7 @@ extends MarginContainer
 @export var max_width = 400
 
 var text = ""
-@export var label : Label
+@export var label : RichTextLabel
 
 func display_text(text_to_display : String):
 	text = text_to_display
