@@ -13,6 +13,7 @@ extends CharacterBody2D
 @export var npc_bubble_slot = null
 
 var swap_box
+var swap_active = false
 
 func get_input():
 	var input = Vector2()
@@ -51,8 +52,10 @@ func _process(delta):
 		print("bubble_switch")
 		if npc_parent == null:
 			return
+		if swap_active:
+			_bubble_switch()
+			return
 		_open_swap_ui()	
-		#_bubble_switch()
 
 func _bubble_switch():
 	var my_bubble_slot = bubble_slot
@@ -72,6 +75,7 @@ func _bubble_switch():
 	npc_bubble_slot._bubble_slot_changed(npc_bubble_slot.bubble.checkValue)
 	
 	_clean_npc_storage()
+	_close_swap_ui()
 	
 func _clean_npc_storage():
 	npc_parent = null
@@ -83,3 +87,19 @@ func _open_swap_ui():
 	swap_box = swap_box_scene.instantiate()
 	get_tree().root.add_child(swap_box)
 	swap_box.display_text(npc_text, player_text)
+	swap_active = true
+	_stop_all_dialogs()
+
+func _exit_npc_cleanup():
+	_clean_npc_storage()
+	_close_swap_ui()
+	
+func _close_swap_ui():
+	if swap_active:
+		swap_box.queue_free()
+		swap_active = false
+		
+func _stop_all_dialogs():
+	npc_bubble_slot._end_dialog()
+	if bubble_slot.is_dialog_active:
+		bubble_slot._end_dialog()

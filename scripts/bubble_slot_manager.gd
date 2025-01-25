@@ -41,8 +41,9 @@ func _show_text_box(showSwap: bool):
 	
 
 func _end_dialog():
-	text_box.queue_free()
-	is_dialog_active = false
+	if is_dialog_active:
+		text_box.queue_free()
+		is_dialog_active = false
 	return
 
 

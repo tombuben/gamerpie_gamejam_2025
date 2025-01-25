@@ -19,9 +19,8 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.name != "PlayerCharacter":
 		return
 	toggle_sprite_highlight()
-	body._clean_npc_storage()
 	bubble_slot._end_dialog()
-	body.swap_box.queue_free()
+	body._exit_npc_cleanup()
 		
 	
 func toggle_sprite_highlight():
