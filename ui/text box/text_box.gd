@@ -18,7 +18,6 @@ func display_text(text_to_display: String):
 	text = text_to_display
 	label.text = text_to_display
 	
-	await resized
 	custom_minimum_size.x = min(size.x, MAX_WIDTH)
 	
 	if size.x > MAX_WIDTH:
