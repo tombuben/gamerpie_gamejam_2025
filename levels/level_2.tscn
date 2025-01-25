@@ -142,15 +142,16 @@ lines = Array[String](["Do you want a drink?", "Do you want a drink?", "Do you w
 checkValue = "WantADrink"
 
 [connection signal="advance_bubble" from="." to="PlayerCharacter/BubbleSlot" method="_on_level_2_advance_bubble"]
-[connection signal="advance_bubble" from="." to="TavernPath/PathFollow2D/TavernKeep/BubbleSlot" method="_on_level_2_advance_bubble"]
 [connection signal="advance_bubble" from="." to="CardPlayer1/BubbleSlot" method="_on_level_2_advance_bubble"]
 [connection signal="advance_bubble" from="." to="CardPlayer2/BubbleSlot" method="_on_level_2_advance_bubble"]
 [connection signal="advance_bubble" from="." to="CardPlayer3/BubbleSlot" method="_on_level_2_advance_bubble"]
 [connection signal="advance_bubble" from="." to="Traitor/BubbleSlot" method="_on_level_2_advance_bubble"]
 [connection signal="advance_bubble" from="." to="Drunk/BubbleSlot" method="_on_level_2_advance_bubble"]
+[connection signal="advance_bubble" from="." to="TavernPath/PathFollow2D/TavernKeep/BubbleSlot" method="_on_level_2_advance_bubble"]
 [connection signal="on_slot_changed" from="CardPlayer1/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
 [connection signal="on_slot_changed" from="CardPlayer2/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
 [connection signal="on_slot_changed" from="CardPlayer3/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
 [connection signal="on_slot_changed" from="Traitor/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
 [connection signal="on_slot_changed" from="Drunk/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
 [connection signal="on_slot_changed" from="Drunk/BubbleSlot" to="TavernPath/PathFollow2D" method="_on_bubble_slot_on_slot_changed"]
+[connection signal="on_slot_changed" from="TavernPath/PathFollow2D/TavernKeep/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
