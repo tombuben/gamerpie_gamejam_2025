@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c80xvbx7tdgob" path="res://npc_character.tscn" id="3_tl17o"]
 [ext_resource type="Script" path="res://scripts/bubble_slot_manager.gd" id="3_umfwp"]
 [ext_resource type="Script" path="res://scripts/dialog_bubble.gd" id="4_ise4s"]
-[ext_resource type="PackedScene" uid="uid://do3g3w77pww5q" path="res://door.tscn" id="6_0flo3"]
+[ext_resource type="PackedScene" path="res://door.tscn" id="6_0flo3"]
 [ext_resource type="Texture2D" uid="uid://4bn4bma2ck8t" path="res://assets/level_1/wall.png" id="8_yaoi7"]
 [ext_resource type="Script" path="res://scripts/move_when.gd" id="9_ennpd"]
 
@@ -65,7 +65,7 @@ script = ExtResource("3_umfwp")
 
 [node name="Bubble" type="Node2D" parent="PlayerCharacter/BubbleSlot"]
 script = ExtResource("4_ise4s")
-line = ""
+lines = Array[String](["..."])
 checkValue = ""
 
 [node name="Rat" parent="." instance=ExtResource("3_tl17o")]
@@ -77,7 +77,7 @@ script = ExtResource("3_umfwp")
 
 [node name="Bubble" type="Node2D" parent="Rat/BubbleSlot"]
 script = ExtResource("4_ise4s")
-line = "Squeek!"
+lines = Array[String](["Squeek!"])
 checkValue = ""
 
 [node name="Guard" parent="." instance=ExtResource("3_tl17o")]
@@ -89,7 +89,7 @@ script = ExtResource("3_umfwp")
 
 [node name="Bubble" type="Node2D" parent="Guard/BubbleSlot"]
 script = ExtResource("4_ise4s")
-line = "You are never getting out of here!"
+lines = Array[String](["You are never getting out of here!"])
 checkValue = "GuardBubble"
 
 [node name="Run" type="Path2D" parent="."]
@@ -110,7 +110,7 @@ script = ExtResource("3_umfwp")
 
 [node name="Bubble" type="Node2D" parent="Run/PathFollow2D/Cellmate/BubbleSlot"]
 script = ExtResource("4_ise4s")
-line = "Come here, you little rat!"
+lines = Array[String](["Come here, you rat!"])
 checkValue = "CellmateBubble"
 
 [node name="Door" parent="." instance=ExtResource("6_0flo3")]
