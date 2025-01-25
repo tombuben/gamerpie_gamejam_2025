@@ -8,7 +8,8 @@
 [node name="Level1" type="Node2D"]
 
 [node name="SketchLevel1" type="Sprite2D" parent="."]
-position = Vector2(600, 450)
+texture_filter = 1
+position = Vector2(600, 452)
 scale = Vector2(2, 2)
 texture = ExtResource("1_t1s7n")
 
