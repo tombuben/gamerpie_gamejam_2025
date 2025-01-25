@@ -100,6 +100,9 @@ func toggle_bubble_icon():
 		bubble_ico_active = false
 		return
 	
+	if bubble_ico_active:
+		return
+	
 	if bubble_slot != null:
 		bubble_ico = bubble_ico_scene.instantiate()
 		bubble_slot.add_child(bubble_ico)
