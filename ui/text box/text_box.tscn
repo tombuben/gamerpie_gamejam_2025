@@ -81,8 +81,6 @@ theme_override_fonts/normal_font = ExtResource("2_l0u3c")
 theme_override_font_sizes/normal_font_size = 17
 fit_content = true
 autowrap_mode = 0
-visible_characters = 1000
-visible_ratio = 83.3333
 
 [node name="LetterDisplayTimer" type="Timer" parent="."]
 one_shot = true
