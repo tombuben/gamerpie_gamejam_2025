@@ -7,6 +7,8 @@ extends MarginContainer
 @export var min_width = 100
 @export var max_width = 400
 
+@export var recenter = true
+
 var text = ""
 var letter_index = 0
 
@@ -29,8 +31,9 @@ func display_text(text_to_display: String):
 		await resized # wait for y resize
 		custom_minimum_size.y = size.y
 	
-	global_position.x -= size.x / 2
-	global_position.y -= size.y + 24
+	if recenter:
+		global_position.x -= size.x / 2
+		global_position.y -= size.y + 24
 	
 	_display_letter()
 	

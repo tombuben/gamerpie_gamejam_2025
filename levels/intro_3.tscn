@@ -32,15 +32,16 @@ color = Color(0, 0, 0, 1)
 
 [node name="TextBox" type="MarginContainer" parent="." node_paths=PackedStringArray("label")]
 clip_contents = true
-offset_left = 81.0
-offset_top = 94.0
-offset_right = 118.0
-offset_bottom = 121.0
+offset_left = 66.0
+offset_top = 186.0
+offset_right = 103.0
+offset_bottom = 213.0
 theme = SubResource("Theme_8mt8t")
 script = ExtResource("3_1j21l")
 label = NodePath("Label")
 min_width = 800
 max_width = 800
+recenter = false
 
 [node name="Label" type="RichTextLabel" parent="TextBox"]
 clip_contents = false

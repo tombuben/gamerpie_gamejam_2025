@@ -43,6 +43,7 @@ script = ExtResource("1_fo401")
 label = NodePath("Label")
 min_width = 800
 max_width = 800
+recenter = false
 
 [node name="Label" type="RichTextLabel" parent="TextBox"]
 clip_contents = false
