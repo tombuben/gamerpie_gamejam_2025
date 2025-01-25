@@ -1,4 +1,4 @@
-extends Node2D
+class_name NPCCharacter extends Node2D
 
 @onready var bubble_slot : Node2D = $BubbleSlot
 
@@ -11,7 +11,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	toggle_sprite_highlight()
 	var showSwap = true;
 	bubble_slot.start_dialog(showSwap)
-	body._get_active_npc_bubble(self, bubble_slot)
+	body._get_active_npc_bubble(self)
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
@@ -20,7 +20,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		return
 	toggle_sprite_highlight()
 	bubble_slot._end_dialog()
-	body._exit_npc_cleanup()
+	body._exit_npc_cleanup(self)
 		
 	
 func toggle_sprite_highlight():

@@ -9,8 +9,18 @@ extends CharacterBody2D
 @export var friction = 0.01
 @export var acceleration = 0.1
 
-@export var npc_parent = null
-@export var npc_bubble_slot = null
+var npc_parents = []
+
+func get_npc_parent():
+	var min_dist = INF
+	var min_obj = null
+	for parent in npc_parents:
+		var new_dist = global_position.distance_to(parent.global_position)
+		if new_dist < min_dist:
+			min_dist = new_dist
+			min_obj = parent
+	
+	return min_obj
 
 var swap_box
 var swap_active = false
@@ -38,19 +48,13 @@ func _physics_process(_delta):
 	
 	move_and_slide()
 	
-func _get_active_npc_bubble(parent: Node2D, bubble_slot: Node2D):
-	npc_parent = parent
-	npc_bubble_slot = bubble_slot
-	if npc_bubble_slot != null:
-		print("npc bubble slot saved")
-	else:
-		print("npc bubble slot not saved")
-	
+func _get_active_npc_bubble(parent: NPCCharacter):
+	npc_parents.push_back(parent)
 	
 func _process(delta):
 	if Input.is_action_just_pressed('bubble_switch'):
 		print("bubble_switch")
-		if npc_parent == null:
+		if len(npc_parents) == 0:
 			return
 		if swap_active:
 			_bubble_switch()
@@ -59,8 +63,9 @@ func _process(delta):
 
 func _bubble_switch():
 	var my_bubble_slot = bubble_slot
-	var other_bubble_slot = npc_bubble_slot
-	var npc_bubble = npc_bubble_slot.bubble
+	var closest_npc = get_npc_parent()
+	var other_bubble_slot = closest_npc.bubble_slot
+	var npc_bubble = other_bubble_slot.bubble
 	var player_bubble = bubble_slot.bubble
 	
 	my_bubble_slot.remove_child(player_bubble)
@@ -72,17 +77,18 @@ func _bubble_switch():
 	other_bubble_slot.bubble = player_bubble
 		
 	my_bubble_slot.start_dialog()
-	npc_bubble_slot._bubble_slot_changed(npc_bubble_slot.bubble.checkValue)
 	
-	_clean_npc_storage()
+	other_bubble_slot = closest_npc.bubble_slot
+	other_bubble_slot._bubble_slot_changed(other_bubble_slot.bubble.checkValue)
+	
+	_clean_npc_storage(closest_npc)
 	_close_swap_ui()
 	
-func _clean_npc_storage():
-	npc_parent = null
-	npc_bubble_slot = null
+func _clean_npc_storage(parent):
+	npc_parents.erase(parent)
 	
 func _open_swap_ui():
-	var npc_text = npc_bubble_slot.bubble.lines[0]
+	var npc_text = get_npc_parent().bubble_slot.bubble.lines[0]
 	var player_text = bubble_slot.bubble.lines[0]
 	swap_box = swap_box_scene.instantiate()
 	get_tree().root.add_child(swap_box)
@@ -90,8 +96,8 @@ func _open_swap_ui():
 	swap_active = true
 	_stop_all_dialogs()
 
-func _exit_npc_cleanup():
-	_clean_npc_storage()
+func _exit_npc_cleanup(body):
+	_clean_npc_storage(body)
 	_close_swap_ui()
 	
 func _close_swap_ui():
@@ -100,6 +106,6 @@ func _close_swap_ui():
 		swap_active = false
 		
 func _stop_all_dialogs():
-	npc_bubble_slot._end_dialog()
+	get_npc_parent().bubble_slot._end_dialog()
 	if bubble_slot.is_dialog_active:
 		bubble_slot._end_dialog()
