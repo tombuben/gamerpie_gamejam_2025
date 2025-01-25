@@ -9,7 +9,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name != "PlayerCharacter":
 		return
 	toggle_sprite_highlight()
-	bubble_slot.start_dialog()
+	var showSwap = true;
+	bubble_slot.start_dialog(showSwap)
 	body._get_active_npc_bubble(self, bubble_slot)
 
 

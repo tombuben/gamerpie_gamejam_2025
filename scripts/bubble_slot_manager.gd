@@ -16,7 +16,7 @@ var line_index = 0
 
 var is_dialog_active = false
 
-func start_dialog():	
+func start_dialog(showSwap: bool = false):	
 	var parent = get_parent()
 	bubble = $Bubble
 	if is_dialog_active && parent.name == "PlayerCharacter":
@@ -27,15 +27,16 @@ func start_dialog():
 	print(bubble.lines)
 	dialog_line = bubble.lines[line_index]
 	text_box_position = global_position
-	_show_text_box()
+	_show_text_box(showSwap)
 	
 	is_dialog_active = true
 	
 
-func _show_text_box():
+func _show_text_box(showSwap: bool):
 	text_box = text_box_scene.instantiate()
 	bubble_slot.add_child(text_box)
 	text_box.global_position = text_box_position
+	text_box.swap_button.visible = showSwap
 	text_box.display_text(dialog_line)
 	
 
