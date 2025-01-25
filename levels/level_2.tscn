@@ -59,7 +59,7 @@ script = ExtResource("4_kk4t1")
 [node name="Bubble" type="Node2D" parent="PlayerCharacter/BubbleSlot"]
 script = ExtResource("5_f23u2")
 lines = Array[String](["...", "...", "...", "..."])
-checkValue = ""
+checkValue = "empty"
 
 [node name="CardPlayer1" parent="." instance=ExtResource("6_c784s")]
 position = Vector2(706, 402)
@@ -71,7 +71,7 @@ script = ExtResource("4_kk4t1")
 [node name="Bubble" type="Node2D" parent="CardPlayer1/BubbleSlot"]
 script = ExtResource("5_f23u2")
 lines = Array[String](["....", "....", "....", "...."])
-checkValue = ""
+checkValue = "empty"
 
 [node name="CardPlayer2" parent="." instance=ExtResource("6_c784s")]
 position = Vector2(381, 359)
