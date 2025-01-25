@@ -1,0 +1,109 @@
+[gd_scene load_steps=6 format=3 uid="uid://crrtoqghkde4t"]
+
+[ext_resource type="Texture2D" uid="uid://dtb2357cbneo5" path="res://assets/level_2/sketch_level_2.png" id="1_7aaha"]
+[ext_resource type="PackedScene" uid="uid://b81oqoehgfrkh" path="res://player_character.tscn" id="3_u8qeu"]
+[ext_resource type="Script" path="res://scripts/bubble_slot_manager.gd" id="4_kk4t1"]
+[ext_resource type="Script" path="res://scripts/dialog_bubble.gd" id="5_f23u2"]
+[ext_resource type="PackedScene" uid="uid://c80xvbx7tdgob" path="res://npc_character.tscn" id="6_c784s"]
+
+[node name="Level1" type="Node2D"]
+y_sort_enabled = true
+
+[node name="SketchLevel1" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-100, 8)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("1_7aaha")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(595, 424)
+scale = Vector2(0.35, 0.35)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-1905.71, 785.714, -1660, 1288.57, -1245.71, 1062.86, -1237.14, -608.571, 1377.14, -602.857, 1345.71, 1091.43, -1405.71, 1071.43, -1628.57, 1285.71, 1594.29, 1274.29, 1780, 754.286, 1868.57, -1351.43, -1868.57, -1314.29)
+
+[node name="PlayerCharacter" parent="." instance=ExtResource("3_u8qeu")]
+position = Vector2(568, 543)
+friction = 0.2
+
+[node name="BubbleSlot" type="Node2D" parent="PlayerCharacter"]
+position = Vector2(0, -123.53)
+script = ExtResource("4_kk4t1")
+
+[node name="Bubble" type="Node2D" parent="PlayerCharacter/BubbleSlot"]
+script = ExtResource("5_f23u2")
+line = ""
+checkValue = ""
+
+[node name="TavernKeep" parent="." instance=ExtResource("6_c784s")]
+position = Vector2(848, 290)
+
+[node name="BubbleSlot" type="Node2D" parent="TavernKeep"]
+position = Vector2(150, -100)
+script = ExtResource("4_kk4t1")
+
+[node name="Bubble" type="Node2D" parent="TavernKeep/BubbleSlot"]
+script = ExtResource("5_f23u2")
+line = "Do you want a drink?"
+checkValue = ""
+
+[node name="CardPlayer1" parent="." instance=ExtResource("6_c784s")]
+position = Vector2(664, 381)
+
+[node name="BubbleSlot" type="Node2D" parent="CardPlayer1"]
+position = Vector2(150, -100)
+script = ExtResource("4_kk4t1")
+
+[node name="Bubble" type="Node2D" parent="CardPlayer1/BubbleSlot"]
+script = ExtResource("5_f23u2")
+line = ""
+checkValue = ""
+
+[node name="CardPlayer2" parent="." instance=ExtResource("6_c784s")]
+position = Vector2(402, 326)
+
+[node name="BubbleSlot" type="Node2D" parent="CardPlayer2"]
+position = Vector2(-150, -150)
+script = ExtResource("4_kk4t1")
+
+[node name="Bubble" type="Node2D" parent="CardPlayer2/BubbleSlot"]
+script = ExtResource("5_f23u2")
+line = "I win again!"
+checkValue = ""
+
+[node name="CardPlayer3" parent="." instance=ExtResource("6_c784s")]
+position = Vector2(573, 299)
+
+[node name="BubbleSlot" type="Node2D" parent="CardPlayer3"]
+position = Vector2(-150, -150)
+script = ExtResource("4_kk4t1")
+
+[node name="Bubble" type="Node2D" parent="CardPlayer3/BubbleSlot"]
+script = ExtResource("5_f23u2")
+line = "Another round."
+checkValue = ""
+
+[node name="Traitor" parent="." instance=ExtResource("6_c784s")]
+position = Vector2(877, 674)
+
+[node name="BubbleSlot" type="Node2D" parent="Traitor"]
+position = Vector2(-150, -150)
+script = ExtResource("4_kk4t1")
+
+[node name="Bubble" type="Node2D" parent="Traitor/BubbleSlot"]
+script = ExtResource("5_f23u2")
+line = "I'm so rich."
+checkValue = ""
+
+[node name="Drunk" parent="." instance=ExtResource("6_c784s")]
+position = Vector2(621, 663)
+
+[node name="BubbleSlot" type="Node2D" parent="Drunk"]
+position = Vector2(-150, -150)
+script = ExtResource("4_kk4t1")
+
+[node name="Bubble" type="Node2D" parent="Drunk/BubbleSlot"]
+script = ExtResource("5_f23u2")
+line = "You're lying."
+checkValue = ""
