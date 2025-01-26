@@ -6,12 +6,15 @@ extends CharacterBody2D
 #@onready var swap_box_scene = preload("res://ui/swap box/swap_box.tscn")
 @onready var swap_box_scene = preload("res://ui/swap box v2/swap_box_v2.tscn")
 @onready var bubble_ico_scene = preload("res://ui/bubble ico/bubble_ico.tscn")
+@onready var pause_menu_scene = preload("res://ui/pause_menu/pause_menu.tscn")
 
 @export var player_speed = 200
 @export var friction = 0.01
 @export var acceleration = 0.1
 
 var npc_parents = []
+
+var input_timeout = 0
 
 func get_npc_parent():
 	var min_dist = INF
@@ -29,6 +32,8 @@ var swap_active = null
 
 var bubble_ico
 var bubble_ico_active = false
+
+var pause_menu
 
 func get_input():
 	var input = Vector2()
@@ -60,9 +65,15 @@ func _get_active_npc_bubble(parent: NPCCharacter):
 		parent.set_sprite_highlight(body == closest)
 	
 func _process(delta):
+	if input_timeout > 0:
+		input_timeout -= 1
 	if Input.is_action_just_pressed('bubble_switch'):
 		print("bubble_switch")
-		if len(npc_parents) == 0:
+		if len(npc_parents) == 0 && input_timeout <= 0:
+			input_timeout = 5
+			pause_menu = pause_menu_scene.instantiate()
+			get_tree().root.add_child(pause_menu)
+			pause_menu.open_menu()
 			return
 		if swap_active != null:
 			_bubble_switch()
