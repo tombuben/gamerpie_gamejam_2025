@@ -25,7 +25,7 @@ func get_npc_parent():
 	return min_obj
 
 var swap_box
-var swap_active = false
+var swap_active = null
 
 var bubble_ico
 var bubble_ico_active = false
@@ -55,13 +55,16 @@ func _physics_process(_delta):
 	
 func _get_active_npc_bubble(parent: NPCCharacter):
 	npc_parents.push_back(parent)
+	var closest = get_npc_parent()
+	for body in npc_parents:
+		parent.set_sprite_highlight(body == closest)
 	
 func _process(delta):
 	if Input.is_action_just_pressed('bubble_switch'):
 		print("bubble_switch")
 		if len(npc_parents) == 0:
 			return
-		if swap_active:
+		if swap_active != null:
 			_bubble_switch()
 			return
 
@@ -91,8 +94,9 @@ func _bubble_switch():
 	_clean_npc_storage(closest_npc)
 	_close_swap_ui()
 	
-func _clean_npc_storage(parent):
-	npc_parents.erase(parent)
+func _clean_npc_storage(body):
+	npc_parents.erase(body)
+	body.set_sprite_highlight(false)
 
 func toggle_bubble_icon():
 	if bubble_slot.bubble.checkValue == "empty":
@@ -110,22 +114,36 @@ func toggle_bubble_icon():
 		bubble_ico_active = true
 	
 func _open_swap_ui():
-	var npc_text = get_npc_parent().bubble_slot._get_current_line()
+	if swap_active != null:
+		swap_active.set_sprite_highlight(false)
+		swap_box.queue_free()
+	
+	var closest = get_npc_parent()
+	if closest == null:
+		return
+	closest.set_sprite_highlight(true)
+	var npc_text = closest.bubble_slot._get_current_line()
 	var player_text = bubble_slot._get_current_line()
 	swap_box = swap_box_scene.instantiate()
 	get_tree().root.add_child(swap_box)
 	swap_box.display_text(npc_text, player_text)
-	swap_active = true
+	swap_active = get_npc_parent()
 	#_stop_all_dialogs()
 
 func _exit_npc_cleanup(body):
 	_clean_npc_storage(body)
 	_close_swap_ui()
 	
+	await get_tree().process_frame
+	await get_tree().process_frame
+	var next_closest = get_npc_parent()
+	if next_closest != null:
+		_open_swap_ui()
+	
 func _close_swap_ui():
-	if swap_active:
+	if swap_active != null:
 		swap_box.queue_free()
-		swap_active = false
+		swap_active = null
 		
 func _stop_all_dialogs():
 	get_npc_parent().bubble_slot._end_dialog()

@@ -66,323 +66,323 @@ script = ExtResource("5_ahv56")
 lines = Array[String](["...", "...", "..."])
 checkValue = "empty"
 
-[node name="W2" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
+[node name="Worker2" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
 position = Vector2(206, 310)
 script = ExtResource("8_kxejn")
 base_sprite = NodePath("LizzyIdle")
 highlight_sprite = NodePath("LizzyOutline")
 
-[node name="Area2D" type="Area2D" parent="W2"]
+[node name="Area2D" type="Area2D" parent="Worker2"]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="W2/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Worker2/Area2D"]
 shape = SubResource("CircleShape2D_um8bn")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="W2"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Worker2"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="W2/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Worker2/StaticBody2D"]
 shape = SubResource("CircleShape2D_v3qrx")
 
-[node name="LizzyIdle" type="Sprite2D" parent="W2"]
+[node name="LizzyIdle" type="Sprite2D" parent="Worker2"]
 texture_filter = 1
 position = Vector2(0, -48)
 scale = Vector2(8, 8)
 texture = ExtResource("8_hhst3")
 
-[node name="LizzyOutline" type="Sprite2D" parent="W2"]
+[node name="LizzyOutline" type="Sprite2D" parent="Worker2"]
 visible = false
 texture_filter = 1
 position = Vector2(0, -48)
 scale = Vector2(8, 8)
 texture = ExtResource("9_lkc1g")
 
-[node name="BubbleSlot" type="Node2D" parent="W2"]
+[node name="BubbleSlot" type="Node2D" parent="Worker2"]
 position = Vector2(0, -200)
 script = ExtResource("4_vbdgx")
 
-[node name="Bubble" type="Node2D" parent="W2/BubbleSlot"]
+[node name="Bubble" type="Node2D" parent="Worker2/BubbleSlot"]
 script = ExtResource("5_ahv56")
 lines = Array[String](["Here's your money.", "Here's your money.", "Here's your money, Mr. Piratesson!"])
 checkValue = "MoneyHere"
 
-[node name="C2" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
+[node name="Customer2" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
 position = Vector2(244, 449)
 script = ExtResource("8_kxejn")
 base_sprite = NodePath("LizzyIdle")
 highlight_sprite = NodePath("LizzyOutline")
 
-[node name="Area2D" type="Area2D" parent="C2"]
+[node name="Area2D" type="Area2D" parent="Customer2"]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="C2/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Customer2/Area2D"]
 shape = SubResource("CircleShape2D_um8bn")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="C2"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Customer2"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="C2/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Customer2/StaticBody2D"]
 shape = SubResource("CircleShape2D_v3qrx")
 
-[node name="LizzyIdle" type="Sprite2D" parent="C2"]
+[node name="LizzyIdle" type="Sprite2D" parent="Customer2"]
 texture_filter = 1
 position = Vector2(0, -48)
 scale = Vector2(8, 8)
 texture = ExtResource("9_43078")
 
-[node name="LizzyOutline" type="Sprite2D" parent="C2"]
+[node name="LizzyOutline" type="Sprite2D" parent="Customer2"]
 visible = false
 texture_filter = 1
 position = Vector2(0, -48)
 scale = Vector2(8, 8)
 texture = ExtResource("10_7bin5")
 
-[node name="BubbleSlot" type="Node2D" parent="C2"]
+[node name="BubbleSlot" type="Node2D" parent="Customer2"]
 position = Vector2(0, -200)
 script = ExtResource("4_vbdgx")
 
-[node name="Bubble" type="Node2D" parent="C2/BubbleSlot"]
+[node name="Bubble" type="Node2D" parent="Customer2/BubbleSlot"]
 position = Vector2(11, 69)
 script = ExtResource("5_ahv56")
 lines = Array[String](["Vault number: 1234", "Vault number: 1234", "Vault number: 1234"])
 checkValue = ""
 
-[node name="W1" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
+[node name="Worker1" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
 position = Vector2(981, 715)
 script = ExtResource("8_kxejn")
 base_sprite = NodePath("LizzyIdle")
 highlight_sprite = NodePath("LizzyOutline")
 
-[node name="Area2D" type="Area2D" parent="W1"]
+[node name="Area2D" type="Area2D" parent="Worker1"]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="W1/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Worker1/Area2D"]
 shape = SubResource("CircleShape2D_um8bn")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="W1"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Worker1"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="W1/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Worker1/StaticBody2D"]
 shape = SubResource("CircleShape2D_v3qrx")
 
-[node name="LizzyIdle" type="Sprite2D" parent="W1"]
+[node name="LizzyIdle" type="Sprite2D" parent="Worker1"]
 texture_filter = 1
 position = Vector2(0, -48)
 scale = Vector2(8, 8)
 texture = ExtResource("12_i0cly")
 
-[node name="LizzyOutline" type="Sprite2D" parent="W1"]
+[node name="LizzyOutline" type="Sprite2D" parent="Worker1"]
 visible = false
 texture_filter = 1
 position = Vector2(0, -48)
 scale = Vector2(8, 8)
 texture = ExtResource("13_wtlgb")
 
-[node name="BubbleSlot" type="Node2D" parent="W1"]
+[node name="BubbleSlot" type="Node2D" parent="Worker1"]
 position = Vector2(0, -200)
 script = ExtResource("4_vbdgx")
 
-[node name="Bubble" type="Node2D" parent="W1/BubbleSlot"]
+[node name="Bubble" type="Node2D" parent="Worker1/BubbleSlot"]
 script = ExtResource("5_ahv56")
 lines = Array[String](["Vault number: 4321", "Vault number: 9999", "Vault number: 9999"])
 checkValue = "Code"
 
-[node name="C1" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
+[node name="Customer1" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
 position = Vector2(964, 570)
 script = ExtResource("8_kxejn")
 base_sprite = NodePath("LizzyIdle")
 highlight_sprite = NodePath("LizzyOutline")
 
-[node name="Area2D" type="Area2D" parent="C1"]
+[node name="Area2D" type="Area2D" parent="Customer1"]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="C1/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Customer1/Area2D"]
 shape = SubResource("CircleShape2D_um8bn")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="C1"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Customer1"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="C1/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Customer1/StaticBody2D"]
 shape = SubResource("CircleShape2D_v3qrx")
 
-[node name="LizzyIdle" type="Sprite2D" parent="C1"]
+[node name="LizzyIdle" type="Sprite2D" parent="Customer1"]
 texture_filter = 1
 position = Vector2(20, -36)
 scale = Vector2(8, 8)
 texture = ExtResource("9_7d4ny")
 
-[node name="LizzyOutline" type="Sprite2D" parent="C1"]
+[node name="LizzyOutline" type="Sprite2D" parent="Customer1"]
 visible = false
 texture_filter = 1
 position = Vector2(20, -36)
 scale = Vector2(8, 8)
 texture = ExtResource("10_bfr58")
 
-[node name="BubbleSlot" type="Node2D" parent="C1"]
+[node name="BubbleSlot" type="Node2D" parent="Customer1"]
 position = Vector2(0, -200)
 script = ExtResource("4_vbdgx")
 
-[node name="Bubble" type="Node2D" parent="C1/BubbleSlot"]
+[node name="Bubble" type="Node2D" parent="Customer1/BubbleSlot"]
 script = ExtResource("5_ahv56")
 lines = Array[String](["Norman Person", "Norman Person", "Norman Person"])
 checkValue = ""
 
-[node name="P1" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
+[node name="Parrot" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
 position = Vector2(672, 251)
 script = ExtResource("8_kxejn")
 base_sprite = NodePath("LizzyIdle")
 highlight_sprite = NodePath("LizzyOutline")
 
-[node name="Area2D" type="Area2D" parent="P1"]
+[node name="Area2D" type="Area2D" parent="Parrot"]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="P1/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parrot/Area2D"]
 shape = SubResource("CircleShape2D_um8bn")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="P1"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Parrot"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="P1/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parrot/StaticBody2D"]
 shape = SubResource("CircleShape2D_v3qrx")
 
-[node name="BubbleSlot" type="Node2D" parent="P1"]
+[node name="BubbleSlot" type="Node2D" parent="Parrot"]
 position = Vector2(0, -200)
 script = ExtResource("4_vbdgx")
 
-[node name="Bubble" type="Node2D" parent="P1/BubbleSlot"]
+[node name="Bubble" type="Node2D" parent="Parrot/BubbleSlot"]
 script = ExtResource("5_ahv56")
 lines = Array[String](["News!", "News!", "News!"])
 checkValue = ""
 
-[node name="LizzyIdle" type="Sprite2D" parent="P1"]
+[node name="LizzyIdle" type="Sprite2D" parent="Parrot"]
 texture_filter = 1
 position = Vector2(31, -9)
 scale = Vector2(8, 8)
 texture = ExtResource("13_5pvuy")
 
-[node name="LizzyOutline" type="Sprite2D" parent="P1"]
+[node name="LizzyOutline" type="Sprite2D" parent="Parrot"]
 visible = false
 texture_filter = 1
 position = Vector2(31, -9)
 scale = Vector2(8, 8)
 texture = ExtResource("14_0pyq6")
 
-[node name="P2" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
+[node name="Parrot2" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
 position = Vector2(539, 256)
 script = ExtResource("8_kxejn")
 base_sprite = NodePath("LizzyIdle")
 highlight_sprite = NodePath("LizzyOutline")
 
-[node name="Area2D" type="Area2D" parent="P2"]
+[node name="Area2D" type="Area2D" parent="Parrot2"]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="P2/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parrot2/Area2D"]
 shape = SubResource("CircleShape2D_um8bn")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="P2"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Parrot2"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="P2/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parrot2/StaticBody2D"]
 shape = SubResource("CircleShape2D_v3qrx")
 
-[node name="BubbleSlot" type="Node2D" parent="P2"]
+[node name="BubbleSlot" type="Node2D" parent="Parrot2"]
 position = Vector2(0, -200)
 script = ExtResource("4_vbdgx")
 
-[node name="Bubble" type="Node2D" parent="P2/BubbleSlot"]
+[node name="Bubble" type="Node2D" parent="Parrot2/BubbleSlot"]
 script = ExtResource("5_ahv56")
 lines = Array[String](["Treasure stolen!", "Treasure stolen!", "Treasure stolen!"])
 checkValue = ""
 
-[node name="LizzyIdle" type="Sprite2D" parent="P2"]
+[node name="LizzyIdle" type="Sprite2D" parent="Parrot2"]
 texture_filter = 1
 position = Vector2(31, -9)
 scale = Vector2(8, 8)
 texture = ExtResource("13_5pvuy")
 
-[node name="LizzyOutline" type="Sprite2D" parent="P2"]
+[node name="LizzyOutline" type="Sprite2D" parent="Parrot2"]
 visible = false
 texture_filter = 1
 position = Vector2(31, -9)
 scale = Vector2(8, 8)
 texture = ExtResource("14_0pyq6")
 
-[node name="P3" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
+[node name="Parrot3" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
 position = Vector2(533, -74)
 script = ExtResource("8_kxejn")
 base_sprite = NodePath("LizzyIdle")
 highlight_sprite = NodePath("LizzyOutline")
 
-[node name="Area2D" type="Area2D" parent="P3"]
+[node name="Area2D" type="Area2D" parent="Parrot3"]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="P3/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parrot3/Area2D"]
 shape = SubResource("CircleShape2D_um8bn")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="P3"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Parrot3"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="P3/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parrot3/StaticBody2D"]
 shape = SubResource("CircleShape2D_v3qrx")
 
-[node name="BubbleSlot" type="Node2D" parent="P3"]
+[node name="BubbleSlot" type="Node2D" parent="Parrot3"]
 position = Vector2(0, -200)
 script = ExtResource("4_vbdgx")
 
-[node name="Bubble" type="Node2D" parent="P3/BubbleSlot"]
+[node name="Bubble" type="Node2D" parent="Parrot3/BubbleSlot"]
 script = ExtResource("5_ahv56")
 lines = Array[String](["Suspect:", "Suspect:", "Suspect:"])
 checkValue = ""
 
-[node name="LizzyIdle" type="Sprite2D" parent="P3"]
+[node name="LizzyIdle" type="Sprite2D" parent="Parrot3"]
 texture_filter = 1
 position = Vector2(31, -9)
 scale = Vector2(8, 8)
 texture = ExtResource("13_5pvuy")
 
-[node name="LizzyOutline" type="Sprite2D" parent="P3"]
+[node name="LizzyOutline" type="Sprite2D" parent="Parrot3"]
 visible = false
 texture_filter = 1
 position = Vector2(31, -9)
 scale = Vector2(8, 8)
 texture = ExtResource("14_0pyq6")
 
-[node name="P4" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
+[node name="Parrot4" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
 position = Vector2(708, -76)
 script = ExtResource("8_kxejn")
 base_sprite = NodePath("LizzyIdle")
 highlight_sprite = NodePath("LizzyOutline")
 
-[node name="Area2D" type="Area2D" parent="P4"]
+[node name="Area2D" type="Area2D" parent="Parrot4"]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="P4/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parrot4/Area2D"]
 shape = SubResource("CircleShape2D_um8bn")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="P4"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Parrot4"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="P4/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parrot4/StaticBody2D"]
 shape = SubResource("CircleShape2D_v3qrx")
 
-[node name="LizzyIdle" type="Sprite2D" parent="P4"]
+[node name="LizzyIdle" type="Sprite2D" parent="Parrot4"]
 texture_filter = 1
 position = Vector2(31, -9)
 scale = Vector2(8, 8)
 texture = ExtResource("13_5pvuy")
 
-[node name="LizzyOutline" type="Sprite2D" parent="P4"]
+[node name="LizzyOutline" type="Sprite2D" parent="Parrot4"]
 visible = false
 texture_filter = 1
 position = Vector2(31, -9)
 scale = Vector2(8, 8)
 texture = ExtResource("14_0pyq6")
 
-[node name="BubbleSlot" type="Node2D" parent="P4"]
+[node name="BubbleSlot" type="Node2D" parent="Parrot4"]
 position = Vector2(0, -200)
 script = ExtResource("4_vbdgx")
 
-[node name="Bubble" type="Node2D" parent="P4/BubbleSlot"]
+[node name="Bubble" type="Node2D" parent="Parrot4/BubbleSlot"]
 script = ExtResource("5_ahv56")
 lines = Array[String](["Pirate Piratesson", "Pirate Piratesson", "Pirate Piratesson"])
 checkValue = "PiratePiratesson"
@@ -392,10 +392,10 @@ position = Vector2(90, 4)
 script = ExtResource("8_dkm4x")
 swap_time = 2.0
 Player = NodePath("../PlayerCharacter")
-P1 = NodePath("../P1")
-P2 = NodePath("../P2")
-P3 = NodePath("../P3")
-P4 = NodePath("../P4")
+P1 = NodePath("../Parrot")
+P2 = NodePath("../Parrot2")
+P3 = NodePath("../Parrot3")
+P4 = NodePath("../Parrot4")
 
 [node name="Door" parent="." instance=ExtResource("9_06q2w")]
 position = Vector2(610, 476)
@@ -407,37 +407,37 @@ unique_name_in_owner = true
 volume_db = 7.0
 
 [connection signal="advance_bubble" from="." to="PlayerCharacter/BubbleSlot" method="_on_level_2_advance_bubble"]
-[connection signal="advance_bubble" from="." to="W2/BubbleSlot" method="_on_level_2_advance_bubble"]
-[connection signal="advance_bubble" from="." to="C2/BubbleSlot" method="_on_level_2_advance_bubble"]
-[connection signal="advance_bubble" from="." to="W1/BubbleSlot" method="_on_level_2_advance_bubble"]
-[connection signal="advance_bubble" from="." to="C1/BubbleSlot" method="_on_level_2_advance_bubble"]
-[connection signal="advance_bubble" from="." to="P1/BubbleSlot" method="_on_level_2_advance_bubble"]
-[connection signal="advance_bubble" from="." to="P2/BubbleSlot" method="_on_level_2_advance_bubble"]
-[connection signal="advance_bubble" from="." to="P3/BubbleSlot" method="_on_level_2_advance_bubble"]
-[connection signal="advance_bubble" from="." to="P4/BubbleSlot" method="_on_level_2_advance_bubble"]
+[connection signal="advance_bubble" from="." to="Worker2/BubbleSlot" method="_on_level_2_advance_bubble"]
+[connection signal="advance_bubble" from="." to="Customer2/BubbleSlot" method="_on_level_2_advance_bubble"]
+[connection signal="advance_bubble" from="." to="Worker1/BubbleSlot" method="_on_level_2_advance_bubble"]
+[connection signal="advance_bubble" from="." to="Customer1/BubbleSlot" method="_on_level_2_advance_bubble"]
+[connection signal="advance_bubble" from="." to="Parrot/BubbleSlot" method="_on_level_2_advance_bubble"]
+[connection signal="advance_bubble" from="." to="Parrot2/BubbleSlot" method="_on_level_2_advance_bubble"]
+[connection signal="advance_bubble" from="." to="Parrot3/BubbleSlot" method="_on_level_2_advance_bubble"]
+[connection signal="advance_bubble" from="." to="Parrot4/BubbleSlot" method="_on_level_2_advance_bubble"]
 [connection signal="on_slot_changed" from="PlayerCharacter/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
 [connection signal="on_slot_changed" from="PlayerCharacter/BubbleSlot" to="Door" method="_on_bubble_slot_on_slot_changed"]
-[connection signal="body_entered" from="W2/Area2D" to="W2" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="W2/Area2D" to="W2" method="_on_area_2d_body_exited"]
-[connection signal="on_slot_changed" from="W2/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
-[connection signal="body_entered" from="C2/Area2D" to="C2" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="C2/Area2D" to="C2" method="_on_area_2d_body_exited"]
-[connection signal="on_slot_changed" from="C2/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
-[connection signal="body_entered" from="W1/Area2D" to="W1" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="W1/Area2D" to="W1" method="_on_area_2d_body_exited"]
-[connection signal="on_slot_changed" from="W1/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
-[connection signal="body_entered" from="C1/Area2D" to="C1" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="C1/Area2D" to="C1" method="_on_area_2d_body_exited"]
-[connection signal="on_slot_changed" from="C1/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
-[connection signal="body_entered" from="P1/Area2D" to="P1" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="P1/Area2D" to="P1" method="_on_area_2d_body_exited"]
-[connection signal="on_slot_changed" from="P1/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
-[connection signal="body_entered" from="P2/Area2D" to="P2" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="P2/Area2D" to="P2" method="_on_area_2d_body_exited"]
-[connection signal="on_slot_changed" from="P2/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
-[connection signal="body_entered" from="P3/Area2D" to="P3" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="P3/Area2D" to="P3" method="_on_area_2d_body_exited"]
-[connection signal="on_slot_changed" from="P3/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
-[connection signal="body_entered" from="P4/Area2D" to="P4" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="P4/Area2D" to="P4" method="_on_area_2d_body_exited"]
-[connection signal="on_slot_changed" from="P4/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
+[connection signal="body_entered" from="Worker2/Area2D" to="Worker2" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Worker2/Area2D" to="Worker2" method="_on_area_2d_body_exited"]
+[connection signal="on_slot_changed" from="Worker2/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
+[connection signal="body_entered" from="Customer2/Area2D" to="Customer2" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Customer2/Area2D" to="Customer2" method="_on_area_2d_body_exited"]
+[connection signal="on_slot_changed" from="Customer2/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
+[connection signal="body_entered" from="Worker1/Area2D" to="Worker1" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Worker1/Area2D" to="Worker1" method="_on_area_2d_body_exited"]
+[connection signal="on_slot_changed" from="Worker1/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
+[connection signal="body_entered" from="Customer1/Area2D" to="Customer1" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Customer1/Area2D" to="Customer1" method="_on_area_2d_body_exited"]
+[connection signal="on_slot_changed" from="Customer1/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
+[connection signal="body_entered" from="Parrot/Area2D" to="Parrot" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Parrot/Area2D" to="Parrot" method="_on_area_2d_body_exited"]
+[connection signal="on_slot_changed" from="Parrot/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
+[connection signal="body_entered" from="Parrot2/Area2D" to="Parrot2" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Parrot2/Area2D" to="Parrot2" method="_on_area_2d_body_exited"]
+[connection signal="on_slot_changed" from="Parrot2/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
+[connection signal="body_entered" from="Parrot3/Area2D" to="Parrot3" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Parrot3/Area2D" to="Parrot3" method="_on_area_2d_body_exited"]
+[connection signal="on_slot_changed" from="Parrot3/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
+[connection signal="body_entered" from="Parrot4/Area2D" to="Parrot4" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Parrot4/Area2D" to="Parrot4" method="_on_area_2d_body_exited"]
+[connection signal="on_slot_changed" from="Parrot4/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]

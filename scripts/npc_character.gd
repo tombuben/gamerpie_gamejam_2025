@@ -32,3 +32,9 @@ func toggle_sprite_highlight():
 	if base_sprite != null && highlight_sprite != null:
 		base_sprite.visible = !base_sprite.visible
 		highlight_sprite.visible = !highlight_sprite.visible
+		
+
+func set_sprite_highlight(highlighted):
+	if base_sprite != null && highlight_sprite != null:
+		base_sprite.visible = !highlighted
+		highlight_sprite.visible = highlighted
