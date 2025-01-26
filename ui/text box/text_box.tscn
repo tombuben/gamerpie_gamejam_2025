@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://ui/text box/text_box.gd" id="1_vf4pf"]
 [ext_resource type="Texture2D" uid="uid://djjyqu4d33i62" path="res://ui/text box/bublina_base-bigger.png" id="2_4g5i7"]
-[ext_resource type="FontFile" uid="uid://deige1vwgfcp2" path="res://ui/text box/Daydream.ttf" id="2_l0u3c"]
 [ext_resource type="Texture2D" uid="uid://cbjvmobuhdgs" path="res://ui/text box/tail.png" id="3_j3sni"]
 [ext_resource type="Texture2D" uid="uid://24ap7tirtxxp" path="res://ui/text box/Swap_button_base.png" id="4_1qdx1"]
+[ext_resource type="FontFile" uid="uid://cqrgshl0pxded" path="res://ui/text box/alagard.ttf" id="5_wnukf"]
 
 [node name="TextBox" type="MarginContainer" node_paths=PackedStringArray("swap_button", "label")]
 anchors_preset = 2
@@ -22,6 +22,7 @@ swap_button = NodePath("NinePatchRect/Swap")
 label = NodePath("MarginContainer/RichTextLabel")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
+texture_filter = 1
 layout_mode = 2
 texture = ExtResource("2_4g5i7")
 region_rect = Rect2(0, 0, 96, 96)
@@ -77,8 +78,8 @@ theme_override_constants/margin_bottom = 24
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("2_l0u3c")
-theme_override_font_sizes/normal_font_size = 17
+theme_override_fonts/normal_font = ExtResource("5_wnukf")
+theme_override_font_sizes/normal_font_size = 35
 fit_content = true
 autowrap_mode = 0
 
