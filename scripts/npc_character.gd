@@ -9,10 +9,13 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name != "PlayerCharacter":
 		return
 	toggle_sprite_highlight()
-	var showSwap = true;
+	
+	#var showSwap = true;
 	await get_tree().process_frame
-	bubble_slot.start_dialog(showSwap)
+	#bubble_slot.start_dialog(showSwap)
+	bubble_slot.start_dialog()
 	body._get_active_npc_bubble(self)
+	body._open_swap_ui()
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
