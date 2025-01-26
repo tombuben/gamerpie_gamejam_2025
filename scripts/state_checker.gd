@@ -10,7 +10,7 @@ signal advance_bubble
 @export var scene : PackedScene
 
 @onready var states = [level21, level22, level23]
-var current_state : int = 0
+var current_state_num : int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,7 +27,7 @@ func _on_bubble_slot_on_slot_changed(check_value: String) -> void:
 	pass # Replace with function body.
 
 func check_current_state():
-	var current_state = states[current_state]
+	var current_state = states[current_state_num]
 	var valid : bool = true;
 	for key in current_state:
 		var node = get_node(key)
@@ -37,14 +37,14 @@ func check_current_state():
 			valid = false;
 			
 	if valid:
+		current_state_num += 1
 		# should lock all swapping for a sec, play a jingle
 		await get_tree().create_timer(1.0).timeout
 		advance_state()
 	
 func advance_state():
-	current_state += 1
 	advance_bubble.emit()
 	
-	if (current_state >= num_of_states):
+	if (current_state_num >= num_of_states):
 		await get_tree().create_timer(3.0).timeout
 		get_tree().change_scene_to_packed(scene)

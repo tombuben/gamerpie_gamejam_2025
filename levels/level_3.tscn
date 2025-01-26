@@ -98,6 +98,18 @@ script = ExtResource("5_ahv56")
 lines = Array[String](["Norman Person", "Norman Person", "Norman Person"])
 checkValue = ""
 
+[node name="PSST" parent="." instance=ExtResource("6_kgvx7")]
+position = Vector2(968, 510)
+
+[node name="BubbleSlot" type="Node2D" parent="PSST"]
+position = Vector2(-150, -150)
+script = ExtResource("4_vbdgx")
+
+[node name="Bubble" type="Node2D" parent="PSST/BubbleSlot"]
+script = ExtResource("5_ahv56")
+lines = Array[String](["Norman Person", "Norman Person", "Norman Person"])
+checkValue = ""
+
 [node name="P1" parent="." instance=ExtResource("6_kgvx7")]
 position = Vector2(498, 234)
 
@@ -165,6 +177,7 @@ P4 = NodePath("../P4")
 [connection signal="on_slot_changed" from="C2/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
 [connection signal="on_slot_changed" from="W1/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
 [connection signal="on_slot_changed" from="C1/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
+[connection signal="on_slot_changed" from="PSST/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
 [connection signal="on_slot_changed" from="P1/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
 [connection signal="on_slot_changed" from="P2/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
 [connection signal="on_slot_changed" from="P3/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
