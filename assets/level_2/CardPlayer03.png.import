@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgl1omrdkg63s"
-path="res://.godot/imported/Traitor.png-d539d2c65f24a7c2288c9da4773b48ff.ctex"
+uid="uid://baqx0jmucvpw4"
+path="res://.godot/imported/CardPlayer03.png-d49c256c5cd637940f8869f12485a533.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/level_2/Traitor.png"
-dest_files=["res://.godot/imported/Traitor.png-d539d2c65f24a7c2288c9da4773b48ff.ctex"]
+source_file="res://assets/level_2/CardPlayer03.png"
+dest_files=["res://.godot/imported/CardPlayer03.png-d49c256c5cd637940f8869f12485a533.ctex"]
 
 [params]
 
