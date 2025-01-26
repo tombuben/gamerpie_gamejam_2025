@@ -15,6 +15,10 @@ run/main_scene="res://levels/start.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+AudioDialogManager="*res://scripts/singletons/AudioDialogManager.gd"
+
 [display]
 
 window/size/viewport_width=1200

@@ -29,6 +29,10 @@ func start_dialog(showSwap: bool = false):
 	text_box_position = global_position
 	_show_text_box(showSwap)
 	
+	#PREPARED FOR AUDIO DIALOGUES
+	#AudioDialogManager.audio_player = %DialoguePlayer
+	#AudioDialogManager.play_dialogue_audio(dialog_line)
+	
 	is_dialog_active = true
 	
 
