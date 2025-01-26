@@ -3,20 +3,15 @@
 [ext_resource type="Script" path="res://scripts/door.gd" id="1_xvgq0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_engqx"]
-size = Vector2(80, 30)
+size = Vector2(80, 66)
 
 [node name="Door" type="Node2D" node_paths=PackedStringArray("collider")]
 position = Vector2(579, 695)
 script = ExtResource("1_xvgq0")
 collider = NodePath("StaticBody2D/CollisionShape2D")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -41.0
-offset_top = -122.0
-offset_right = 35.0
-offset_bottom = 4.0
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_engqx")
