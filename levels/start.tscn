@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ypxn1te6of48"]
+[gd_scene load_steps=6 format=3 uid="uid://ypxn1te6of48"]
 
 [ext_resource type="Script" path="res://levels/start.gd" id="1_7an6l"]
 [ext_resource type="PackedScene" uid="uid://b5o03n2r0xmnc" path="res://levels/intro_1.tscn" id="2_u8h2g"]
 [ext_resource type="Texture2D" uid="uid://bu4i7kepa2dcj" path="res://assets/startscreen.png" id="3_fgjxg"]
 [ext_resource type="Script" path="res://scripts/flasher.gd" id="3_sgylp"]
+[ext_resource type="Theme" uid="uid://diky4hvq73cit" path="res://ui/swap_box_theme.tres" id="5_poj6y"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_7an6l")
@@ -29,3 +30,12 @@ offset_bottom = 40.0
 offset_right = 149.0
 offset_bottom = 40.0
 color = Color(0.414066, 0.414066, 0.414066, 1)
+
+[node name="Label" type="Label" parent="SpaceBar"]
+offset_left = 11.0
+offset_top = 6.0
+offset_right = 141.0
+offset_bottom = 33.0
+theme = ExtResource("5_poj6y")
+theme_override_font_sizes/font_size = 28
+text = "SPACEBAR"

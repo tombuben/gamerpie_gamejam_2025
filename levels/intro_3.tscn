@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dmdwu8xu7h45d"]
+[gd_scene load_steps=9 format=3 uid="uid://dmdwu8xu7h45d"]
 
 [ext_resource type="Script" path="res://scripts/intro_crawl.gd" id="1_nxjmx"]
 [ext_resource type="PackedScene" uid="uid://c5icoj7eo4vaf" path="res://levels/level_3.tscn" id="2_x2b3i"]
@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://deige1vwgfcp2" path="res://ui/text box/Daydream.ttf" id="4_tbbna"]
 [ext_resource type="Script" path="res://scripts/flasher.gd" id="5_bt47j"]
 [ext_resource type="Theme" uid="uid://btsjb0dqi43oc" path="res://ui/intro_theme.tres" id="5_cqx0u"]
+[ext_resource type="Theme" uid="uid://diky4hvq73cit" path="res://ui/swap_box_theme.tres" id="7_cu4gp"]
 
 [sub_resource type="Theme" id="Theme_8mt8t"]
 default_font = ExtResource("4_tbbna")
@@ -64,6 +65,15 @@ offset_bottom = 40.0
 offset_right = 149.0
 offset_bottom = 40.0
 color = Color(0.414066, 0.414066, 0.414066, 1)
+
+[node name="Label" type="Label" parent="SpaceBar"]
+offset_left = 11.0
+offset_top = 6.0
+offset_right = 141.0
+offset_bottom = 33.0
+theme = ExtResource("7_cu4gp")
+theme_override_font_sizes/font_size = 28
+text = "SPACEBAR"
 
 [connection signal="finished_displaying" from="TextBox" to="." method="_on_text_box_finished_displaying"]
 [connection signal="timeout" from="TextBox/LetterDisplayTimer" to="TextBox" method="_on_letter_display_timer_timeout"]

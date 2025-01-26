@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://brvly23kxkjhu"]
+[gd_scene load_steps=8 format=3 uid="uid://brvly23kxkjhu"]
 
 [ext_resource type="Script" path="res://scripts/intro_crawl.gd" id="1_d2j3e"]
 [ext_resource type="Script" path="res://ui/text box/text_box.gd" id="3_b7kwo"]
 [ext_resource type="FontFile" uid="uid://deige1vwgfcp2" path="res://ui/text box/Daydream.ttf" id="4_krb5u"]
-[ext_resource type="Theme" path="res://ui/intro_theme.tres" id="4_uui6c"]
+[ext_resource type="Theme" uid="uid://btsjb0dqi43oc" path="res://ui/intro_theme.tres" id="4_uui6c"]
 [ext_resource type="Script" path="res://scripts/flasher.gd" id="5_7mxqf"]
+[ext_resource type="Theme" uid="uid://diky4hvq73cit" path="res://ui/swap_box_theme.tres" id="6_vndmk"]
 
 [sub_resource type="Theme" id="Theme_s1ybf"]
 default_font = ExtResource("4_krb5u")
@@ -66,6 +67,15 @@ offset_bottom = 40.0
 offset_right = 149.0
 offset_bottom = 40.0
 color = Color(0.414066, 0.414066, 0.414066, 1)
+
+[node name="Label" type="Label" parent="SpaceBar"]
+offset_left = 11.0
+offset_top = 6.0
+offset_right = 141.0
+offset_bottom = 33.0
+theme = ExtResource("6_vndmk")
+theme_override_font_sizes/font_size = 28
+text = "SPACEBAR"
 
 [connection signal="finished_displaying" from="TextBox" to="." method="_on_text_box_finished_displaying"]
 [connection signal="timeout" from="TextBox/LetterDisplayTimer" to="TextBox" method="_on_letter_display_timer_timeout"]
