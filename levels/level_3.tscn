@@ -252,7 +252,7 @@ script = ExtResource("4_vbdgx")
 [node name="Bubble" type="Node2D" parent="P1/BubbleSlot"]
 script = ExtResource("5_ahv56")
 lines = Array[String](["News!", "News!", "News!"])
-checkValue = "Open"
+checkValue = ""
 
 [node name="LizzyIdle" type="Sprite2D" parent="P1"]
 texture_filter = 1
@@ -332,7 +332,7 @@ script = ExtResource("4_vbdgx")
 [node name="Bubble" type="Node2D" parent="P3/BubbleSlot"]
 script = ExtResource("5_ahv56")
 lines = Array[String](["Suspect:", "Suspect:", "Suspect:"])
-checkValue = "PiratePiratesson"
+checkValue = ""
 
 [node name="LizzyIdle" type="Sprite2D" parent="P3"]
 texture_filter = 1
