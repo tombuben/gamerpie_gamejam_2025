@@ -268,9 +268,10 @@ scale = Vector2(8, 8)
 texture = ExtResource("12_x3mdk")
 
 [node name="TraitorOutline" type="Sprite2D" parent="Traitor"]
+visible = false
 texture_filter = 1
-position = Vector2(0, -432)
-scale = Vector2(64, 64)
+position = Vector2(0, -48)
+scale = Vector2(8, 8)
 texture = ExtResource("16_hmpfp")
 
 [node name="BubbleSlot" type="Node2D" parent="Traitor"]
@@ -384,6 +385,17 @@ stream = ExtResource("21_gygey")
 volume_db = 3.0
 autoplay = true
 parameters/looping = true
+
+[node name="Node2D2" type="Node2D" parent="."]
+z_index = -1000
+position = Vector2(-39, -33)
+
+[node name="ColorRect" type="ColorRect" parent="Node2D2"]
+offset_left = -25.0
+offset_top = -62.0
+offset_right = 1558.0
+offset_bottom = 1365.0
+color = Color(0, 0, 0, 1)
 
 [connection signal="advance_bubble" from="." to="PlayerCharacter/BubbleSlot" method="_on_level_2_advance_bubble"]
 [connection signal="advance_bubble" from="." to="CardPlayer1/BubbleSlot" method="_on_level_2_advance_bubble"]

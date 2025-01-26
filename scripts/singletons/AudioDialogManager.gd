@@ -10,6 +10,16 @@ var audio_dict = {
 	"You are never getting out of here!":"_YouAreNever_FINAL.wav",
 	"Squeek!":"_Squeek_FINAL.wav",
 	
+	
+	"I win again!":"_IWinAgain_FINAL.mp3",
+	"Another round.":"_AnotherRound_FINAL.mp3",
+	"Do you want a drink?":"_DoYouWantADrink_FINAL.mp3",
+	"You're lying.":"_YouAreLying_FINAL.mp3",
+	"Where did you hide it?":"_WhereDidYouHideIt_FINAL.mp3",
+	"I'm so rich.":"_IAmSoRich_FINAL.mp3",
+	"I'm not telling you sober.":"_IAmNotTelling_FINAL.mp3",
+	"It's in the bank.":"_ItsInTheBank_FINAL.mp3",
+	
 	"Here's your money.":"_HeresYourMoney_FINAL.mp3",
 	"Vault number: 1234":"_VaultNumber1234_FINAL.mp3",
 	"Vault number: 4321":"_VaultNumber4321_FINAL.mp3",

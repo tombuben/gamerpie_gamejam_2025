@@ -41,7 +41,7 @@ func check_current_state():
 	if valid:
 		current_state_num += 1
 		# should lock all swapping for a sec, play a jingle
-		await get_tree().create_timer(1.0).timeout
+		await get_tree().create_timer(2.5).timeout
 		advance_state()
 	
 func advance_state():
