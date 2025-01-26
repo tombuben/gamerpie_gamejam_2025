@@ -1,13 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://c5icoj7eo4vaf"]
+[gd_scene load_steps=10 format=3 uid="uid://c5icoj7eo4vaf"]
 
 [ext_resource type="Script" path="res://scripts/state_checker.gd" id="1_47snb"]
-[ext_resource type="Texture2D" uid="uid://dtb2357cbneo5" path="res://assets/level_2/sketch_level_2.png" id="2_cbatb"]
 [ext_resource type="PackedScene" uid="uid://brvly23kxkjhu" path="res://levels/outro.tscn" id="2_gatvb"]
 [ext_resource type="PackedScene" uid="uid://b81oqoehgfrkh" path="res://player_character.tscn" id="3_7vndf"]
+[ext_resource type="Texture2D" uid="uid://covw78pd0uugf" path="res://assets/level_3/level_3_sketch.png" id="3_sp1ow"]
 [ext_resource type="Script" path="res://scripts/bubble_slot_manager.gd" id="4_vbdgx"]
 [ext_resource type="Script" path="res://scripts/dialog_bubble.gd" id="5_ahv56"]
 [ext_resource type="PackedScene" uid="uid://c80xvbx7tdgob" path="res://npc_character.tscn" id="6_kgvx7"]
 [ext_resource type="Script" path="res://scripts/papouch_manager.gd" id="8_dkm4x"]
+[ext_resource type="PackedScene" uid="uid://do3g3w77pww5q" path="res://door.tscn" id="9_06q2w"]
 
 [node name="Level3" type="Node2D"]
 y_sort_enabled = true
@@ -24,48 +25,48 @@ scene = ExtResource("2_gatvb")
 
 [node name="SketchLevel1" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-100, 8)
+position = Vector2(-10, 12)
 scale = Vector2(0.35, 0.35)
-texture = ExtResource("2_cbatb")
+texture = ExtResource("3_sp1ow")
 centered = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(595, 424)
+position = Vector2(685, 428)
 scale = Vector2(0.35, 0.35)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-2188.57, 1385.71, -2054.29, 1731.43, -1854.29, 1068.57, -1871.43, -1065.71, 1382.86, -1037.14, 1345.71, 1091.43, -1914.29, 1108.57, -1674.29, 1585.71, 1594.29, 1274.29, 1780, 754.286, 1868.57, -1351.43, -2302.86, -1268.57)
+polygon = PackedVector2Array(-2188.57, 1385.71, -2054.29, 1731.43, -1802.86, 1062.86, -1788.57, -8.57141, -1097.14, -5.71423, -1097.14, -182.857, -1790.6, -183.214, -1794.29, -500, -249.567, -497.207, -248.571, 37.1429, -205.714, 40, -202.857, -497.143, 1365.71, -494.286, 1369.83, 544.262, 665.714, 545.714, 662.857, 717.143, 1370.5, 714.822, 1371.43, 948.571, -184.378, 941.544, -188.571, 288.571, -251.429, 285.714, -245.714, 940, -1791.43, 934.286, -1674.29, 1585.71, 1594.29, 1274.29, 1780, 754.286, 1868.57, -1351.43, -2302.86, -1268.57)
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("3_7vndf")]
-position = Vector2(591, 738)
+position = Vector2(681, 742)
 friction = 0.2
 
 [node name="BubbleSlot" type="Node2D" parent="PlayerCharacter"]
-position = Vector2(-3, -131)
+position = Vector2(0, -130)
 script = ExtResource("4_vbdgx")
 
 [node name="Bubble" type="Node2D" parent="PlayerCharacter/BubbleSlot"]
 script = ExtResource("5_ahv56")
 lines = Array[String](["...", "...", "..."])
-checkValue = "Silent"
+checkValue = "empty"
 
 [node name="W2" parent="." instance=ExtResource("6_kgvx7")]
-position = Vector2(113, 244)
+position = Vector2(215, 315)
 
 [node name="BubbleSlot" type="Node2D" parent="W2"]
-position = Vector2(122, -81)
+position = Vector2(0, -200)
 script = ExtResource("4_vbdgx")
 
 [node name="Bubble" type="Node2D" parent="W2/BubbleSlot"]
 script = ExtResource("5_ahv56")
-lines = Array[String](["Here's your money.", "Here's your money.", "Here's your money."])
+lines = Array[String](["Here's your money.", "Here's your money.", "Here's your money, Mr. Piratesson!"])
 checkValue = "MoneyHere"
 
 [node name="C2" parent="." instance=ExtResource("6_kgvx7")]
-position = Vector2(116, 444)
+position = Vector2(217, 441)
 
 [node name="BubbleSlot" type="Node2D" parent="C2"]
-position = Vector2(-150, -150)
+position = Vector2(0, -200)
 script = ExtResource("4_vbdgx")
 
 [node name="Bubble" type="Node2D" parent="C2/BubbleSlot"]
@@ -75,10 +76,10 @@ lines = Array[String](["Vault number: 1234", "Vault number: 1234", "Vault number
 checkValue = ""
 
 [node name="W1" parent="." instance=ExtResource("6_kgvx7")]
-position = Vector2(963, 678)
+position = Vector2(981, 715)
 
 [node name="BubbleSlot" type="Node2D" parent="W1"]
-position = Vector2(-150, -150)
+position = Vector2(0, -200)
 script = ExtResource("4_vbdgx")
 
 [node name="Bubble" type="Node2D" parent="W1/BubbleSlot"]
@@ -87,10 +88,10 @@ lines = Array[String](["Vault number: 4321", "Vault number: 9999", "Vault number
 checkValue = "Code"
 
 [node name="C1" parent="." instance=ExtResource("6_kgvx7")]
-position = Vector2(968, 510)
+position = Vector2(963, 570)
 
 [node name="BubbleSlot" type="Node2D" parent="C1"]
-position = Vector2(-150, -150)
+position = Vector2(0, -200)
 script = ExtResource("4_vbdgx")
 
 [node name="Bubble" type="Node2D" parent="C1/BubbleSlot"]
@@ -98,23 +99,11 @@ script = ExtResource("5_ahv56")
 lines = Array[String](["Norman Person", "Norman Person", "Norman Person"])
 checkValue = ""
 
-[node name="PSST" parent="." instance=ExtResource("6_kgvx7")]
-position = Vector2(968, 510)
-
-[node name="BubbleSlot" type="Node2D" parent="PSST"]
-position = Vector2(-150, -150)
-script = ExtResource("4_vbdgx")
-
-[node name="Bubble" type="Node2D" parent="PSST/BubbleSlot"]
-script = ExtResource("5_ahv56")
-lines = Array[String](["Norman Person", "Norman Person", "Norman Person"])
-checkValue = ""
-
 [node name="P1" parent="." instance=ExtResource("6_kgvx7")]
-position = Vector2(498, 234)
+position = Vector2(672, 251)
 
 [node name="BubbleSlot" type="Node2D" parent="P1"]
-position = Vector2(-150, -150)
+position = Vector2(0, -200)
 script = ExtResource("4_vbdgx")
 
 [node name="Bubble" type="Node2D" parent="P1/BubbleSlot"]
@@ -123,10 +112,10 @@ lines = Array[String](["News!", "News!", "News!"])
 checkValue = "Open"
 
 [node name="P2" parent="." instance=ExtResource("6_kgvx7")]
-position = Vector2(828, 269)
+position = Vector2(539, 256)
 
 [node name="BubbleSlot" type="Node2D" parent="P2"]
-position = Vector2(-150, -150)
+position = Vector2(0, -200)
 script = ExtResource("4_vbdgx")
 
 [node name="Bubble" type="Node2D" parent="P2/BubbleSlot"]
@@ -135,10 +124,10 @@ lines = Array[String](["Treasure stolen!", "Treasure stolen!", "Treasure stolen!
 checkValue = ""
 
 [node name="P3" parent="." instance=ExtResource("6_kgvx7")]
-position = Vector2(1382, -133)
+position = Vector2(533, -74)
 
 [node name="BubbleSlot" type="Node2D" parent="P3"]
-position = Vector2(-150, -150)
+position = Vector2(0, -200)
 script = ExtResource("4_vbdgx")
 
 [node name="Bubble" type="Node2D" parent="P3/BubbleSlot"]
@@ -147,10 +136,10 @@ lines = Array[String](["Suspect:", "Suspect:", "Suspect:"])
 checkValue = "PiratePiratesson"
 
 [node name="P4" parent="." instance=ExtResource("6_kgvx7")]
-position = Vector2(973, -115)
+position = Vector2(708, -76)
 
 [node name="BubbleSlot" type="Node2D" parent="P4"]
-position = Vector2(-150, -150)
+position = Vector2(0, -200)
 script = ExtResource("4_vbdgx")
 
 [node name="Bubble" type="Node2D" parent="P4/BubbleSlot"]
@@ -159,6 +148,7 @@ lines = Array[String](["Pirate Piratesson", "Pirate Piratesson", "Pirate Pirates
 checkValue = "PiratePiratesson"
 
 [node name="PapouchManager" type="Node2D" parent="." node_paths=PackedStringArray("Player", "P1", "P2", "P3", "P4")]
+position = Vector2(90, 4)
 script = ExtResource("8_dkm4x")
 swap_time = 2.0
 Player = NodePath("../PlayerCharacter")
@@ -167,17 +157,22 @@ P2 = NodePath("../P2")
 P3 = NodePath("../P3")
 P4 = NodePath("../P4")
 
+[node name="Door" parent="." instance=ExtResource("9_06q2w")]
+position = Vector2(610, 476)
+open_when = "empty"
+starts_open = true
+
 [connection signal="advance_bubble" from="." to="PlayerCharacter/BubbleSlot" method="_on_level_2_advance_bubble"]
 [connection signal="advance_bubble" from="." to="W2/BubbleSlot" method="_on_level_2_advance_bubble"]
 [connection signal="advance_bubble" from="." to="C2/BubbleSlot" method="_on_level_2_advance_bubble"]
 [connection signal="advance_bubble" from="." to="W1/BubbleSlot" method="_on_level_2_advance_bubble"]
 [connection signal="advance_bubble" from="." to="C1/BubbleSlot" method="_on_level_2_advance_bubble"]
 [connection signal="on_slot_changed" from="PlayerCharacter/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
+[connection signal="on_slot_changed" from="PlayerCharacter/BubbleSlot" to="Door" method="_on_bubble_slot_on_slot_changed"]
 [connection signal="on_slot_changed" from="W2/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
 [connection signal="on_slot_changed" from="C2/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
 [connection signal="on_slot_changed" from="W1/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
 [connection signal="on_slot_changed" from="C1/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
-[connection signal="on_slot_changed" from="PSST/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
 [connection signal="on_slot_changed" from="P1/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
 [connection signal="on_slot_changed" from="P2/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
 [connection signal="on_slot_changed" from="P3/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]

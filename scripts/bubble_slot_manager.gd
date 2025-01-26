@@ -39,7 +39,10 @@ func start_dialog(showSwap: bool = false):
 func _show_text_box(showSwap: bool):
 	text_box = text_box_scene.instantiate()
 	bubble_slot.add_child(text_box)
-	text_box.global_position = text_box_position
+	text_box.position = Vector2.ZERO
+	print(position)
+	print(global_position)
+	print(text_box.global_position)
 	text_box.swap_button.visible = showSwap
 	text_box.display_text(dialog_line)
 	

@@ -27,6 +27,8 @@ func _on_bubble_slot_on_slot_changed(check_value: String) -> void:
 	pass # Replace with function body.
 
 func check_current_state():
+	if (current_state_num >= num_of_states):
+		return
 	var current_state = states[current_state_num]
 	var valid : bool = true;
 	for key in current_state:

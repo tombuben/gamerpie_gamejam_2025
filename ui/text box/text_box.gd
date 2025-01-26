@@ -25,16 +25,13 @@ func display_text(text_to_display: String):
 	label.visible_characters = letter_index
 	
 	await resized
-	custom_minimum_size.x = min(max(min_width, size.x), max_width)
-	if size.x > max_width:
+	label.custom_minimum_size.x = min(max(min_width, size.x), max_width)
+	if label.size.x > max_width:
 		label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		await resized # wait for y resize
-		custom_minimum_size.y = size.y
+		label.custom_minimum_size.y = label.size.y
 	
-	if recenter:
-		global_position.x -= size.x / 2
-		global_position.y -= size.y + 24
-	
+	print(global_position)
 	_display_letter()
 	
 func _display_letter():

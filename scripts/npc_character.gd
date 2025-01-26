@@ -10,6 +10,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		return
 	toggle_sprite_highlight()
 	var showSwap = true;
+	await get_tree().process_frame
 	bubble_slot.start_dialog(showSwap)
 	body._get_active_npc_bubble(self)
 
