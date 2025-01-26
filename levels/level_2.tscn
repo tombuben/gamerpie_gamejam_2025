@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://crrtoqghkde4t"]
+[gd_scene load_steps=24 format=3 uid="uid://crrtoqghkde4t"]
 
 [ext_resource type="Script" path="res://scripts/state_checker.gd" id="1_jttpe"]
 [ext_resource type="PackedScene" uid="uid://dmdwu8xu7h45d" path="res://levels/intro_3.tscn" id="2_37u5h"]
@@ -20,7 +20,7 @@
 radius = 228.589
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vi8ky"]
-size = Vector2(333, 39)
+size = Vector2(333, 44)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_um8bn"]
 radius = 45.0111
@@ -28,11 +28,21 @@ radius = 45.0111
 [sub_resource type="CircleShape2D" id="CircleShape2D_v3qrx"]
 radius = 41.0488
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_tx3fw"]
+radius = 58.0345
+
 [sub_resource type="Curve2D" id="Curve2D_fl1dp"]
 _data = {
 "points": PackedVector2Array(78.7882, 2.37134, -78.7882, -2.37134, 3.78998, 7.98999, 94.1901, -46.1143, -94.1901, 46.1143, -260.21, 35.99, 100, 0, -100, 0, -63.0374, 312.99, 7.06425, 55.4813, -7.06425, -55.4813, -258.21, 69.99, -103.975, -16.0065, 103.975, 16.0065, -30.357, -0.0100098)
 }
 point_count = 5
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gktab"]
+radius = 61.716
+height = 254.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aswgc"]
+size = Vector2(88.2375, 76)
 
 [node name="Level2" type="Node2D"]
 y_sort_enabled = true
@@ -88,7 +98,7 @@ texture = ExtResource("4_bfw5q")
 position = Vector2(-152, 99)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bar/StaticBody2D"]
-position = Vector2(320.5, -104.5)
+position = Vector2(320.5, -107)
 shape = SubResource("RectangleShape2D_vi8ky")
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("3_u8qeu")]
@@ -96,7 +106,7 @@ position = Vector2(568, 543)
 friction = 0.2
 
 [node name="BubbleSlot" type="Node2D" parent="PlayerCharacter"]
-position = Vector2(0, -123.53)
+position = Vector2(0, -125)
 script = ExtResource("4_kk4t1")
 
 [node name="Bubble" type="Node2D" parent="PlayerCharacter/BubbleSlot"]
@@ -127,7 +137,7 @@ scale = Vector2(8, 8)
 texture = ExtResource("9_eftrq")
 
 [node name="BubbleSlot" type="Node2D" parent="CardPlayer1"]
-position = Vector2(48, -107)
+position = Vector2(0, -200)
 script = ExtResource("4_kk4t1")
 
 [node name="Bubble" type="Node2D" parent="CardPlayer1/BubbleSlot"]
@@ -158,7 +168,7 @@ scale = Vector2(-8, 8)
 texture = ExtResource("10_k2kly")
 
 [node name="BubbleSlot" type="Node2D" parent="CardPlayer2"]
-position = Vector2(-4, -117)
+position = Vector2(0, -200)
 script = ExtResource("4_kk4t1")
 
 [node name="Bubble" type="Node2D" parent="CardPlayer2/BubbleSlot"]
@@ -167,31 +177,31 @@ lines = Array[String](["I win again!", "I win again!", "I win again!", "I win ag
 checkValue = "IWinAgain"
 
 [node name="CardPlayer3" type="Node2D" parent="."]
-position = Vector2(451, 326)
+position = Vector2(444, 296)
 script = ExtResource("10_qb0na")
 
 [node name="Area2D" type="Area2D" parent="CardPlayer3"]
-position = Vector2(-4, -28)
+position = Vector2(0, 1)
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CardPlayer3/Area2D"]
-shape = SubResource("CircleShape2D_um8bn")
+shape = SubResource("CircleShape2D_tx3fw")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="CardPlayer3"]
-position = Vector2(-4, -28)
+position = Vector2(0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CardPlayer3/StaticBody2D"]
 shape = SubResource("CircleShape2D_v3qrx")
 
 [node name="LizzyIdle" type="Sprite2D" parent="CardPlayer3"]
 texture_filter = 1
-position = Vector2(0, -48)
+position = Vector2(-16, -19)
 scale = Vector2(8, 8)
 texture = ExtResource("11_tqi1e")
 
 [node name="BubbleSlot" type="Node2D" parent="CardPlayer3"]
-position = Vector2(-14, -150)
+position = Vector2(4, -171)
 script = ExtResource("4_kk4t1")
 
 [node name="Bubble" type="Node2D" parent="CardPlayer3/BubbleSlot"]
@@ -222,7 +232,7 @@ scale = Vector2(8, 8)
 texture = ExtResource("12_x3mdk")
 
 [node name="BubbleSlot" type="Node2D" parent="Traitor"]
-position = Vector2(-35, -150)
+position = Vector2(0, -200)
 script = ExtResource("4_kk4t1")
 
 [node name="Bubble" type="Node2D" parent="Traitor/BubbleSlot"]
@@ -235,7 +245,6 @@ position = Vector2(719, 689)
 script = ExtResource("10_qb0na")
 
 [node name="Area2D" type="Area2D" parent="Drunk"]
-position = Vector2(-3, -25)
 collision_layer = 2
 collision_mask = 2
 
@@ -243,19 +252,18 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_um8bn")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Drunk"]
-position = Vector2(-3, -25)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Drunk/StaticBody2D"]
 shape = SubResource("CircleShape2D_v3qrx")
 
 [node name="LizzyIdle" type="Sprite2D" parent="Drunk"]
 texture_filter = 1
-position = Vector2(0, -48)
+position = Vector2(3, -23)
 scale = Vector2(-8, 8)
 texture = ExtResource("13_d2l4x")
 
 [node name="BubbleSlot" type="Node2D" parent="Drunk"]
-position = Vector2(-25, -150)
+position = Vector2(3, -175)
 script = ExtResource("4_kk4t1")
 
 [node name="Bubble" type="Node2D" parent="Drunk/BubbleSlot"]
@@ -283,12 +291,14 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TavernPath/PathFollow2D/TavernKeep/Area2D"]
-shape = SubResource("CircleShape2D_um8bn")
+shape = SubResource("CapsuleShape2D_gktab")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="TavernPath/PathFollow2D/TavernKeep"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TavernPath/PathFollow2D/TavernKeep/StaticBody2D"]
-shape = SubResource("CircleShape2D_v3qrx")
+position = Vector2(1.25696, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_aswgc")
 
 [node name="Penguin" type="Sprite2D" parent="TavernPath/PathFollow2D/TavernKeep"]
 texture_filter = 1
@@ -297,7 +307,7 @@ scale = Vector2(8, 8)
 texture = ExtResource("11_3vqma")
 
 [node name="BubbleSlot" type="Node2D" parent="TavernPath/PathFollow2D/TavernKeep"]
-position = Vector2(50, -100)
+position = Vector2(0, -200)
 script = ExtResource("4_kk4t1")
 
 [node name="Bubble" type="Node2D" parent="TavernPath/PathFollow2D/TavernKeep/BubbleSlot"]

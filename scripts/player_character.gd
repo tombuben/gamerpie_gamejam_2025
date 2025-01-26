@@ -95,7 +95,7 @@ func _clean_npc_storage(parent):
 	npc_parents.erase(parent)
 
 func toggle_bubble_icon():
-	if bubble_ico_active && bubble_slot.bubble.checkValue == "empty":
+	if bubble_slot.bubble.checkValue == "empty":
 		#bubble_ico.queue_free()
 		bubble_slot.remove_child(bubble_ico)
 		bubble_ico_active = false
