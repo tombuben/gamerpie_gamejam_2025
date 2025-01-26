@@ -291,7 +291,7 @@ script = ExtResource("4_vbdgx")
 
 [node name="Bubble" type="Node2D" parent="Parrot2/BubbleSlot"]
 script = ExtResource("5_ahv56")
-lines = Array[String](["Treasure stolen!", "Treasure stolen!", "Treasure stolen!"])
+lines = Array[String](["Big treasure stolen!", "Big treasure stolen!", "Big treasure stolen!"])
 checkValue = ""
 
 [node name="LizzyIdle" type="Sprite2D" parent="Parrot2"]
