@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://crrtoqghkde4t"]
+[gd_scene load_steps=21 format=3 uid="uid://crrtoqghkde4t"]
 
 [ext_resource type="Script" path="res://scripts/state_checker.gd" id="1_jttpe"]
 [ext_resource type="PackedScene" uid="uid://dmdwu8xu7h45d" path="res://levels/intro_3.tscn" id="2_37u5h"]
@@ -16,6 +16,9 @@
 [ext_resource type="Texture2D" uid="uid://bgl1omrdkg63s" path="res://assets/level_2/Traitor.png" id="12_x3mdk"]
 [ext_resource type="Texture2D" uid="uid://cr6eufs5jfgkh" path="res://assets/level_2/Drunk.png" id="13_d2l4x"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ptk7u"]
+radius = 228.589
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vi8ky"]
 size = Vector2(333, 39)
 
@@ -27,9 +30,9 @@ radius = 41.0488
 
 [sub_resource type="Curve2D" id="Curve2D_fl1dp"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 3.78998, 7.98999, 100, 0, -100, 0, 2.78998, 337.99, 0, 0, 0, 0, -102.21, -0.0100098)
+"points": PackedVector2Array(78.7882, 2.37134, -78.7882, -2.37134, 3.78998, 7.98999, 94.1901, -46.1143, -94.1901, 46.1143, -260.21, 35.99, 100, 0, -100, 0, -63.0374, 312.99, 7.06425, 55.4813, -7.06425, -55.4813, -258.21, 69.99, -103.975, -16.0065, 103.975, 16.0065, -30.357, -0.0100098)
 }
-point_count = 3
+point_count = 5
 
 [node name="Level2" type="Node2D"]
 y_sort_enabled = true
@@ -64,15 +67,25 @@ scale = Vector2(0.35, 0.35)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(-1905.71, 785.714, -1660, 1288.57, -1245.71, 1062.86, -1237.14, -608.571, 1377.14, -602.857, 1345.71, 1091.43, -1405.71, 1071.43, -1628.57, 1285.71, 1594.29, 1274.29, 1780, 754.286, 1868.57, -1351.43, -1868.57, -1314.29)
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-434.286, -114.286)
+shape = SubResource("CircleShape2D_ptk7u")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(731.429, 591.429)
+shape = SubResource("CircleShape2D_ptk7u")
+
 [node name="Bar" type="Node2D" parent="."]
-position = Vector2(615, 463)
+position = Vector2(768, 363)
 
 [node name="Sprite2D" type="Sprite2D" parent="Bar"]
 texture_filter = 1
+position = Vector2(-152, 99)
 scale = Vector2(8, 8)
 texture = ExtResource("4_bfw5q")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Bar"]
+position = Vector2(-152, 99)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bar/StaticBody2D"]
 position = Vector2(320.5, -104.5)
@@ -252,7 +265,8 @@ checkValue = "YouAreLying"
 
 [node name="TavernPath" type="Path2D" parent="."]
 y_sort_enabled = true
-position = Vector2(927.21, 267.01)
+position = Vector2(928.867, 267.01)
+scale = Vector2(0.917977, 1)
 curve = SubResource("Curve2D_fl1dp")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="TavernPath"]
