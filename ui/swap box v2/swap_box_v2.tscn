@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://djjyqu4d33i62" path="res://ui/text box/bublina_base-bigger.png" id="2_c87j4"]
 [ext_resource type="Texture2D" uid="uid://cbjvmobuhdgs" path="res://ui/text box/tail.png" id="3_4fjh0"]
 [ext_resource type="Texture2D" uid="uid://24ap7tirtxxp" path="res://ui/text box/Swap_button_base.png" id="4_30kwx"]
-[ext_resource type="Theme" uid="uid://diky4hvq73cit" path="res://ui/swap_box_theme.tres" id="6_o6kth"]
+[ext_resource type="Theme" path="res://ui/swap_box_theme.tres" id="6_o6kth"]
 
 [node name="SwapBox" type="Control" node_paths=PackedStringArray("left_box", "right_box")]
 layout_mode = 3
