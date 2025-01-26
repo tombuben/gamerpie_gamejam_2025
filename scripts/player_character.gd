@@ -135,7 +135,6 @@ func _exit_npc_cleanup(body):
 	_close_swap_ui()
 	
 	await get_tree().process_frame
-	await get_tree().process_frame
 	var next_closest = get_npc_parent()
 	if next_closest != null:
 		_open_swap_ui()
