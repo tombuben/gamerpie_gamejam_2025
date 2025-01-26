@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://scripts/dialog_bubble.gd" id="5_ahv56"]
 [ext_resource type="PackedScene" uid="uid://c80xvbx7tdgob" path="res://npc_character.tscn" id="6_kgvx7"]
 [ext_resource type="Script" path="res://scripts/papouch_manager.gd" id="8_dkm4x"]
-[ext_resource type="PackedScene" uid="uid://do3g3w77pww5q" path="res://door.tscn" id="9_06q2w"]
+[ext_resource type="PackedScene" path="res://door.tscn" id="9_06q2w"]
 
 [node name="Level3" type="Node2D"]
 y_sort_enabled = true
@@ -161,6 +161,10 @@ P4 = NodePath("../P4")
 position = Vector2(610, 476)
 open_when = "empty"
 starts_open = true
+
+[node name="DialoguePlayer" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+volume_db = 7.0
 
 [connection signal="advance_bubble" from="." to="PlayerCharacter/BubbleSlot" method="_on_level_2_advance_bubble"]
 [connection signal="advance_bubble" from="." to="W2/BubbleSlot" method="_on_level_2_advance_bubble"]

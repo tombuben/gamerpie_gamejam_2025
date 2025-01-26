@@ -315,6 +315,10 @@ script = ExtResource("5_f23u2")
 lines = Array[String](["Do you want a drink?", "Do you want a drink?", "Do you want a drink?", "Do you want a drink?"])
 checkValue = "WantADrink"
 
+[node name="DialoguePlayer" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+volume_db = 7.0
+
 [connection signal="advance_bubble" from="." to="PlayerCharacter/BubbleSlot" method="_on_level_2_advance_bubble"]
 [connection signal="advance_bubble" from="." to="CardPlayer1/BubbleSlot" method="_on_level_2_advance_bubble"]
 [connection signal="advance_bubble" from="." to="CardPlayer2/BubbleSlot" method="_on_level_2_advance_bubble"]
