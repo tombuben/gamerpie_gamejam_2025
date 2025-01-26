@@ -51,7 +51,7 @@ y_sort_enabled = true
 
 [node name="SketchLevel1" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(10, 8)
+position = Vector2(0, 1)
 scale = Vector2(8, 8)
 texture = ExtResource("1_rlh6b")
 centered = false
@@ -68,7 +68,7 @@ position = Vector2(0, 708)
 
 [node name="Wall2" type="Sprite2D" parent="Wall"]
 texture_filter = 1
-position = Vector2(0, -700)
+position = Vector2(0, -707)
 scale = Vector2(8, 8)
 texture = ExtResource("2_iqf0j")
 centered = false
@@ -240,7 +240,7 @@ open_when = "CellmateBubble"
 
 [node name="CellWallDoorClosed-small" type="Sprite2D" parent="Door"]
 texture_filter = 1
-position = Vector2(21, -249)
+position = Vector2(21, -256)
 scale = Vector2(8, 8)
 texture = ExtResource("15_wik2p")
 

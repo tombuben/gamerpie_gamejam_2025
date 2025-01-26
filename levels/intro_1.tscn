@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://deige1vwgfcp2" path="res://ui/text box/Daydream.ttf" id="1_wrgbl"]
 [ext_resource type="PackedScene" uid="uid://cxjyxcbcxxydo" path="res://levels/level_1.tscn" id="2_wak5t"]
 [ext_resource type="Script" path="res://scripts/intro_crawl.gd" id="2_y1nqs"]
-[ext_resource type="Theme" uid="uid://btsjb0dqi43oc" path="res://ui/intro_theme.tres" id="5_14cw3"]
+[ext_resource type="Theme" path="res://ui/intro_theme.tres" id="5_14cw3"]
 [ext_resource type="Script" path="res://scripts/flasher.gd" id="5_dldwo"]
 
 [sub_resource type="Theme" id="Theme_phwj2"]
