@@ -4,9 +4,17 @@ extends Control
 @onready var restart : MarginContainer = $Restart
 @onready var mute : MarginContainer = $Mute
 
+@export var objective : RichTextLabel
+
 var buttons: Array[MarginContainer]
 
 var select_index = 0
+
+var objectives = {
+	"Level1":"Escape from prison.",
+	"Level2":"Find out where the rich guy put his money.",
+	"Level3":"Get the clerk to withdraw Piratessons money."
+}
 
 func open_menu():
 	get_tree().paused = true
@@ -15,6 +23,18 @@ func open_menu():
 		restart,
 		mute
 	]
+	var root = get_tree().root
+	
+	if root.get_node("Level1"):
+		objective.text = objectives["Level1"]
+		return
+	if root.get_node("Level2"):
+		objective.text = objectives["Level2"]
+		return
+	if root.get_node("Level3"):
+		objective.text = objectives["Level3"]
+		return
+	
 
 func _input(event):
 	if event is InputEventKey:

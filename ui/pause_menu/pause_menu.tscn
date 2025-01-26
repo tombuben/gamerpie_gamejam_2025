@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://1dn5k0ssf31g" path="res://ui/pause_menu/bublina_locked.png" id="2_isumn"]
 [ext_resource type="Theme" uid="uid://diky4hvq73cit" path="res://ui/swap_box_theme.tres" id="2_xx0f6"]
 
-[node name="PauseMenu" type="Control"]
+[node name="PauseMenu" type="Control" node_paths=PackedStringArray("objective")]
 process_mode = 2
 layout_mode = 3
 anchors_preset = 15
@@ -14,6 +14,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dby1q")
+objective = NodePath("MarginContainer/RichTextLabel")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -23,7 +24,7 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -620.0
-offset_top = -130.0
+offset_top = -168.0
 offset_right = 620.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -156,3 +157,24 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 bbcode_enabled = true
 text = "[center]Mute[/center]"
 scroll_active = false
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 324.0
+offset_top = 740.0
+offset_right = 1186.0
+offset_bottom = 780.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_xx0f6")
+theme_override_font_sizes/normal_font_size = 35
+
+[node name="Objective" type="Label" parent="."]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 741.0
+offset_right = 287.0
+offset_bottom = 784.0
+theme = ExtResource("2_xx0f6")
+text = "OBJECTIVE:"
