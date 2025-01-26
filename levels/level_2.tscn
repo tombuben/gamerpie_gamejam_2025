@@ -9,12 +9,12 @@
 [ext_resource type="Script" path="res://scripts/dialog_bubble.gd" id="5_f23u2"]
 [ext_resource type="Script" path="res://scripts/move_when.gd" id="7_blrss"]
 [ext_resource type="Texture2D" uid="uid://bbwfuqc1mc41t" path="res://assets/level_2/CardPlayer01.png" id="9_eftrq"]
+[ext_resource type="Texture2D" uid="uid://oaltbokhqnax" path="res://assets/level_2/CardPlayer02.png" id="10_k2kly"]
 [ext_resource type="Script" path="res://scripts/npc_character.gd" id="10_qb0na"]
-[ext_resource type="Texture2D" uid="uid://b0d841gksyaeq" path="res://assets/level_2/CardPlayer2.png" id="10_xjqxq"]
 [ext_resource type="Texture2D" uid="uid://b62tys1onqqho" path="res://assets/level_2/TavernKeep.png" id="11_3vqma"]
 [ext_resource type="Texture2D" uid="uid://bqkpency8nwsk" path="res://assets/level_2/CardPlayer3.png" id="11_tqi1e"]
-[ext_resource type="Texture2D" uid="uid://cj1hasfajj7na" path="res://assets/level_2/Traitor.png" id="12_x3mdk"]
-[ext_resource type="Texture2D" uid="uid://ck1bhty8j6tjf" path="res://assets/level_2/Drunk.png" id="13_d2l4x"]
+[ext_resource type="Texture2D" uid="uid://bgl1omrdkg63s" path="res://assets/level_2/Traitor.png" id="12_x3mdk"]
+[ext_resource type="Texture2D" uid="uid://cr6eufs5jfgkh" path="res://assets/level_2/Drunk.png" id="13_d2l4x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vi8ky"]
 size = Vector2(333, 39)
@@ -142,7 +142,7 @@ shape = SubResource("CircleShape2D_v3qrx")
 texture_filter = 1
 position = Vector2(0, -48)
 scale = Vector2(-8, 8)
-texture = ExtResource("10_xjqxq")
+texture = ExtResource("10_k2kly")
 
 [node name="BubbleSlot" type="Node2D" parent="CardPlayer2"]
 position = Vector2(-4, -117)
@@ -158,6 +158,7 @@ position = Vector2(451, 326)
 script = ExtResource("10_qb0na")
 
 [node name="Area2D" type="Area2D" parent="CardPlayer3"]
+position = Vector2(-4, -28)
 collision_layer = 2
 collision_mask = 2
 
@@ -165,6 +166,7 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_um8bn")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="CardPlayer3"]
+position = Vector2(-4, -28)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CardPlayer3/StaticBody2D"]
 shape = SubResource("CircleShape2D_v3qrx")
@@ -220,6 +222,7 @@ position = Vector2(719, 689)
 script = ExtResource("10_qb0na")
 
 [node name="Area2D" type="Area2D" parent="Drunk"]
+position = Vector2(-3, -25)
 collision_layer = 2
 collision_mask = 2
 
@@ -227,6 +230,7 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_um8bn")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Drunk"]
+position = Vector2(-3, -25)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Drunk/StaticBody2D"]
 shape = SubResource("CircleShape2D_v3qrx")
