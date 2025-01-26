@@ -14,6 +14,8 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if not can_continue:
+		if event.is_action_pressed("bubble_switch"):
+			textBox.faster()
 		return
 	
 	if event.is_action_pressed("bubble_switch"):

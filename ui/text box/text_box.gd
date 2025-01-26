@@ -18,6 +18,12 @@ var punctuation_time = 0.2
 
 signal finished_displaying()
 
+func faster():
+	letter_time /= 2
+	space_time /= 2
+	space_time /= 2
+	finished_displaying.emit()
+
 func display_text(text_to_display: String):
 	text = text_to_display
 	label.text = text_to_display
