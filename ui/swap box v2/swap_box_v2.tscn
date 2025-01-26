@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://d4lmg3qm73sci"]
+[gd_scene load_steps=8 format=3 uid="uid://d4lmg3qm73sci"]
 
 [ext_resource type="Script" path="res://ui/swap box v2/swap_box_container_v2.gd" id="1_6hoox"]
 [ext_resource type="Script" path="res://ui/swap box v2/swap_box_v2.gd" id="2_15p7w"]
 [ext_resource type="Texture2D" uid="uid://djjyqu4d33i62" path="res://ui/text box/bublina_base-bigger.png" id="2_c87j4"]
 [ext_resource type="Texture2D" uid="uid://cbjvmobuhdgs" path="res://ui/text box/tail.png" id="3_4fjh0"]
 [ext_resource type="Texture2D" uid="uid://24ap7tirtxxp" path="res://ui/text box/Swap_button_base.png" id="4_30kwx"]
-[ext_resource type="Theme" path="res://ui/swap_box_theme.tres" id="6_o6kth"]
+[ext_resource type="Texture2D" uid="uid://nljm1k4okwgy" path="res://ui/swap box v2/bublina_locked.png" id="6_44w7l"]
+[ext_resource type="Theme" uid="uid://diky4hvq73cit" path="res://ui/swap_box_theme.tres" id="6_o6kth"]
 
 [node name="SwapBox" type="Control" node_paths=PackedStringArray("left_box", "right_box")]
 layout_mode = 3
@@ -101,12 +102,12 @@ label = NodePath("MarginContainer/RichTextLabel")
 [node name="NinePatchRect" type="NinePatchRect" parent="RightBox"]
 texture_filter = 1
 layout_mode = 2
-texture = ExtResource("2_c87j4")
-region_rect = Rect2(0, 0, 96, 96)
-patch_margin_left = 32
-patch_margin_top = 32
-patch_margin_right = 32
-patch_margin_bottom = 32
+texture = ExtResource("6_44w7l")
+region_rect = Rect2(0, 0, 90, 90)
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
 
 [node name="Control" type="Control" parent="RightBox/NinePatchRect"]
 layout_mode = 1
