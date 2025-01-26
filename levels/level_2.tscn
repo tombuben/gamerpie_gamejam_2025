@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://crrtoqghkde4t"]
+[gd_scene load_steps=30 format=3 uid="uid://crrtoqghkde4t"]
 
 [ext_resource type="Script" path="res://scripts/state_checker.gd" id="1_jttpe"]
 [ext_resource type="PackedScene" uid="uid://dmdwu8xu7h45d" path="res://levels/intro_3.tscn" id="2_37u5h"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://ycqbfhs56uhl" path="res://assets/level_2/CardPlayer3_highlight.png" id="14_jrfcj"]
 [ext_resource type="Texture2D" uid="uid://kdw8rqeo1nta" path="res://assets/level_2/Drunk_highlight.png" id="17_pkpw3"]
 [ext_resource type="Texture2D" uid="uid://bvs3twmath61c" path="res://assets/level_2/TavernKeep_highlight.png" id="20_1swnn"]
+[ext_resource type="AudioStream" uid="uid://dtxixsexvhyqc" path="res://assets/audio/music/saloon-bg.mp3" id="21_gygey"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ptk7u"]
 radius = 228.589
@@ -368,6 +369,12 @@ checkValue = "WantADrink"
 [node name="DialoguePlayer" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 volume_db = 7.0
+
+[node name="BG-music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("21_gygey")
+volume_db = 3.0
+autoplay = true
+parameters/looping = true
 
 [connection signal="advance_bubble" from="." to="PlayerCharacter/BubbleSlot" method="_on_level_2_advance_bubble"]
 [connection signal="advance_bubble" from="." to="CardPlayer1/BubbleSlot" method="_on_level_2_advance_bubble"]
