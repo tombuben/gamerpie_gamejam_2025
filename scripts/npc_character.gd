@@ -25,6 +25,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	toggle_sprite_highlight()
 	bubble_slot._end_dialog()
 	body._exit_npc_cleanup(self)
+	AudioDialogManager.stop_dialog_play()
 		
 	
 func toggle_sprite_highlight():

@@ -30,8 +30,9 @@ func start_dialog(showSwap: bool = false):
 	_show_text_box(showSwap)
 	
 	#PREPARED FOR AUDIO DIALOGUES
-	#AudioDialogManager.audio_player = %DialoguePlayer
-	#AudioDialogManager.play_dialogue_audio(dialog_line)
+	var npc_name = get_parent().name
+	AudioDialogManager.audio_player = %DialoguePlayer
+	AudioDialogManager.play_dialogue_audio(dialog_line, npc_name)
 	
 	is_dialog_active = true
 	
