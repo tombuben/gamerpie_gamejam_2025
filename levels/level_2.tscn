@@ -1,13 +1,29 @@
-[gd_scene load_steps=10 format=3 uid="uid://crrtoqghkde4t"]
+[gd_scene load_steps=20 format=3 uid="uid://crrtoqghkde4t"]
 
-[ext_resource type="Texture2D" uid="uid://dtb2357cbneo5" path="res://assets/level_2/sketch_level_2.png" id="1_7aaha"]
 [ext_resource type="Script" path="res://scripts/state_checker.gd" id="1_jttpe"]
 [ext_resource type="PackedScene" uid="uid://dmdwu8xu7h45d" path="res://levels/intro_3.tscn" id="2_37u5h"]
+[ext_resource type="Texture2D" uid="uid://b5see6xfakdrr" path="res://assets/level_2/lvl2_saloon_bg.png" id="3_0ikl7"]
 [ext_resource type="PackedScene" uid="uid://b81oqoehgfrkh" path="res://player_character.tscn" id="3_u8qeu"]
+[ext_resource type="Texture2D" uid="uid://qvhvrhguomuj" path="res://assets/level_2/lvl2_saloon_bar.png" id="4_bfw5q"]
 [ext_resource type="Script" path="res://scripts/bubble_slot_manager.gd" id="4_kk4t1"]
 [ext_resource type="Script" path="res://scripts/dialog_bubble.gd" id="5_f23u2"]
-[ext_resource type="PackedScene" uid="uid://c80xvbx7tdgob" path="res://npc_character.tscn" id="6_c784s"]
 [ext_resource type="Script" path="res://scripts/move_when.gd" id="7_blrss"]
+[ext_resource type="Texture2D" uid="uid://bbwfuqc1mc41t" path="res://assets/level_2/CardPlayer01.png" id="9_eftrq"]
+[ext_resource type="Script" path="res://scripts/npc_character.gd" id="10_qb0na"]
+[ext_resource type="Texture2D" uid="uid://b0d841gksyaeq" path="res://assets/level_2/CardPlayer2.png" id="10_xjqxq"]
+[ext_resource type="Texture2D" uid="uid://b62tys1onqqho" path="res://assets/level_2/TavernKeep.png" id="11_3vqma"]
+[ext_resource type="Texture2D" uid="uid://bqkpency8nwsk" path="res://assets/level_2/CardPlayer3.png" id="11_tqi1e"]
+[ext_resource type="Texture2D" uid="uid://cj1hasfajj7na" path="res://assets/level_2/Traitor.png" id="12_x3mdk"]
+[ext_resource type="Texture2D" uid="uid://ck1bhty8j6tjf" path="res://assets/level_2/Drunk.png" id="13_d2l4x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vi8ky"]
+size = Vector2(333, 39)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_um8bn"]
+radius = 45.0111
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v3qrx"]
+radius = 41.0488
 
 [sub_resource type="Curve2D" id="Curve2D_fl1dp"]
 _data = {
@@ -36,17 +52,31 @@ scene = ExtResource("2_37u5h")
 
 [node name="SketchLevel1" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-100, 8)
-scale = Vector2(0.35, 0.35)
-texture = ExtResource("1_7aaha")
+position = Vector2(16, 10)
+scale = Vector2(8, 8)
+texture = ExtResource("3_0ikl7")
 centered = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(595, 424)
+position = Vector2(593, 452)
 scale = Vector2(0.35, 0.35)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(-1905.71, 785.714, -1660, 1288.57, -1245.71, 1062.86, -1237.14, -608.571, 1377.14, -602.857, 1345.71, 1091.43, -1405.71, 1071.43, -1628.57, 1285.71, 1594.29, 1274.29, 1780, 754.286, 1868.57, -1351.43, -1868.57, -1314.29)
+
+[node name="Bar" type="Node2D" parent="."]
+position = Vector2(615, 463)
+
+[node name="Sprite2D" type="Sprite2D" parent="Bar"]
+texture_filter = 1
+scale = Vector2(8, 8)
+texture = ExtResource("4_bfw5q")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Bar"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bar/StaticBody2D"]
+position = Vector2(320.5, -104.5)
+shape = SubResource("RectangleShape2D_vi8ky")
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("3_u8qeu")]
 position = Vector2(568, 543)
@@ -61,8 +91,27 @@ script = ExtResource("5_f23u2")
 lines = Array[String](["...", "...", "...", "..."])
 checkValue = "empty"
 
-[node name="CardPlayer1" parent="." instance=ExtResource("6_c784s")]
-position = Vector2(706, 402)
+[node name="CardPlayer1" type="Node2D" parent="."]
+position = Vector2(590, 457)
+script = ExtResource("10_qb0na")
+
+[node name="Area2D" type="Area2D" parent="CardPlayer1"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardPlayer1/Area2D"]
+shape = SubResource("CircleShape2D_um8bn")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CardPlayer1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardPlayer1/StaticBody2D"]
+shape = SubResource("CircleShape2D_v3qrx")
+
+[node name="LizzyIdle" type="Sprite2D" parent="CardPlayer1"]
+texture_filter = 1
+position = Vector2(0, -48)
+scale = Vector2(8, 8)
+texture = ExtResource("9_eftrq")
 
 [node name="BubbleSlot" type="Node2D" parent="CardPlayer1"]
 position = Vector2(48, -107)
@@ -73,11 +122,30 @@ script = ExtResource("5_f23u2")
 lines = Array[String](["....", "....", "....", "...."])
 checkValue = "empty"
 
-[node name="CardPlayer2" parent="." instance=ExtResource("6_c784s")]
-position = Vector2(381, 359)
+[node name="CardPlayer2" type="Node2D" parent="."]
+position = Vector2(307, 436)
+script = ExtResource("10_qb0na")
+
+[node name="Area2D" type="Area2D" parent="CardPlayer2"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardPlayer2/Area2D"]
+shape = SubResource("CircleShape2D_um8bn")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CardPlayer2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardPlayer2/StaticBody2D"]
+shape = SubResource("CircleShape2D_v3qrx")
+
+[node name="LizzyIdle" type="Sprite2D" parent="CardPlayer2"]
+texture_filter = 1
+position = Vector2(0, -48)
+scale = Vector2(-8, 8)
+texture = ExtResource("10_xjqxq")
 
 [node name="BubbleSlot" type="Node2D" parent="CardPlayer2"]
-position = Vector2(-150, -150)
+position = Vector2(-4, -117)
 script = ExtResource("4_kk4t1")
 
 [node name="Bubble" type="Node2D" parent="CardPlayer2/BubbleSlot"]
@@ -85,11 +153,30 @@ script = ExtResource("5_f23u2")
 lines = Array[String](["I win again!", "I win again!", "I win again!", "I win again!"])
 checkValue = "IWinAgain"
 
-[node name="CardPlayer3" parent="." instance=ExtResource("6_c784s")]
-position = Vector2(561, 217)
+[node name="CardPlayer3" type="Node2D" parent="."]
+position = Vector2(451, 326)
+script = ExtResource("10_qb0na")
+
+[node name="Area2D" type="Area2D" parent="CardPlayer3"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardPlayer3/Area2D"]
+shape = SubResource("CircleShape2D_um8bn")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CardPlayer3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardPlayer3/StaticBody2D"]
+shape = SubResource("CircleShape2D_v3qrx")
+
+[node name="LizzyIdle" type="Sprite2D" parent="CardPlayer3"]
+texture_filter = 1
+position = Vector2(0, -48)
+scale = Vector2(8, 8)
+texture = ExtResource("11_tqi1e")
 
 [node name="BubbleSlot" type="Node2D" parent="CardPlayer3"]
-position = Vector2(-150, -150)
+position = Vector2(-14, -150)
 script = ExtResource("4_kk4t1")
 
 [node name="Bubble" type="Node2D" parent="CardPlayer3/BubbleSlot"]
@@ -97,11 +184,30 @@ script = ExtResource("5_f23u2")
 lines = Array[String](["Another round.", "Another round.", "Another round.", "Another round."])
 checkValue = "AnotherRound"
 
-[node name="Traitor" parent="." instance=ExtResource("6_c784s")]
-position = Vector2(877, 674)
+[node name="Traitor" type="Node2D" parent="."]
+position = Vector2(981, 651)
+script = ExtResource("10_qb0na")
+
+[node name="Area2D" type="Area2D" parent="Traitor"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Traitor/Area2D"]
+shape = SubResource("CircleShape2D_um8bn")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Traitor"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Traitor/StaticBody2D"]
+shape = SubResource("CircleShape2D_v3qrx")
+
+[node name="LizzyIdle" type="Sprite2D" parent="Traitor"]
+texture_filter = 1
+position = Vector2(0, -48)
+scale = Vector2(8, 8)
+texture = ExtResource("12_x3mdk")
 
 [node name="BubbleSlot" type="Node2D" parent="Traitor"]
-position = Vector2(-150, -150)
+position = Vector2(-35, -150)
 script = ExtResource("4_kk4t1")
 
 [node name="Bubble" type="Node2D" parent="Traitor/BubbleSlot"]
@@ -109,11 +215,30 @@ script = ExtResource("5_f23u2")
 lines = Array[String](["I'm so rich.", "I'm so rich.", "I'm not telling you sober.", "It's in the bank."])
 checkValue = "ImSoRich"
 
-[node name="Drunk" parent="." instance=ExtResource("6_c784s")]
-position = Vector2(621, 663)
+[node name="Drunk" type="Node2D" parent="."]
+position = Vector2(719, 689)
+script = ExtResource("10_qb0na")
+
+[node name="Area2D" type="Area2D" parent="Drunk"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Drunk/Area2D"]
+shape = SubResource("CircleShape2D_um8bn")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Drunk"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Drunk/StaticBody2D"]
+shape = SubResource("CircleShape2D_v3qrx")
+
+[node name="LizzyIdle" type="Sprite2D" parent="Drunk"]
+texture_filter = 1
+position = Vector2(0, -48)
+scale = Vector2(-8, 8)
+texture = ExtResource("13_d2l4x")
 
 [node name="BubbleSlot" type="Node2D" parent="Drunk"]
-position = Vector2(-150, -150)
+position = Vector2(-25, -150)
 script = ExtResource("4_kk4t1")
 
 [node name="Bubble" type="Node2D" parent="Drunk/BubbleSlot"]
@@ -132,14 +257,33 @@ rotates = false
 script = ExtResource("7_blrss")
 move_when = "AnotherRound"
 
-[node name="TavernKeep" parent="TavernPath/PathFollow2D" instance=ExtResource("6_c784s")]
+[node name="TavernKeep" type="Node2D" parent="TavernPath/PathFollow2D"]
+script = ExtResource("10_qb0na")
+
+[node name="Area2D" type="Area2D" parent="TavernPath/PathFollow2D/TavernKeep"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TavernPath/PathFollow2D/TavernKeep/Area2D"]
+shape = SubResource("CircleShape2D_um8bn")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="TavernPath/PathFollow2D/TavernKeep"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TavernPath/PathFollow2D/TavernKeep/StaticBody2D"]
+shape = SubResource("CircleShape2D_v3qrx")
+
+[node name="Penguin" type="Sprite2D" parent="TavernPath/PathFollow2D/TavernKeep"]
+texture_filter = 1
+position = Vector2(0, -48)
+scale = Vector2(8, 8)
+texture = ExtResource("11_3vqma")
 
 [node name="BubbleSlot" type="Node2D" parent="TavernPath/PathFollow2D/TavernKeep"]
-position = Vector2(150, -100)
+position = Vector2(50, -100)
 script = ExtResource("4_kk4t1")
 
 [node name="Bubble" type="Node2D" parent="TavernPath/PathFollow2D/TavernKeep/BubbleSlot"]
-position = Vector2(0, 1)
+position = Vector2(1, 1)
 script = ExtResource("5_f23u2")
 lines = Array[String](["Do you want a drink?", "Do you want a drink?", "Do you want a drink?", "Do you want a drink?"])
 checkValue = "WantADrink"
@@ -151,10 +295,22 @@ checkValue = "WantADrink"
 [connection signal="advance_bubble" from="." to="Traitor/BubbleSlot" method="_on_level_2_advance_bubble"]
 [connection signal="advance_bubble" from="." to="Drunk/BubbleSlot" method="_on_level_2_advance_bubble"]
 [connection signal="advance_bubble" from="." to="TavernPath/PathFollow2D/TavernKeep/BubbleSlot" method="_on_level_2_advance_bubble"]
+[connection signal="body_entered" from="CardPlayer1/Area2D" to="CardPlayer1" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="CardPlayer1/Area2D" to="CardPlayer1" method="_on_area_2d_body_exited"]
 [connection signal="on_slot_changed" from="CardPlayer1/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
+[connection signal="body_entered" from="CardPlayer2/Area2D" to="CardPlayer2" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="CardPlayer2/Area2D" to="CardPlayer2" method="_on_area_2d_body_exited"]
 [connection signal="on_slot_changed" from="CardPlayer2/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
+[connection signal="body_entered" from="CardPlayer3/Area2D" to="CardPlayer3" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="CardPlayer3/Area2D" to="CardPlayer3" method="_on_area_2d_body_exited"]
 [connection signal="on_slot_changed" from="CardPlayer3/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
+[connection signal="body_entered" from="Traitor/Area2D" to="Traitor" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Traitor/Area2D" to="Traitor" method="_on_area_2d_body_exited"]
 [connection signal="on_slot_changed" from="Traitor/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
+[connection signal="body_entered" from="Drunk/Area2D" to="Drunk" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Drunk/Area2D" to="Drunk" method="_on_area_2d_body_exited"]
 [connection signal="on_slot_changed" from="Drunk/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
 [connection signal="on_slot_changed" from="Drunk/BubbleSlot" to="TavernPath/PathFollow2D" method="_on_bubble_slot_on_slot_changed"]
+[connection signal="body_entered" from="TavernPath/PathFollow2D/TavernKeep/Area2D" to="TavernPath/PathFollow2D/TavernKeep" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="TavernPath/PathFollow2D/TavernKeep/Area2D" to="TavernPath/PathFollow2D/TavernKeep" method="_on_area_2d_body_exited"]
 [connection signal="on_slot_changed" from="TavernPath/PathFollow2D/TavernKeep/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
