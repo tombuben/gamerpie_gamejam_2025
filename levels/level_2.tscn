@@ -297,7 +297,6 @@ shape = SubResource("CapsuleShape2D_gktab")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TavernPath/PathFollow2D/TavernKeep/StaticBody2D"]
 position = Vector2(1.25696, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_aswgc")
 
 [node name="Penguin" type="Sprite2D" parent="TavernPath/PathFollow2D/TavernKeep"]
