@@ -18,7 +18,9 @@ Your situation: Moderate
 
 With your silver tongue, you managed to confuse the guard who let you escape the prison. Now, it's time to figure out where the stolen money went.
 
-Next destination: The Golden Mast, a local pirate pub, whete the damned Piratesson likes to hang out."
+Next destination: The Golden Mast, a local pirate pub, whete the damned Piratesson likes to hang out.
+
+Your mission, if you choose to accept it: trick Piratesson to tell where he hid the treasure."
 scene = ExtResource("2_kxljh")
 button = NodePath("SpaceBar")
 
