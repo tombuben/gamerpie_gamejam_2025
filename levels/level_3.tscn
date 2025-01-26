@@ -54,7 +54,7 @@ scale = Vector2(0.35, 0.35)
 polygon = PackedVector2Array(-2188.57, 1385.71, -2054.29, 1731.43, -1802.86, 1062.86, -1788.57, -8.57141, -1097.14, -5.71423, -1097.14, -182.857, -1790.6, -183.214, -1794.29, -500, -249.567, -497.207, -248.571, 37.1429, -205.714, 40, -202.857, -497.143, 1365.71, -494.286, 1369.83, 544.262, 665.714, 545.714, 662.857, 717.143, 1370.5, 714.822, 1371.43, 948.571, -184.378, 941.544, -188.571, 288.571, -251.429, 285.714, -245.714, 940, -1791.43, 934.286, -1674.29, 1585.71, 1594.29, 1274.29, 1780, 754.286, 1868.57, -1351.43, -2302.86, -1268.57)
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("3_7vndf")]
-position = Vector2(681, 742)
+position = Vector2(1074, 356)
 friction = 0.2
 
 [node name="BubbleSlot" type="Node2D" parent="PlayerCharacter"]
@@ -214,7 +214,7 @@ texture = ExtResource("9_7d4ny")
 [node name="LizzyOutline" type="Sprite2D" parent="C1"]
 visible = false
 texture_filter = 1
-position = Vector2(0, -48)
+position = Vector2(20, -36)
 scale = Vector2(8, 8)
 texture = ExtResource("10_bfr58")
 
