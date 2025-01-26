@@ -193,43 +193,43 @@ rotates = false
 script = ExtResource("9_ennpd")
 move_when = "GuardBubble"
 
-[node name="Cellmate" type="Node2D" parent="Run/PathFollow2D" node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
+[node name="PrisonMate" type="Node2D" parent="Run/PathFollow2D" node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
 script = ExtResource("7_7o32d")
 base_sprite = NodePath("Skeleton")
 highlight_sprite = NodePath("Skeleton_Highlighted")
 
-[node name="Area2D" type="Area2D" parent="Run/PathFollow2D/Cellmate"]
+[node name="Area2D" type="Area2D" parent="Run/PathFollow2D/PrisonMate"]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Run/PathFollow2D/Cellmate/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Run/PathFollow2D/PrisonMate/Area2D"]
 position = Vector2(0, -15)
 shape = SubResource("CircleShape2D_um8bn")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Run/PathFollow2D/Cellmate"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Run/PathFollow2D/PrisonMate"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Run/PathFollow2D/Cellmate/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Run/PathFollow2D/PrisonMate/StaticBody2D"]
 position = Vector2(0, -16)
 shape = SubResource("CircleShape2D_v3qrx")
 
-[node name="Skeleton" type="Sprite2D" parent="Run/PathFollow2D/Cellmate"]
+[node name="Skeleton" type="Sprite2D" parent="Run/PathFollow2D/PrisonMate"]
 texture_filter = 1
 position = Vector2(0, -48)
 scale = Vector2(8, 8)
 texture = ExtResource("10_msrvs")
 
-[node name="Skeleton_Highlighted" type="Sprite2D" parent="Run/PathFollow2D/Cellmate"]
+[node name="Skeleton_Highlighted" type="Sprite2D" parent="Run/PathFollow2D/PrisonMate"]
 visible = false
 texture_filter = 1
 position = Vector2(0, -48)
 scale = Vector2(8, 8)
 texture = ExtResource("13_tdbup")
 
-[node name="BubbleSlot" type="Node2D" parent="Run/PathFollow2D/Cellmate"]
+[node name="BubbleSlot" type="Node2D" parent="Run/PathFollow2D/PrisonMate"]
 position = Vector2(0, -200)
 script = ExtResource("3_umfwp")
 
-[node name="Bubble" type="Node2D" parent="Run/PathFollow2D/Cellmate/BubbleSlot"]
+[node name="Bubble" type="Node2D" parent="Run/PathFollow2D/PrisonMate/BubbleSlot"]
 script = ExtResource("4_ise4s")
 lines = Array[String](["Come here, you rat!"])
 checkValue = "CellmateBubble"
@@ -246,6 +246,7 @@ texture = ExtResource("15_wik2p")
 
 [node name="BG-music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_frws4")
+volume_db = -12.0
 autoplay = true
 parameters/looping = true
 
@@ -263,13 +264,14 @@ shape = SubResource("RectangleShape2D_5pdep")
 
 [node name="DialoguePlayer" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
+volume_db = 7.0
 
 [connection signal="body_entered" from="Rat/Area2D" to="Rat" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Rat/Area2D" to="Rat" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="Guard/Area2D" to="Guard" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Guard/Area2D" to="Guard" method="_on_area_2d_body_exited"]
 [connection signal="on_slot_changed" from="Guard/BubbleSlot" to="Door" method="_on_bubble_slot_on_slot_changed"]
-[connection signal="body_entered" from="Run/PathFollow2D/Cellmate/Area2D" to="Run/PathFollow2D/Cellmate" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Run/PathFollow2D/Cellmate/Area2D" to="Run/PathFollow2D/Cellmate" method="_on_area_2d_body_exited"]
-[connection signal="on_slot_changed" from="Run/PathFollow2D/Cellmate/BubbleSlot" to="Run/PathFollow2D" method="_on_bubble_slot_on_slot_changed"]
+[connection signal="body_entered" from="Run/PathFollow2D/PrisonMate/Area2D" to="Run/PathFollow2D/PrisonMate" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Run/PathFollow2D/PrisonMate/Area2D" to="Run/PathFollow2D/PrisonMate" method="_on_area_2d_body_exited"]
+[connection signal="on_slot_changed" from="Run/PathFollow2D/PrisonMate/BubbleSlot" to="Run/PathFollow2D" method="_on_bubble_slot_on_slot_changed"]
 [connection signal="body_entered" from="WinArea" to="WinArea" method="_on_body_entered"]
