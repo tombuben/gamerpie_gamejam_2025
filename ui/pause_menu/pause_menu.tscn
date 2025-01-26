@@ -1,0 +1,158 @@
+[gd_scene load_steps=5 format=3 uid="uid://dnxwmdvcaldbg"]
+
+[ext_resource type="Texture2D" uid="uid://cfsb7d0chol6j" path="res://ui/pause_menu/bublina_non_locked.png" id="1_7xjm2"]
+[ext_resource type="Script" path="res://ui/pause_menu/pause_menu.gd" id="1_dby1q"]
+[ext_resource type="Texture2D" uid="uid://1dn5k0ssf31g" path="res://ui/pause_menu/bublina_locked.png" id="2_isumn"]
+[ext_resource type="Theme" uid="uid://diky4hvq73cit" path="res://ui/swap_box_theme.tres" id="2_xx0f6"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dby1q")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -620.0
+offset_top = -130.0
+offset_right = 620.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 0.517647)
+
+[node name="Resume" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 237.0
+offset_top = -110.0
+offset_right = 461.0
+offset_bottom = -23.0
+grow_vertical = 0
+
+[node name="NoSelect" type="NinePatchRect" parent="Resume"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("2_isumn")
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+
+[node name="Select" type="NinePatchRect" parent="Resume"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("1_7xjm2")
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+
+[node name="MarginContainer" type="MarginContainer" parent="Resume"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 25
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Resume/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_xx0f6")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[center]Resume[/center]"
+scroll_active = false
+
+[node name="Restart" type="MarginContainer" parent="."]
+layout_mode = 2
+offset_left = 486.0
+offset_top = 790.0
+offset_right = 710.0
+offset_bottom = 877.0
+grow_vertical = 0
+
+[node name="NoSelect" type="NinePatchRect" parent="Restart"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("2_isumn")
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+
+[node name="Select" type="NinePatchRect" parent="Restart"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("1_7xjm2")
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+
+[node name="MarginContainer" type="MarginContainer" parent="Restart"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 25
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Restart/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_xx0f6")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[center]Restart[/center]"
+scroll_active = false
+
+[node name="Mute" type="MarginContainer" parent="."]
+layout_mode = 2
+offset_left = 731.0
+offset_top = 790.0
+offset_right = 955.0
+offset_bottom = 877.0
+grow_vertical = 0
+
+[node name="NoSelect" type="NinePatchRect" parent="Mute"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("2_isumn")
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+
+[node name="Select" type="NinePatchRect" parent="Mute"]
+visible = false
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("1_7xjm2")
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+
+[node name="MarginContainer" type="MarginContainer" parent="Mute"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 25
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Mute/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_xx0f6")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[center]Mute[/center]"
+scroll_active = false
