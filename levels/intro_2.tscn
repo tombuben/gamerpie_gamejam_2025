@@ -5,12 +5,9 @@
 [ext_resource type="Script" path="res://ui/text box/text_box.gd" id="3_pyvsm"]
 [ext_resource type="FontFile" uid="uid://deige1vwgfcp2" path="res://ui/text box/Daydream.ttf" id="4_isxlh"]
 [ext_resource type="Script" path="res://scripts/flasher.gd" id="5_847kd"]
+[ext_resource type="Theme" uid="uid://btsjb0dqi43oc" path="res://ui/intro_theme.tres" id="5_h4q3t"]
 
 [sub_resource type="Theme" id="Theme_f6ffa"]
-default_font = ExtResource("4_isxlh")
-default_font_size = 20
-
-[sub_resource type="Theme" id="Theme_sd3r5"]
 default_font = ExtResource("4_isxlh")
 default_font_size = 20
 
@@ -48,7 +45,7 @@ recenter = false
 [node name="Label" type="RichTextLabel" parent="TextBox"]
 clip_contents = false
 layout_mode = 2
-theme = SubResource("Theme_sd3r5")
+theme = ExtResource("5_h4q3t")
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 fit_content = true
 

@@ -4,13 +4,10 @@
 [ext_resource type="FontFile" uid="uid://deige1vwgfcp2" path="res://ui/text box/Daydream.ttf" id="1_wrgbl"]
 [ext_resource type="PackedScene" uid="uid://cxjyxcbcxxydo" path="res://levels/level_1.tscn" id="2_wak5t"]
 [ext_resource type="Script" path="res://scripts/intro_crawl.gd" id="2_y1nqs"]
+[ext_resource type="Theme" uid="uid://btsjb0dqi43oc" path="res://ui/intro_theme.tres" id="5_14cw3"]
 [ext_resource type="Script" path="res://scripts/flasher.gd" id="5_dldwo"]
 
 [sub_resource type="Theme" id="Theme_phwj2"]
-default_font = ExtResource("1_wrgbl")
-default_font_size = 20
-
-[sub_resource type="Theme" id="Theme_1pbxp"]
 default_font = ExtResource("1_wrgbl")
 default_font_size = 20
 
@@ -48,7 +45,7 @@ recenter = false
 [node name="Label" type="RichTextLabel" parent="TextBox"]
 clip_contents = false
 layout_mode = 2
-theme = SubResource("Theme_1pbxp")
+theme = ExtResource("5_14cw3")
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 fit_content = true
 
