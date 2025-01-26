@@ -109,8 +109,8 @@ func toggle_bubble_icon():
 		bubble_ico_active = true
 	
 func _open_swap_ui():
-	var npc_text = get_npc_parent().bubble_slot.bubble.lines[0]
-	var player_text = bubble_slot.bubble.lines[0]
+	var npc_text = get_npc_parent().bubble_slot._get_current_line()
+	var player_text = bubble_slot.bubble._get_current_line()
 	swap_box = swap_box_scene.instantiate()
 	get_tree().root.add_child(swap_box)
 	swap_box.display_text(npc_text, player_text)

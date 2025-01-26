@@ -46,6 +46,8 @@ func _end_dialog():
 		is_dialog_active = false
 	return
 
+func _get_current_line() -> String:
+	return bubble.lines[line_index]
 
 func _bubble_slot_changed(check_value : String):
 	on_slot_changed.emit(check_value)
