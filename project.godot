@@ -24,6 +24,7 @@ AudioDialogManager="*res://scripts/singletons/AudioDialogManager.gd"
 window/size/viewport_width=1200
 window/size/viewport_height=900
 window/size/resizable=false
+window/stretch/mode="viewport"
 
 [input]
 
