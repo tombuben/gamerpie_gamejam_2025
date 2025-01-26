@@ -1,7 +1,8 @@
 [gd_scene load_steps=26 format=3 uid="uid://cxjyxcbcxxydo"]
 
-[ext_resource type="Texture2D" uid="uid://b8jqx1thoeery" path="res://assets/level_1/background.png" id="1_7ekwj"]
 [ext_resource type="PackedScene" uid="uid://b81oqoehgfrkh" path="res://player_character.tscn" id="1_q2wdn"]
+[ext_resource type="Texture2D" uid="uid://danji63i71uc6" path="res://assets/level_1/Cell_noWall_noDoor-small.png" id="1_rlh6b"]
+[ext_resource type="Texture2D" uid="uid://dqloct0jcg755" path="res://assets/level_1/Cell_Wall_DoorOpen-small.png" id="2_iqf0j"]
 [ext_resource type="Script" path="res://scripts/bubble_slot_manager.gd" id="3_umfwp"]
 [ext_resource type="Script" path="res://scripts/dialog_bubble.gd" id="4_ise4s"]
 [ext_resource type="PackedScene" path="res://door.tscn" id="6_0flo3"]
@@ -9,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://dabkwtgflf4rf" path="res://assets/characters/rat.png" id="7_t1qke"]
 [ext_resource type="Texture2D" uid="uid://2fc8b5qt80b6" path="res://assets/characters/rat_outline.png" id="8_1taqk"]
 [ext_resource type="Texture2D" uid="uid://dqedv85lx41li" path="res://assets/characters/guard_jail.png" id="8_n0qxy"]
-[ext_resource type="Texture2D" uid="uid://4bn4bma2ck8t" path="res://assets/level_1/wall.png" id="8_yaoi7"]
 [ext_resource type="Script" path="res://scripts/move_when.gd" id="9_ennpd"]
 [ext_resource type="Texture2D" uid="uid://blcfm1xpn21bv" path="res://assets/characters/guard_outline.png" id="10_78vdi"]
 [ext_resource type="Texture2D" uid="uid://dixd3op3kyt2u" path="res://assets/characters/skeleton.png" id="10_msrvs"]
@@ -52,7 +52,7 @@ y_sort_enabled = true
 texture_filter = 1
 position = Vector2(10, 8)
 scale = Vector2(8, 8)
-texture = ExtResource("1_7ekwj")
+texture = ExtResource("1_rlh6b")
 centered = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -69,7 +69,7 @@ position = Vector2(0, 708)
 texture_filter = 1
 position = Vector2(0, -700)
 scale = Vector2(8, 8)
-texture = ExtResource("8_yaoi7")
+texture = ExtResource("2_iqf0j")
 centered = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Wall"]
