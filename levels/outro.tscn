@@ -48,6 +48,7 @@ clip_contents = false
 layout_mode = 2
 theme = ExtResource("4_uui6c")
 theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_constants/line_separation = 12
 fit_content = true
 
 [node name="LetterDisplayTimer" type="Timer" parent="TextBox"]
