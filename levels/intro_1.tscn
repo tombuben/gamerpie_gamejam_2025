@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://b5o03n2r0xmnc"]
 
-[ext_resource type="Script" path="res://ui/text box/text_box.gd" id="1_fo401"]
+[ext_resource type="Script" path="res://scripts/text_box.gd" id="1_fo401"]
 [ext_resource type="FontFile" uid="uid://deige1vwgfcp2" path="res://ui/text box/Daydream.ttf" id="1_wrgbl"]
 [ext_resource type="PackedScene" uid="uid://cxjyxcbcxxydo" path="res://levels/level_1.tscn" id="2_wak5t"]
 [ext_resource type="Script" path="res://scripts/intro_crawl.gd" id="2_y1nqs"]

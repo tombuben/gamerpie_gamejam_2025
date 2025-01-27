@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/intro_crawl.gd" id="1_nxjmx"]
 [ext_resource type="PackedScene" uid="uid://c5icoj7eo4vaf" path="res://levels/level_3.tscn" id="2_x2b3i"]
-[ext_resource type="Script" path="res://ui/text box/text_box.gd" id="3_1j21l"]
+[ext_resource type="Script" path="res://scripts/text_box.gd" id="3_1j21l"]
 [ext_resource type="FontFile" uid="uid://deige1vwgfcp2" path="res://ui/text box/Daydream.ttf" id="4_tbbna"]
 [ext_resource type="Script" path="res://scripts/flasher.gd" id="5_bt47j"]
 [ext_resource type="Theme" uid="uid://btsjb0dqi43oc" path="res://ui/intro_theme.tres" id="5_cqx0u"]

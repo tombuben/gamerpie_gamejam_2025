@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://brvly23kxkjhu"]
 
 [ext_resource type="Script" path="res://scripts/intro_crawl.gd" id="1_d2j3e"]
-[ext_resource type="Script" path="res://ui/text box/text_box.gd" id="3_b7kwo"]
+[ext_resource type="Script" path="res://scripts/text_box.gd" id="3_b7kwo"]
 [ext_resource type="FontFile" uid="uid://deige1vwgfcp2" path="res://ui/text box/Daydream.ttf" id="4_krb5u"]
 [ext_resource type="Theme" uid="uid://btsjb0dqi43oc" path="res://ui/intro_theme.tres" id="4_uui6c"]
 [ext_resource type="Script" path="res://scripts/flasher.gd" id="5_7mxqf"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dnxwmdvcaldbg"]
+[gd_scene load_steps=6 format=3 uid="uid://dnxwmdvcaldbg"]
 
 [ext_resource type="Texture2D" uid="uid://cfsb7d0chol6j" path="res://ui/pause_menu/bublina_non_locked.png" id="1_7xjm2"]
-[ext_resource type="Script" path="res://ui/pause_menu/pause_menu.gd" id="1_dby1q"]
+[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_dby1q"]
 [ext_resource type="Texture2D" uid="uid://1dn5k0ssf31g" path="res://ui/pause_menu/bublina_locked.png" id="2_isumn"]
 [ext_resource type="Theme" uid="uid://diky4hvq73cit" path="res://ui/swap_box_theme.tres" id="2_xx0f6"]
+[ext_resource type="Script" path="res://scripts/mute_button.gd" id="5_5pjaw"]
 
 [node name="PauseMenu" type="Control" node_paths=PackedStringArray("objective")]
 process_mode = 2
@@ -116,13 +117,16 @@ bbcode_enabled = true
 text = "[center]Restart[/center]"
 scroll_active = false
 
-[node name="Mute" type="MarginContainer" parent="."]
+[node name="Mute" type="MarginContainer" parent="." node_paths=PackedStringArray("mute", "unmute")]
 layout_mode = 2
 offset_left = 731.0
 offset_top = 790.0
 offset_right = 955.0
 offset_bottom = 877.0
 grow_vertical = 0
+script = ExtResource("5_5pjaw")
+mute = NodePath("MarginContainer/Mute")
+unmute = NodePath("MarginContainer/Unmute")
 
 [node name="NoSelect" type="NinePatchRect" parent="Mute"]
 texture_filter = 1
@@ -150,12 +154,21 @@ theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 25
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Mute/MarginContainer"]
+[node name="Mute" type="RichTextLabel" parent="Mute/MarginContainer"]
 layout_mode = 2
 theme = ExtResource("2_xx0f6")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 bbcode_enabled = true
 text = "[center]Mute[/center]"
+scroll_active = false
+
+[node name="Unmute" type="RichTextLabel" parent="Mute/MarginContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("2_xx0f6")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[center]Unmute[/center]"
 scroll_active = false
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

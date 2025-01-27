@@ -49,13 +49,15 @@ func _input(event):
 				process_button_select()
 		
 
-func move_select_left():
-	if select_index > 0:
-			select_index -= 1
+func move_select_left():			
+	select_index -= 1
+	if select_index < 0:
+		select_index = buttons.size() -1
 			
-func move_select_right():
-	if select_index < buttons.size() -1:
-			select_index += 1
+func move_select_right():	
+	select_index += 1
+	if select_index > buttons.size() -1:
+		select_index = 0
 			
 func set_select():
 	for button in buttons:
@@ -87,11 +89,7 @@ func Restart():
 	return
 	
 func Mute():
-	#var bg_music = get_tree().get_root().get_node("BG-music")
-	#var dialogue_player = get_tree().get_root().get_node("DialoguePlayer")
-	
-	var master_bus_index = AudioServer.get_bus_index("Master")
-	AudioServer.set_bus_mute(master_bus_index, !AudioServer.is_bus_mute(master_bus_index))
+	mute.toggle_mute()
 	return
 	
 func close_menu():
