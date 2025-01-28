@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://crrtoqghkde4t"]
+[gd_scene load_steps=32 format=3 uid="uid://crrtoqghkde4t"]
 
 [ext_resource type="Script" path="res://scripts/state_checker.gd" id="1_jttpe"]
 [ext_resource type="PackedScene" uid="uid://dmdwu8xu7h45d" path="res://levels/intro_3.tscn" id="2_37u5h"]
@@ -38,18 +38,24 @@ radius = 41.0488
 [sub_resource type="CircleShape2D" id="CircleShape2D_tx3fw"]
 radius = 58.0345
 
-[sub_resource type="Curve2D" id="Curve2D_fl1dp"]
-_data = {
-"points": PackedVector2Array(78.7882, 2.37134, -78.7882, -2.37134, 3.78998, 7.98999, 94.1901, -46.1143, -94.1901, 46.1143, -260.21, 35.99, 100, 0, -100, 0, -63.0374, 312.99, 7.06425, 55.4813, -7.06425, -55.4813, -258.21, 69.99, -103.975, -16.0065, 103.975, 16.0065, -30.357, -0.0100098)
-}
-point_count = 5
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gktab"]
 radius = 61.716
 height = 254.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aswgc"]
 size = Vector2(88.2375, 76)
+
+[sub_resource type="Curve2D" id="Curve2D_pedc7"]
+_data = {
+"points": PackedVector2Array(220.122, 27.8107, -220.122, -27.8107, 980.417, 274, -157.268, -17.1564, 157.268, 17.1564, 891.09, 525, 189.375, -12.4735, -189.375, 12.4735, 862.767, 417, -58.0269, 15.6669, 58.0269, -15.6669, 820.282, 280, 3.41335, -21.5855, -3.41335, 21.5855, 980.417, 274)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_fl1dp"]
+_data = {
+"points": PackedVector2Array(220.122, 27.8107, -220.122, -27.8107, 980.417, 274, -14.9514, -66.4503, 14.9514, 66.4503, 577.357, 331, -38.3053, 12.8817, 38.3053, -12.8817, 752.742, 302, 57.6476, 3.82968, -57.6476, -3.82968, 913.966, 255, 2.65483, -13.9261, -2.65483, 13.9261, 980.417, 274)
+}
+point_count = 5
 
 [node name="Level2" type="Node2D"]
 y_sort_enabled = true
@@ -65,7 +71,7 @@ NodePath("Drunk/BubbleSlot"): "YouAreLying"
 level23 = {
 NodePath("Traitor/BubbleSlot"): "ImSoRich",
 NodePath("Drunk/BubbleSlot"): "AnotherRound",
-NodePath("TavernPath/PathFollow2D/TavernKeep/BubbleSlot"): "WantADrink"
+NodePath("TavernPaths/TavernKeep/BubbleSlot"): "WantADrink"
 }
 num_of_states = 3
 scene = ExtResource("2_37u5h")
@@ -328,59 +334,80 @@ lines = Array[String](["You're lying.", "Where did you hide it?", "Where did you
 checkValue = "YouAreLying"
 bubble_id = 5
 
-[node name="TavernPath" type="Path2D" parent="."]
+[node name="TavernPaths" type="Node2D" parent="."]
 y_sort_enabled = true
-position = Vector2(928.867, 267.01)
+
+[node name="TavernKeep" type="Node2D" parent="TavernPaths" node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
+position = Vector2(900, 284)
 scale = Vector2(0.917977, 1)
-curve = SubResource("Curve2D_fl1dp")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="TavernPath"]
-position = Vector2(3.78998, 7.98999)
-rotates = false
-script = ExtResource("7_blrss")
-move_when = "AnotherRound"
-
-[node name="TavernKeep" type="Node2D" parent="TavernPath/PathFollow2D" node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
 script = ExtResource("10_qb0na")
 base_sprite = NodePath("Penguin")
 highlight_sprite = NodePath("PenguinOutline")
 
-[node name="Area2D" type="Area2D" parent="TavernPath/PathFollow2D/TavernKeep"]
+[node name="Area2D" type="Area2D" parent="TavernPaths/TavernKeep"]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TavernPath/PathFollow2D/TavernKeep/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TavernPaths/TavernKeep/Area2D"]
 shape = SubResource("CapsuleShape2D_gktab")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="TavernPath/PathFollow2D/TavernKeep"]
+[node name="StaticBody2D" type="StaticBody2D" parent="TavernPaths/TavernKeep"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TavernPath/PathFollow2D/TavernKeep/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TavernPaths/TavernKeep/StaticBody2D"]
 position = Vector2(1.25696, 0)
 shape = SubResource("RectangleShape2D_aswgc")
 
-[node name="Penguin" type="Sprite2D" parent="TavernPath/PathFollow2D/TavernKeep"]
+[node name="Penguin" type="Sprite2D" parent="TavernPaths/TavernKeep"]
 texture_filter = 1
 position = Vector2(0, -48)
 scale = Vector2(8, 8)
 texture = ExtResource("11_3vqma")
 
-[node name="PenguinOutline" type="Sprite2D" parent="TavernPath/PathFollow2D/TavernKeep"]
+[node name="PenguinOutline" type="Sprite2D" parent="TavernPaths/TavernKeep"]
 visible = false
 texture_filter = 1
 position = Vector2(0, -48)
 scale = Vector2(8, 8)
 texture = ExtResource("20_1swnn")
 
-[node name="BubbleSlot" type="Node2D" parent="TavernPath/PathFollow2D/TavernKeep"]
+[node name="BubbleSlot" type="Node2D" parent="TavernPaths/TavernKeep"]
 position = Vector2(0, -200)
 script = ExtResource("4_kk4t1")
 
-[node name="Bubble" type="Node2D" parent="TavernPath/PathFollow2D/TavernKeep/BubbleSlot"]
+[node name="Bubble" type="Node2D" parent="TavernPaths/TavernKeep/BubbleSlot"]
 position = Vector2(1, 1)
 script = ExtResource("5_f23u2")
 lines = Array[String](["Do you want a drink?", "Do you want a drink?", "Do you want a drink?", "Do you want a drink?"])
 checkValue = "WantADrink"
 bubble_id = 6
+
+[node name="TavernPath1" type="Path2D" parent="TavernPaths"]
+y_sort_enabled = true
+position = Vector2(0, 10)
+scale = Vector2(0.917977, 1)
+curve = SubResource("Curve2D_pedc7")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="TavernPaths/TavernPath1" node_paths=PackedStringArray("move_what")]
+position = Vector2(980.417, 274)
+rotates = false
+loop = false
+script = ExtResource("7_blrss")
+move_when = "AnotherRound"
+move_what = NodePath("../../TavernKeep")
+
+[node name="TavernPath2" type="Path2D" parent="TavernPaths"]
+y_sort_enabled = true
+position = Vector2(0, 10)
+scale = Vector2(0.917977, 1)
+curve = SubResource("Curve2D_fl1dp")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="TavernPaths/TavernPath2" node_paths=PackedStringArray("move_what")]
+position = Vector2(980.417, 274)
+rotates = false
+loop = false
+script = ExtResource("7_blrss")
+move_when = "AnotherRound"
+move_what = NodePath("../../TavernKeep")
 
 [node name="DialoguePlayer" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
@@ -392,15 +419,15 @@ volume_db = 3.0
 autoplay = true
 parameters/looping = true
 
-[node name="Node2D2" type="Node2D" parent="."]
+[node name="Background" type="Node2D" parent="."]
 z_index = -1000
 position = Vector2(-39, -33)
 
-[node name="ColorRect" type="ColorRect" parent="Node2D2"]
-offset_left = -25.0
-offset_top = -62.0
-offset_right = 1558.0
-offset_bottom = 1365.0
+[node name="ColorRect" type="ColorRect" parent="Background"]
+offset_left = 2.0
+offset_top = -98.0
+offset_right = 1585.0
+offset_bottom = 1329.0
 color = Color(0, 0, 0, 1)
 
 [connection signal="advance_bubble" from="." to="PlayerCharacter/BubbleSlot" method="_on_level_2_advance_bubble"]
@@ -409,23 +436,27 @@ color = Color(0, 0, 0, 1)
 [connection signal="advance_bubble" from="." to="CardPlayer3/BubbleSlot" method="_on_level_2_advance_bubble"]
 [connection signal="advance_bubble" from="." to="Traitor/BubbleSlot" method="_on_level_2_advance_bubble"]
 [connection signal="advance_bubble" from="." to="Drunk/BubbleSlot" method="_on_level_2_advance_bubble"]
-[connection signal="advance_bubble" from="." to="TavernPath/PathFollow2D/TavernKeep/BubbleSlot" method="_on_level_2_advance_bubble"]
+[connection signal="advance_bubble" from="." to="TavernPaths/TavernKeep/BubbleSlot" method="_on_level_2_advance_bubble"]
 [connection signal="body_entered" from="CardPlayer1/Area2D" to="CardPlayer1" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="CardPlayer1/Area2D" to="CardPlayer1" method="_on_area_2d_body_exited"]
 [connection signal="on_slot_changed" from="CardPlayer1/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
+[connection signal="on_slot_changed" from="CardPlayer1/BubbleSlot" to="TavernPaths/TavernPath2/PathFollow2D" method="_on_bubble_slot_on_slot_changed"]
 [connection signal="body_entered" from="CardPlayer2/Area2D" to="CardPlayer2" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="CardPlayer2/Area2D" to="CardPlayer2" method="_on_area_2d_body_exited"]
 [connection signal="on_slot_changed" from="CardPlayer2/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
+[connection signal="on_slot_changed" from="CardPlayer2/BubbleSlot" to="TavernPaths/TavernPath2/PathFollow2D" method="_on_bubble_slot_on_slot_changed"]
 [connection signal="body_entered" from="CardPlayer3/Area2D" to="CardPlayer3" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="CardPlayer3/Area2D" to="CardPlayer3" method="_on_area_2d_body_exited"]
 [connection signal="on_slot_changed" from="CardPlayer3/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
+[connection signal="on_slot_changed" from="CardPlayer3/BubbleSlot" to="TavernPaths/TavernPath2/PathFollow2D" method="_on_bubble_slot_on_slot_changed"]
 [connection signal="body_entered" from="Traitor/Area2D" to="Traitor" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Traitor/Area2D" to="Traitor" method="_on_area_2d_body_exited"]
 [connection signal="on_slot_changed" from="Traitor/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
+[connection signal="on_slot_changed" from="Traitor/BubbleSlot" to="TavernPaths/TavernPath1/PathFollow2D" method="_on_bubble_slot_on_slot_changed"]
 [connection signal="body_entered" from="Drunk/Area2D" to="Drunk" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Drunk/Area2D" to="Drunk" method="_on_area_2d_body_exited"]
 [connection signal="on_slot_changed" from="Drunk/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
-[connection signal="on_slot_changed" from="Drunk/BubbleSlot" to="TavernPath/PathFollow2D" method="_on_bubble_slot_on_slot_changed"]
-[connection signal="body_entered" from="TavernPath/PathFollow2D/TavernKeep/Area2D" to="TavernPath/PathFollow2D/TavernKeep" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="TavernPath/PathFollow2D/TavernKeep/Area2D" to="TavernPath/PathFollow2D/TavernKeep" method="_on_area_2d_body_exited"]
-[connection signal="on_slot_changed" from="TavernPath/PathFollow2D/TavernKeep/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
+[connection signal="on_slot_changed" from="Drunk/BubbleSlot" to="TavernPaths/TavernPath1/PathFollow2D" method="_on_bubble_slot_on_slot_changed"]
+[connection signal="body_entered" from="TavernPaths/TavernKeep/Area2D" to="TavernPaths/TavernKeep" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="TavernPaths/TavernKeep/Area2D" to="TavernPaths/TavernKeep" method="_on_area_2d_body_exited"]
+[connection signal="on_slot_changed" from="TavernPaths/TavernKeep/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]

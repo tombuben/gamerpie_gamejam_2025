@@ -20,20 +20,16 @@
 			"name":"Worker2",
 			"lines": [
 				{
-			        "line": "Here's your money.",
-			        "filename": "_HeresYourMoney_FINAL.mp3"
-			    },
+					"line": "Here's your money.",
+					"filename": "_HeresYourMoney_FINAL.mp3"
+				},
 				{
-			        "line": "Here's your money.",
-			        "filename": "_HeresYourMoney_FINAL.mp3"
-			    },
+					"line": "Here's your money.",
+					"filename": "_HeresYourMoney_FINAL.mp3"
+				},
 				{
-			        "line": "Here's your money.",
-			        "filename": "_HeresYourMoney_FINAL.mp3"
-			    },
-				{
-			        "line": "Here's your money, Mr. Piratesson!"
-			    }
+					"line": "Here's your money, Mr. Piratesson",
+				},
 			]
 		},
 		{
@@ -41,125 +37,125 @@
 			"name":"Customer2",
 			"lines": [
 				{
-			        "line": "Vault number: 1234",
-			        "filename": "_VaultNumber1234_FINAL.mp3"
-			    },
-			    {
-			        "line": "Vault number: 1234",
-			        "filename": "_VaultNumber1234_FINAL.mp3"
-			    },
-			    {
-			        "line": "Vault number: 1234",
-			        "filename": "_VaultNumber1234_FINAL.mp3"
-			    }
+					"line": "Vault number: 1234",
+					"filename": "_VaultNumber1234_FINAL.mp3"
+				},
+				{
+					"line": "Vault number: 1234",
+					"filename": "_VaultNumber1234_FINAL.mp3"
+				},
+				{
+					"line": "Vault number: 1234",
+					"filename": "_VaultNumber1234_FINAL.mp3"
+				}
 			]
 		},
 		{
 			"id": 3,
 			"name":"Worker1",
 			"lines": [
-			    {
-			        "line": "Vault number: 4321",
-        			"filename": "_VaultNumber4321_FINAL.mp3"
-			    },
-			    {
-			        "line": "Vault number: 9999",
-        			"filename": "_VaultNumber9999_FINAL.mp3"
-			    },
-			    {
-			        "line": "Vault number: 9999",
-        			"filename": "_VaultNumber9999_FINAL.mp3"
-			    }
+				{
+					"line": "Vault number: 4321",
+					"filename": "_VaultNumber4321_FINAL.mp3"
+				},
+				{
+					"line": "Vault number: 9999",
+					"filename": "_VaultNumber9999_FINAL.mp3"
+				},
+				{
+					"line": "Vault number: 9999",
+					"filename": "_VaultNumber9999_FINAL.mp3"
+				}
 			]
 		},
 		{
 			"id": 4,
 			"name":"Customer1",
 			"lines": [
-			    {
-			        "line": "Norman Person",
-			        "filename": "_NormanPerson_FINAL.mp3"
-			    },
-			    {
-			        "line": "Norman Person",
-			        "filename": "_NormanPerson_FINAL.mp3"
-			    },
-			    {
-			        "line": "Norman Person",
-			        "filename": "_NormanPerson_FINAL.mp3"
-			    }
+				{
+					"line": "Norman Person",
+					"filename": "_NormanPerson_FINAL.mp3"
+				},
+				{
+					"line": "Norman Person",
+					"filename": "_NormanPerson_FINAL.mp3"
+				},
+				{
+					"line": "Norman Person",
+					"filename": "_NormanPerson_FINAL.mp3"
+				}
 			]
 		},
 		{
 			"id": 5,
 			"name":"Parrot",
 			"lines": [
-			    {
-			        "line": "News!",
-			        "filename": "_News_FINAL.mp3"
-			    },
-			    {
-			        "line": "News!",
-			        "filename": "_News_FINAL.mp3"
-			    },
-			    {
-			        "line": "News!",
-			        "filename": "_News_FINAL.mp3"
-			    }
+				{
+					"line": "News!",
+					"filename": "_News_FINAL.mp3"
+				},
+				{
+					"line": "News!",
+					"filename": "_News_FINAL.mp3"
+				},
+				{
+					"line": "News!",
+					"filename": "_News_FINAL.mp3"
+				}
 			]
 		},
 		{
 			"id": 6,
 			"name":"Parrot",
 			"lines": [
-			    {
-			        "line": "Big treasure stolen!",
-			        "filename": "_BigTreasureStolen_FINAL.mp3"
-			    },
-			    {
-			        "line": "Big treasure stolen!",
-			        "filename": "_BigTreasureStolen_FINAL.mp3"
-			    },
-			    {
-			        "line": "Big treasure stolen!",
-			        "filename": "_BigTreasureStolen_FINAL.mp3"
-			    }
+				{
+					"line": "Big treasure stolen!",
+					"filename": "_BigTreasureStolen_FINAL.mp3"
+				},
+				{
+					"line": "Big treasure stolen!",
+					"filename": "_BigTreasureStolen_FINAL.mp3"
+				},
+				{
+					"line": "Big treasure stolen!",
+					"filename": "_BigTreasureStolen_FINAL.mp3"
+				}
 			]
 		},
 		{
 			"id": 7,
 			"name":"Parrot",
 			"lines": [
-			    {
-			        "line": "Suspect:",
-			        "filename": "_Suspect_FINAL.mp3"
-			    },
-			    {
-			        "line": "Suspect:",
-			        "filename": "_Suspect_FINAL.mp3"
-			    },
-			    {
-			        "line": "Suspect:",
-			        "filename": "_Suspect_FINAL.mp3"
-			    }
+				{
+					"line": "Suspect:",
+					"filename": "_Suspect_FINAL.mp3"
+				},
+				{
+					"line": "Suspect:",
+					"filename": "_Suspect_FINAL.mp3"
+				},
+				{
+					"line": "Suspect:",
+					"filename": "_Suspect_FINAL.mp3"
+				}
 			]
 		},
 		{
 			"id": 8,
 			"name":"Parrot",
 			"lines": [
-			    {
-			        "line": "Pirate Piratesson",
-			        "filename": "_PiratePiratesson_FINAL.mp3"
-			    },
-			    {
-			        "line": "Pirate Piratesson",
-			        "filename": "_PiratePiratesson_FINAL.mp3"
-			    },
-			    {
-			        "line": "Pirate Piratesson",
-			        "filename": "_PiratePiratesson_FINAL.mp3"
-			    }
+				{
+					"line": "Pirate Piratesson",
+					"filename": "_PiratePiratesson_FINAL.mp3"
+				},
+				{
+					"line": "Pirate Piratesson",
+					"filename": "_PiratePiratesson_FINAL.mp3"
+				},
+				{
+					"line": "Pirate Piratesson",
+					"filename": "_PiratePiratesson_FINAL.mp3"
+				}
 			]
 		}
 	]

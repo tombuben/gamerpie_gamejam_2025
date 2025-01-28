@@ -11,9 +11,16 @@ var line_audio_dict : Dictionary
 func _ready():
 	var level_name = String(get_tree().root.get_child(2).name)
 	current_level = level_name.substr(level_name.length() - 1).to_int()
+	load_current_level()
+
+func load_current_level():
 	level_dialog_dict = load_json(current_level)
 	map_dialog_lines()
 	map_dialog_audio()
+	
+func next_level():
+	current_level += 1
+	load_current_level()	
 
 func get_dialog_line(dialog_id : int, line_index : int):
 	var dialog_lines = get_lines_dict_by_id(dialog_id)
@@ -47,13 +54,13 @@ func load_json(curent_level : int) -> Dictionary:
 	# Check if the file exists
 	if not FileAccess.file_exists(file_path):
 		print("File does not exist: ", file_path)
-		return {}
+		return {"characters": []}
 
 	# Open the file for reading
 	var file = FileAccess.open(file_path, FileAccess.READ)
 	if not file:
 		print("Failed to open file: ", file_path)
-		return {}
+		return {"characters": []}
 
 	# Read the contents of the file as text
 	var json_string = file.get_as_text()

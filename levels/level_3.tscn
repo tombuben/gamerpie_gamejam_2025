@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://scripts/papouch_manager.gd" id="8_dkm4x"]
 [ext_resource type="Texture2D" uid="uid://cgn0x4ivs25v4" path="res://assets/level_3/characters/HumanFrontSmall.png" id="8_hhst3"]
 [ext_resource type="Script" path="res://scripts/npc_character.gd" id="8_kxejn"]
-[ext_resource type="PackedScene" path="res://door.tscn" id="9_06q2w"]
+[ext_resource type="PackedScene" uid="uid://do3g3w77pww5q" path="res://door.tscn" id="9_06q2w"]
 [ext_resource type="Texture2D" uid="uid://bp44jksf6bbh3" path="res://assets/level_3/characters/New_Piskel_9.png" id="9_7d4ny"]
 [ext_resource type="Texture2D" uid="uid://dnk23jeysrggw" path="res://assets/level_3/characters/New_Piskel_16.png" id="9_43078"]
 [ext_resource type="Texture2D" uid="uid://bxk3pp0jdul0a" path="res://assets/level_3/characters/HumanFrontSmall_outline.png" id="9_lkc1g"]
@@ -117,7 +117,7 @@ script = ExtResource("4_vbdgx")
 
 [node name="Bubble" type="Node2D" parent="Worker2/BubbleSlot"]
 script = ExtResource("5_ahv56")
-lines = Array[String](["Here's your money.", "Here's your money.", "Here's your money, Mr. Piratesson!"])
+lines = Array[String](["Here's your money.", "Here's your money.", "Here's your money, Mr. Piratesson!", "Here's your money, Mr. Piratesson!"])
 checkValue = "MoneyHere"
 bubble_id = 1
 

@@ -102,8 +102,8 @@ func _bubble_switch():
 	other_bubble_slot = closest_npc.bubble_slot
 	other_bubble_slot._bubble_slot_changed(other_bubble_slot.bubble.checkValue)
 	
-	_clean_npc_storage(closest_npc)
 	_close_swap_ui()
+	_open_swap_ui()
 	
 func _clean_npc_storage(body):
 	npc_parents.erase(body)
