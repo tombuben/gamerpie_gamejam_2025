@@ -119,6 +119,7 @@ script = ExtResource("4_vbdgx")
 script = ExtResource("5_ahv56")
 lines = Array[String](["Here's your money.", "Here's your money.", "Here's your money, Mr. Piratesson!"])
 checkValue = "MoneyHere"
+bubble_id = 1
 
 [node name="Customer2" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
 position = Vector2(244, 449)
@@ -160,6 +161,7 @@ position = Vector2(11, 69)
 script = ExtResource("5_ahv56")
 lines = Array[String](["Vault number: 1234", "Vault number: 1234", "Vault number: 1234"])
 checkValue = ""
+bubble_id = 2
 
 [node name="Worker1" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
 position = Vector2(981, 715)
@@ -200,6 +202,7 @@ script = ExtResource("4_vbdgx")
 script = ExtResource("5_ahv56")
 lines = Array[String](["Vault number: 4321", "Vault number: 9999", "Vault number: 9999"])
 checkValue = "Code"
+bubble_id = 3
 
 [node name="Customer1" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
 position = Vector2(964, 570)
@@ -240,6 +243,7 @@ script = ExtResource("4_vbdgx")
 script = ExtResource("5_ahv56")
 lines = Array[String](["Norman Person", "Norman Person", "Norman Person"])
 checkValue = ""
+bubble_id = 4
 
 [node name="PapouchManager" type="Node2D" parent="." node_paths=PackedStringArray("Player", "P1", "P2", "P3", "P4")]
 position = Vector2(90, 4)
@@ -288,6 +292,7 @@ script = ExtResource("4_vbdgx")
 script = ExtResource("5_ahv56")
 lines = Array[String](["News!", "News!", "News!"])
 checkValue = ""
+bubble_id = 5
 
 [node name="LizzyIdle" type="Sprite2D" parent="Parrot1wrapper/Parrot"]
 texture_filter = 1
@@ -330,6 +335,7 @@ script = ExtResource("4_vbdgx")
 script = ExtResource("5_ahv56")
 lines = Array[String](["Big treasure stolen!", "Big treasure stolen!", "Big treasure stolen!"])
 checkValue = ""
+bubble_id = 6
 
 [node name="LizzyIdle" type="Sprite2D" parent="Parrot2wrapper/Parrot"]
 texture_filter = 1
@@ -372,6 +378,7 @@ script = ExtResource("4_vbdgx")
 script = ExtResource("5_ahv56")
 lines = Array[String](["Suspect:", "Suspect:", "Suspect:"])
 checkValue = ""
+bubble_id = 7
 
 [node name="LizzyIdle" type="Sprite2D" parent="Parrot3wrapper/Parrot"]
 texture_filter = 1
@@ -427,6 +434,7 @@ script = ExtResource("4_vbdgx")
 script = ExtResource("5_ahv56")
 lines = Array[String](["Pirate Piratesson", "Pirate Piratesson", "Pirate Piratesson"])
 checkValue = "PiratePiratesson"
+bubble_id = 8
 
 [connection signal="advance_bubble" from="." to="PlayerCharacter/BubbleSlot" method="_on_level_2_advance_bubble"]
 [connection signal="advance_bubble" from="." to="Worker2/BubbleSlot" method="_on_level_2_advance_bubble"]

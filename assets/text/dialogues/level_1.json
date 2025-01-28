@@ -1,0 +1,43 @@
+{
+	"characters": [
+		{
+			"id": 0,
+			"name":"Player",
+			"lines": [
+				{
+					"line":"....",
+				}
+			]
+		},
+		{
+			"id": 1,
+			"name":"Guard",
+			"lines": [
+				{
+					"line":"You are never getting out of here!",
+					"filename":"_YouAreNever_FINAL.wav"
+				}
+			]
+		},
+		{
+			"id": 2,
+			"name":"Rat",
+			"lines": [
+				{
+					"line":"Squeek!",
+					"filename":"_Squeek_FINAL.wav"
+				}
+			]
+		},
+		{
+			"id": 3,
+			"name":"PrisonMate",
+			"lines": [
+				{
+					"line":"Come here, you rat!",
+					"filename":"_ComeHereYouRat_FINAL.wav"
+				}
+			]
+		}
+	]
+}

@@ -138,8 +138,9 @@ script = ExtResource("3_umfwp")
 
 [node name="Bubble" type="Node2D" parent="Rat/BubbleSlot"]
 script = ExtResource("4_ise4s")
-lines = Array[String](["Squeek!"])
+lines = Array[String]([])
 checkValue = ""
+bubble_id = 2
 
 [node name="Guard" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
 position = Vector2(644, 736)
@@ -181,6 +182,7 @@ script = ExtResource("3_umfwp")
 script = ExtResource("4_ise4s")
 lines = Array[String](["You are never getting out of here!"])
 checkValue = "GuardBubble"
+bubble_id = 1
 
 [node name="Run" type="Path2D" parent="."]
 y_sort_enabled = true
@@ -233,6 +235,7 @@ script = ExtResource("3_umfwp")
 script = ExtResource("4_ise4s")
 lines = Array[String](["Come here, you rat!"])
 checkValue = "CellmateBubble"
+bubble_id = 3
 
 [node name="Door" parent="." instance=ExtResource("6_0flo3")]
 position = Vector2(579, 709)

@@ -6,3 +6,5 @@ extends Node2D
 ]
 
 @export var checkValue : String = "Test"
+
+@export var bubble_id : int
