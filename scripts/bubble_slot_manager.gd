@@ -16,6 +16,9 @@ var line_index = 0
 
 var is_dialog_active = false
 
+func _ready():
+	bubble.lines = DialogManager.get_lines_array_by_id(bubble.bubble_id)
+
 func start_dialog(showSwap: bool = false):	
 	var parent = get_parent()
 	bubble = $Bubble
@@ -32,7 +35,7 @@ func start_dialog(showSwap: bool = false):
 	#PREPARED FOR AUDIO DIALOGUES
 	var npc_name = get_parent().name
 	AudioDialogManager.audio_player = %DialoguePlayer
-	AudioDialogManager.play_dialogue_audio(dialog_line, npc_name)
+	AudioDialogManager.play_dialogue_audio_new(dialog_line, npc_name)
 	
 	is_dialog_active = true
 	

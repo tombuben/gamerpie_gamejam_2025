@@ -1,0 +1,150 @@
+{
+	"characters": [
+		{
+			"id": 0,
+			"name":"Player",
+			"lines": [
+				{
+					"line":"....",
+				},
+				{
+					"line":"....",
+				},
+				{
+					"line":"....",
+				},
+				{
+					"line":"....",
+				}
+			]
+		},
+		{
+			"id": 1,
+			"name":"CardPlayer1",
+			"lines": [
+				{
+					"line":"....",
+				},
+				{
+					"line":"....",
+				},
+				{
+					"line":"....",
+				},
+				{
+					"line":"....",
+				}
+			]
+		},
+		{
+			"id": 2,
+			"name":"CardPlayer2",
+			"lines": [
+				{
+			        "line": "I win again!",
+			        "filename": "_IWinAgain_FINAL.mp3"
+			    },
+			    {
+			        "line": "I win again!",
+			        "filename": "_IWinAgain_FINAL.mp3"
+			    },
+			    {
+			        "line": "I win again!",
+			        "filename": "_IWinAgain_FINAL.mp3"
+			    },
+			    {
+			        "line": "I win again!",
+			        "filename": "_IWinAgain_FINAL.mp3"
+			    },
+			]
+		},
+		{
+			"id": 3,
+			"name":"CardPlayer3",
+			"lines": [
+			    {
+			        "line": "Another round.",
+			        "filename": "_AnotherRound_FINAL.mp3"
+			    },
+			    {
+			        "line": "Another round.",
+			        "filename": "_AnotherRound_FINAL.mp3"
+			    },
+			    {
+			        "line": "Another round.",
+			        "filename": "_AnotherRound_FINAL.mp3"
+			    },
+			    {
+			        "line": "Another round.",
+			        "filename": "_AnotherRound_FINAL.mp3"
+			    }
+			]
+		},
+		{
+			"id": 4,
+			"name":"Traitor",
+			"lines": [
+			    {
+			        "line": "I'm so rich.",
+			        "filename": "_IAmSoRich_FINAL.mp3"
+			    },
+			    {
+			        "line": "I'm so rich.",
+			        "filename": "_IAmSoRich_FINAL.mp3"
+			    },
+			    {
+			        "line": "I'm not telling you sober.",
+			        "filename": "_IAmNotTelling_FINAL.mp3"
+			    },
+			    {
+			        "line": "It's in the bank.",
+			        "filename": "_ItsInTheBank_FINAL.mp3"
+			    }
+			]
+		},
+		{
+			"id": 5,
+			"name":"Drunk",
+			"lines": [
+			    {
+			        "line": "You're lying.",
+			        "filename": "_YouAreLying_FINAL.mp3"
+			    },
+			    {
+			        "line": "Where did you hide it?",
+			        "filename": "_WhereDidYouHideIt_FINAL.mp3"
+			    },
+			    {
+			        "line": "Where did you hide it?",
+			        "filename": "_WhereDidYouHideIt_FINAL.mp3"
+			    },
+			    {
+			        "line": "Where did you hide it?",
+			        "filename": "_WhereDidYouHideIt_FINAL.mp3"
+			    }
+			]
+		},
+		{
+			"id": 6,
+			"name":"TavernKeep",
+			"lines": [
+			    {
+			        "line": "Do you want a drink?",
+			        "filename": "_DoYouWantADrink_FINAL.mp3"
+			    },
+			    {
+			        "line": "Do you want a drink?",
+			        "filename": "_DoYouWantADrink_FINAL.mp3"
+			    },
+			    {
+			        "line": "Do you want a drink?",
+			        "filename": "_DoYouWantADrink_FINAL.mp3"
+			    },
+			    {
+			        "line": "Do you want a drink?",
+			        "filename": "_DoYouWantADrink_FINAL.mp3"
+			    }
+			]
+		}
+	]
+}
