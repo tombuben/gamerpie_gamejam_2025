@@ -5,6 +5,9 @@ class_name NPCCharacter extends Node2D
 @export var base_sprite: Sprite2D
 @export var highlight_sprite: Sprite2D
 
+@export var game_status : String
+@export var use_state_manager : bool = false
+
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name != "PlayerCharacter":
 		return
