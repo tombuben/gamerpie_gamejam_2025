@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dqloct0jcg755" path="res://assets/level_1/Cell_Wall_DoorOpen-small.png" id="2_iqf0j"]
 [ext_resource type="Script" path="res://scripts/bubble_slot_manager.gd" id="3_umfwp"]
 [ext_resource type="Script" path="res://scripts/dialog_bubble.gd" id="4_ise4s"]
-[ext_resource type="PackedScene" uid="uid://do3g3w77pww5q" path="res://door.tscn" id="6_0flo3"]
+[ext_resource type="PackedScene" path="res://door.tscn" id="6_0flo3"]
 [ext_resource type="Script" path="res://scripts/npc_character.gd" id="7_7o32d"]
 [ext_resource type="Texture2D" uid="uid://dabkwtgflf4rf" path="res://assets/characters/rat.png" id="7_t1qke"]
 [ext_resource type="Texture2D" uid="uid://2fc8b5qt80b6" path="res://assets/characters/rat_outline.png" id="8_1taqk"]

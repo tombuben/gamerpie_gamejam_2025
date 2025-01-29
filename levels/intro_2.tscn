@@ -5,8 +5,8 @@
 [ext_resource type="Script" path="res://scripts/text_box.gd" id="3_pyvsm"]
 [ext_resource type="FontFile" uid="uid://deige1vwgfcp2" path="res://ui/text box/Daydream.ttf" id="4_isxlh"]
 [ext_resource type="Script" path="res://scripts/flasher.gd" id="5_847kd"]
-[ext_resource type="Theme" path="res://ui/intro_theme.tres" id="5_h4q3t"]
-[ext_resource type="Theme" path="res://ui/swap_box_theme.tres" id="7_rgva7"]
+[ext_resource type="Theme" uid="uid://btsjb0dqi43oc" path="res://ui/intro_theme.tres" id="5_h4q3t"]
+[ext_resource type="Theme" uid="uid://diky4hvq73cit" path="res://ui/swap_box_theme.tres" id="7_rgva7"]
 
 [sub_resource type="Theme" id="Theme_f6ffa"]
 default_font = ExtResource("4_isxlh")
