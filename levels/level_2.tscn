@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://crrtoqghkde4t"]
+[gd_scene load_steps=34 format=3 uid="uid://crrtoqghkde4t"]
 
 [ext_resource type="Script" path="res://scripts/state_checker.gd" id="1_jttpe"]
 [ext_resource type="PackedScene" uid="uid://dmdwu8xu7h45d" path="res://levels/intro_3.tscn" id="2_37u5h"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://qvhvrhguomuj" path="res://assets/level_2/lvl2_saloon_bar.png" id="4_bfw5q"]
 [ext_resource type="Script" path="res://scripts/bubble_slot_manager.gd" id="4_kk4t1"]
 [ext_resource type="Script" path="res://scripts/dialog_bubble.gd" id="5_f23u2"]
+[ext_resource type="Texture2D" uid="uid://3rt5yvubrap6" path="res://assets/level_2/lvl2_stul_horni.png" id="5_jwtoy"]
+[ext_resource type="Texture2D" uid="uid://blaan2aoifdqp" path="res://assets/level_2/lvl2_stul_spodni.png" id="6_jnx5q"]
 [ext_resource type="Script" path="res://scripts/move_when.gd" id="7_blrss"]
 [ext_resource type="Texture2D" uid="uid://bbwfuqc1mc41t" path="res://assets/level_2/CardPlayer01.png" id="9_eftrq"]
 [ext_resource type="Texture2D" uid="uid://oaltbokhqnax" path="res://assets/level_2/CardPlayer02.png" id="10_k2kly"]
@@ -24,7 +26,7 @@
 [ext_resource type="AudioStream" uid="uid://dtxixsexvhyqc" path="res://assets/audio/music/saloon-bg.mp3" id="21_gygey"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ptk7u"]
-radius = 228.589
+radius = 187.116
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vi8ky"]
 size = Vector2(333, 44)
@@ -92,6 +94,7 @@ scale = Vector2(0.35, 0.35)
 polygon = PackedVector2Array(-1905.71, 785.714, -1660, 1288.57, -1245.71, 1062.86, -1237.14, -608.571, 1377.14, -602.857, 1345.71, 1091.43, -1405.71, 1071.43, -1628.57, 1285.71, 1594.29, 1274.29, 1780, 754.286, 1868.57, -1351.43, -1868.57, -1314.29)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+z_index = 100
 position = Vector2(-434.286, -114.286)
 shape = SubResource("CircleShape2D_ptk7u")
 
@@ -115,9 +118,27 @@ position = Vector2(-152, 99)
 position = Vector2(320.5, -107)
 shape = SubResource("RectangleShape2D_vi8ky")
 
+[node name="Bar2" type="Node2D" parent="."]
+position = Vector2(368, 413)
+
+[node name="Sprite2D" type="Sprite2D" parent="Bar2"]
+texture_filter = 1
+position = Vector2(248, 49)
+scale = Vector2(8, 8)
+texture = ExtResource("5_jwtoy")
+
+[node name="Bar3" type="Node2D" parent="."]
+position = Vector2(838, 663)
+
+[node name="Sprite2D" type="Sprite2D" parent="Bar3"]
+texture_filter = 1
+position = Vector2(-222, -201)
+scale = Vector2(8, 8)
+texture = ExtResource("6_jnx5q")
+
 [node name="PlayerCharacter" parent="." instance=ExtResource("3_u8qeu")]
 position = Vector2(568, 543)
-friction = 0.2
+friction = 0.5
 
 [node name="BubbleSlot" type="Node2D" parent="PlayerCharacter"]
 position = Vector2(0, -125)
@@ -461,10 +482,10 @@ z_index = -1000
 position = Vector2(-39, -33)
 
 [node name="ColorRect" type="ColorRect" parent="Background"]
-offset_left = 2.0
-offset_top = -98.0
-offset_right = 1585.0
-offset_bottom = 1329.0
+offset_left = -158.0
+offset_top = -243.0
+offset_right = 1425.0
+offset_bottom = 1184.0
 color = Color(0, 0, 0, 1)
 
 [connection signal="advance_bubble" from="." to="PlayerCharacter/BubbleSlot" method="_on_level_2_advance_bubble"]

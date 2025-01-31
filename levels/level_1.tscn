@@ -40,7 +40,7 @@ radius = 41.0488
 
 [sub_resource type="Curve2D" id="Curve2D_ox2ge"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 100, 402, 326, 111, -197, -111, 197, 173, 556)
+"points": PackedVector2Array(76.3029, 0.00298309, -76.3029, -0.00298309, 395, 308, 142.793, -114.628, -142.793, 114.628, 173, 556)
 }
 point_count = 2
 
@@ -64,7 +64,7 @@ position = Vector2(595, 424)
 scale = Vector2(0.35, 0.35)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-1905.71, 785.714, -817.143, 765.714, -817.143, -405.714, 771.429, -400, 751.429, 745.714, 1780, 754.286, 1868.57, -1351.43, -1868.57, -1314.29)
+polygon = PackedVector2Array(-1905.71, 785.714, -808.571, 780, -808.571, 24.8413, -671.428, 25.7144, -670.318, -408.571, 610.418, -408.571, 608.571, 48.5714, 745.714, 48.5714, 748.571, 748.571, 1780, 754.286, 1868.57, -1351.43, -1868.57, -1314.29)
 
 [node name="Wall" type="Node2D" parent="."]
 position = Vector2(0, 708)
@@ -103,7 +103,7 @@ script = ExtResource("3_umfwp")
 script = ExtResource("4_ise4s")
 
 [node name="Rat" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
-position = Vector2(445, 342)
+position = Vector2(448, 338)
 script = ExtResource("7_7o32d")
 base_sprite = NodePath("Rat")
 highlight_sprite = NodePath("Rat_Highlight")
@@ -148,7 +148,7 @@ script = ExtResource("4_ise4s")
 bubble_id = 2
 
 [node name="Guard" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
-position = Vector2(644, 736)
+position = Vector2(648, 737)
 script = ExtResource("7_7o32d")
 base_sprite = NodePath("Guard")
 highlight_sprite = NodePath("Guard_Highlighted")
@@ -202,7 +202,7 @@ position = Vector2(409, 74)
 curve = SubResource("Curve2D_ox2ge")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Run"]
-position = Vector2(402, 326)
+position = Vector2(395, 308)
 rotates = false
 script = ExtResource("9_ennpd")
 move_when = "Move"
