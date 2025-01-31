@@ -15,6 +15,7 @@
 			"lines": [
 				{
 					"line":"You are never getting out of here!",
+					"check":"NeverGettingOut",
 					"filename":"_YouAreNever_FINAL.wav"
 				}
 			]
@@ -35,6 +36,7 @@
 			"lines": [
 				{
 					"line":"Come here, you rat!",
+					"check":"ComeHere",
 					"filename":"_ComeHereYouRat_FINAL.wav"
 				}
 			]

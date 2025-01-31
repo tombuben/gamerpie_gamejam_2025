@@ -5,6 +5,8 @@ extends Node2D
 	"This is a test dialogue."
 ]
 
-@export var checkValue : String = "Test"
+@export var line : String = "This is a test dialogue."
+
+@export var checkValue : String = "Nothing"
 
 @export var bubble_id : int

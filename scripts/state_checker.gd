@@ -14,12 +14,19 @@ signal advance_bubble
 var states
 var current_state_num : int = 0
 
+@export var level_index : int
+
+func _enter_tree():
+	GameManager.new_level_init(level_index)
+	print("level init sent")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	level21 = convert_node_path_keys(level21)
 	level22 = convert_node_path_keys(level22)
 	level23 = convert_node_path_keys(level23)
 	states = [level21, level22, level23]
+	SignalBus.connect("on_state_changed", _resolve_state_change)
 
 
 func convert_node_path_keys(dict : Dictionary):
@@ -41,6 +48,7 @@ func _process(delta: float) -> void:
 func _on_bubble_slot_on_slot_changed(check_value: String) -> void:
 	check_current_state()
 	pass # Replace with function body.
+	
 
 func check_current_state():
 	if (current_state_num >= num_of_states):
@@ -63,12 +71,18 @@ func check_current_state():
 func advance_state():
 	advance_bubble.emit()
 	
-	if player.swap_active != null:
-		player._close_swap_ui()
+	if GameManager.swap_target != null:
+		GameManager.close_swap_ui()
 		await get_tree().process_frame
-		player._open_swap_ui()
+		GameManager.open_swap_ui()
 	
 	if (current_state_num >= num_of_states):
 		await get_tree().create_timer(3.0).timeout
 		get_tree().change_scene_to_packed(scene)
-		DialogManager.next_level()
+		#GameManager.next_level()
+		#DialogManager.next_level()
+		
+func _resolve_state_change(check_value : String, npc_name : String):
+	if check_value == "ObjectiveAchieved":
+		await get_tree().create_timer(3.0).timeout
+		get_tree().change_scene_to_packed(scene)

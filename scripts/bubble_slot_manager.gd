@@ -6,6 +6,10 @@ signal on_slot_changed(check_value : String)
 
 @onready var bubble : Node2D = $Bubble
 
+@export var lines: Array[String]
+
+@export var bubbles_dict : Dictionary
+
 var dialog_line: String
 
 var text_box
@@ -17,18 +21,22 @@ var line_index = 0
 var is_dialog_active = false
 
 func _ready():
-	bubble.lines = DialogManager.get_lines_array_by_id(bubble.bubble_id)
+	bubbles_dict = DialogManager.get_bubbles_dict_by_id(bubble.bubble_id)
+	for key in bubbles_dict:
+		lines.append(key)
+	fill_bubble(lines[0])
+	bubble_slot = self
 
 func start_dialog(showSwap: bool = false):	
-	var parent = get_parent()
+	var parent = get_parent() 
 	bubble = $Bubble
 	if is_dialog_active && parent.name == "PlayerCharacter":
 		_end_dialog()
 	elif is_dialog_active:
 		return
 	bubble_slot = self
-	print(bubble.lines)
-	dialog_line = bubble.lines[line_index]
+	print(bubble_slot.lines)
+	dialog_line = bubble.line
 	text_box_position = global_position
 	_show_text_box(showSwap)
 	
@@ -58,31 +66,43 @@ func _end_dialog():
 	return
 
 func _get_current_line() -> String:
-	return bubble.lines[line_index]
+	return bubble.line
 
+#func _bubble_slot_changed(check_value : String):
+	#on_slot_changed.emit(check_value)
+	#print("bubble slot changed")
+	#_end_dialog()
+	#start_dialog()
+	
 func _bubble_slot_changed(check_value : String):
-	on_slot_changed.emit(check_value)
+	var npc_parent = get_parent()
 	print("bubble slot changed")
-	_end_dialog()
+	if is_dialog_active:
+		_end_dialog()
 	start_dialog()
+	LevelStateManager.resolve_npc_state(npc_parent,check_value)
 
-func _advance_dialog():
+func advance_dialog():
+	_advance_dialog()
+
+func _advance_dialog():	
+	var old_line = bubble.line
 	
-	var old_line = bubble.lines[line_index]
-	
-	if line_index + 1 <= len(bubble.lines) - 1:
+	if line_index + 1 <= len(bubble_slot.lines) - 1:
 		line_index += 1;
 		
-		var new_line = bubble.lines[line_index]
+		var new_line = bubble_slot.lines[line_index]
 		
 		if old_line != new_line:
-			if is_dialog_active:
-				_end_dialog()
-			start_dialog()
-			
-			await get_tree().create_timer(1.0).timeout
-			# todo: hide the dialog again in a while
-			# if it doesn't overlap with player
+			fill_bubble(new_line)
+			GameManager.close_swap_ui()
+			GameManager.open_swap_ui()
+			_bubble_slot_changed(bubble.checkValue)
 
 func _on_level_2_advance_bubble() -> void:
 	_advance_dialog()
+
+func fill_bubble(line : String):
+	bubble.line = line
+	if bubbles_dict[line].is_empty() == false:
+		bubble.checkValue = bubbles_dict[line]
