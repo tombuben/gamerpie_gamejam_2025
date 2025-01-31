@@ -1,7 +1,5 @@
 extends Node
 
-var current_level : int
-
 var base_path = "res://assets/text/dialogues/"
 
 var level_dialog_dict : Dictionary
@@ -9,18 +7,14 @@ var dialog_lines_dict : Dictionary
 var line_audio_dict : Dictionary
 
 func _ready():
-	var level_name = String(get_tree().root.get_child(2).name)
-	current_level = level_name.substr(level_name.length() - 1).to_int()
-	load_current_level()
+	#_get_current_level()
+	#load_current_level()
+	return
 
-func load_current_level():
-	level_dialog_dict = load_json(current_level)
+func load_level_dialogs():
+	level_dialog_dict = load_json()
 	map_dialog_lines()
 	map_dialog_audio()
-	
-func next_level():
-	current_level += 1
-	load_current_level()	
 
 func get_dialog_line(dialog_id : int, line_index : int):
 	var dialog_lines = get_lines_dict_by_id(dialog_id)
@@ -29,13 +23,16 @@ func get_dialog_line(dialog_id : int, line_index : int):
 func get_lines_dict_by_id(dialog_id : int):
 	return dialog_lines_dict[dialog_id]
 	
-func get_lines_array_by_id(dialog_id : int):
-	var lines_array : Array[String]
+func get_bubbles_dict_by_id(dialog_id : int):
+	var bubbles_dict : Dictionary
 	
 	for line in dialog_lines_dict[dialog_id]:
-		lines_array.append(line["line"])
+		if !line.has("check"):
+				bubbles_dict[line["line"]] = ""
+		else:
+			bubbles_dict[line["line"]] = line["check"]
 		
-	return lines_array
+	return bubbles_dict
 
 func map_dialog_audio():
 	for character in level_dialog_dict["characters"]:
@@ -46,11 +43,10 @@ func map_dialog_audio():
 
 func map_dialog_lines():
 	for character in level_dialog_dict["characters"]:
-		var test = character["id"]
 		dialog_lines_dict[int(character["id"])] = character["lines"]		
 
-func load_json(curent_level : int) -> Dictionary:
-	var file_path = base_path + "level_" + String.num_int64(current_level) + ".json"
+func load_json() -> Dictionary:
+	var file_path = base_path + "level_" + String.num_int64(GameManager.current_level) + ".json"
 	# Check if the file exists
 	if not FileAccess.file_exists(file_path):
 		print("File does not exist: ", file_path)

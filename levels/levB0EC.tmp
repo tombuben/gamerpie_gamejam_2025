@@ -126,19 +126,16 @@ script = ExtResource("4_kk4t1")
 [node name="Bubble" type="Node2D" parent="PlayerCharacter/BubbleSlot"]
 script = ExtResource("5_f23u2")
 lines = Array[String](["...", "...", "...", "..."])
+checkValue = "empty"
 
 [node name="CardPlayer1" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
 position = Vector2(590, 457)
 script = ExtResource("10_qb0na")
 base_sprite = NodePath("LizzyIdle")
 highlight_sprite = NodePath("LizzyOutline")
-game_status = null
-use_state_manager = null
-npc_state = null
 state_mapping = {
 "WhereHideIt": "advance_dialog"
 }
-move_position = null
 
 [node name="Area2D" type="Area2D" parent="CardPlayer1"]
 collision_layer = 2
@@ -172,6 +169,7 @@ script = ExtResource("4_kk4t1")
 [node name="Bubble" type="Node2D" parent="CardPlayer1/BubbleSlot"]
 script = ExtResource("5_f23u2")
 lines = Array[String](["....", "....", "....", "...."])
+checkValue = "empty"
 bubble_id = 1
 
 [node name="CardPlayer2" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
@@ -179,11 +177,6 @@ position = Vector2(307, 436)
 script = ExtResource("10_qb0na")
 base_sprite = NodePath("LizzyIdle")
 highlight_sprite = NodePath("LizzyOutline")
-game_status = null
-use_state_manager = null
-npc_state = null
-state_mapping = null
-move_position = null
 
 [node name="Area2D" type="Area2D" parent="CardPlayer2"]
 collision_layer = 2
@@ -217,6 +210,7 @@ script = ExtResource("4_kk4t1")
 [node name="Bubble" type="Node2D" parent="CardPlayer2/BubbleSlot"]
 script = ExtResource("5_f23u2")
 lines = Array[String](["I win again!", "I win again!", "I win again!", "I win again!"])
+checkValue = "IWinAgain"
 bubble_id = 2
 
 [node name="CardPlayer3" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
@@ -224,11 +218,6 @@ position = Vector2(444, 296)
 script = ExtResource("10_qb0na")
 base_sprite = NodePath("LizzyIdle")
 highlight_sprite = NodePath("LizzyOutline")
-game_status = null
-use_state_manager = null
-npc_state = null
-state_mapping = null
-move_position = null
 
 [node name="Area2D" type="Area2D" parent="CardPlayer3"]
 position = Vector2(0, 1)
@@ -264,6 +253,7 @@ script = ExtResource("4_kk4t1")
 [node name="Bubble" type="Node2D" parent="CardPlayer3/BubbleSlot"]
 script = ExtResource("5_f23u2")
 lines = Array[String](["Another round.", "Another round.", "Another round.", "Another round."])
+checkValue = "AnotherRound"
 bubble_id = 3
 
 [node name="Traitor" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
@@ -271,15 +261,6 @@ position = Vector2(981, 651)
 script = ExtResource("10_qb0na")
 base_sprite = NodePath("Traitor")
 highlight_sprite = NodePath("TraitorOutline")
-game_status = null
-use_state_manager = null
-npc_state = null
-state_mapping = {
-"InTheBank": "advance_dialog",
-"LevelWon": "LevelWon",
-"NotTelling": "advance_dialog"
-}
-move_position = null
 
 [node name="Area2D" type="Area2D" parent="Traitor"]
 collision_layer = 2
@@ -313,6 +294,7 @@ script = ExtResource("4_kk4t1")
 [node name="Bubble" type="Node2D" parent="Traitor/BubbleSlot"]
 script = ExtResource("5_f23u2")
 lines = Array[String](["I'm so rich.", "I'm so rich.", "I'm not telling you sober.", "It's in the bank."])
+checkValue = "ImSoRich"
 bubble_id = 4
 
 [node name="Drunk" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
@@ -320,14 +302,6 @@ position = Vector2(719, 689)
 script = ExtResource("10_qb0na")
 base_sprite = NodePath("LizzyIdle")
 highlight_sprite = NodePath("LizzyOutline")
-game_status = null
-use_state_manager = null
-npc_state = null
-state_mapping = {
-"RequestDrink": "RequestDrinkBottom",
-"WhereHideIt": "WhereHideIt"
-}
-move_position = null
 
 [node name="Area2D" type="Area2D" parent="Drunk"]
 collision_layer = 2
@@ -361,6 +335,7 @@ script = ExtResource("4_kk4t1")
 [node name="Bubble" type="Node2D" parent="Drunk/BubbleSlot"]
 script = ExtResource("5_f23u2")
 lines = Array[String](["You're lying.", "Where did you hide it?", "Where did you hide it?", "Where did you hide it?"])
+checkValue = "YouAreLying"
 bubble_id = 5
 
 [node name="TavernPaths" type="Node2D" parent="."]
@@ -372,11 +347,6 @@ scale = Vector2(0.917977, 1)
 script = ExtResource("10_qb0na")
 base_sprite = NodePath("Penguin")
 highlight_sprite = NodePath("PenguinOutline")
-game_status = null
-use_state_manager = null
-npc_state = null
-state_mapping = null
-move_position = null
 
 [node name="Area2D" type="Area2D" parent="TavernPaths/TavernKeep"]
 collision_layer = 2
@@ -412,6 +382,7 @@ script = ExtResource("4_kk4t1")
 position = Vector2(1, 1)
 script = ExtResource("5_f23u2")
 lines = Array[String](["Do you want a drink?", "Do you want a drink?", "Do you want a drink?", "Do you want a drink?"])
+checkValue = "WantADrink"
 bubble_id = 6
 
 [node name="TavernPath1" type="Path2D" parent="TavernPaths"]
@@ -425,11 +396,8 @@ position = Vector2(980.417, 274)
 rotates = false
 loop = false
 script = ExtResource("7_blrss")
-move_speed = 2
-move_when = "BringDrinkBottom"
+move_when = "AnotherRound"
 move_what = NodePath("../../TavernKeep")
-signal_out_trigger_npcs = Array[String](["Drunk", "Traitor"])
-emit_message = "DrinkDeliveredBottom"
 
 [node name="TavernPath2" type="Path2D" parent="TavernPaths"]
 y_sort_enabled = true
@@ -442,8 +410,7 @@ position = Vector2(980.417, 274)
 rotates = false
 loop = false
 script = ExtResource("7_blrss")
-move_speed = 2
-move_when = "BringDrinkTop"
+move_when = "AnotherRound"
 move_what = NodePath("../../TavernKeep")
 
 [node name="DialoguePlayer" type="AudioStreamPlayer2D" parent="."]

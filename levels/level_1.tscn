@@ -1,5 +1,6 @@
-[gd_scene load_steps=27 format=3 uid="uid://cxjyxcbcxxydo"]
+[gd_scene load_steps=28 format=3 uid="uid://cxjyxcbcxxydo"]
 
+[ext_resource type="Script" path="res://scripts/scene_manager.gd" id="1_evs3j"]
 [ext_resource type="PackedScene" uid="uid://b81oqoehgfrkh" path="res://player_character.tscn" id="1_q2wdn"]
 [ext_resource type="Texture2D" uid="uid://danji63i71uc6" path="res://assets/level_1/Cell_noWall_noDoor-small.png" id="1_rlh6b"]
 [ext_resource type="Texture2D" uid="uid://dqloct0jcg755" path="res://assets/level_1/Cell_Wall_DoorOpen-small.png" id="2_iqf0j"]
@@ -48,6 +49,8 @@ size = Vector2(155, 312.5)
 
 [node name="Level1" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_evs3j")
+level_index = 1
 
 [node name="SketchLevel1" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -88,6 +91,7 @@ position = Vector2(910.844, -30)
 shape = SubResource("RectangleShape2D_mmaku")
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_q2wdn")]
+unique_name_in_owner = true
 position = Vector2(568, 543)
 friction = 0.2
 
@@ -97,14 +101,17 @@ script = ExtResource("3_umfwp")
 
 [node name="Bubble" type="Node2D" parent="PlayerCharacter/BubbleSlot"]
 script = ExtResource("4_ise4s")
-lines = Array[String](["..."])
-checkValue = "empty"
 
 [node name="Rat" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
 position = Vector2(445, 342)
 script = ExtResource("7_7o32d")
 base_sprite = NodePath("Rat")
 highlight_sprite = NodePath("Rat_Highlight")
+game_status = null
+use_state_manager = null
+npc_state = null
+state_mapping = null
+move_position = null
 
 [node name="Area2D" type="Area2D" parent="Rat"]
 collision_layer = 2
@@ -138,8 +145,6 @@ script = ExtResource("3_umfwp")
 
 [node name="Bubble" type="Node2D" parent="Rat/BubbleSlot"]
 script = ExtResource("4_ise4s")
-lines = Array[String]([])
-checkValue = ""
 bubble_id = 2
 
 [node name="Guard" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
@@ -147,6 +152,14 @@ position = Vector2(644, 736)
 script = ExtResource("7_7o32d")
 base_sprite = NodePath("Guard")
 highlight_sprite = NodePath("Guard_Highlighted")
+game_status = null
+use_state_manager = null
+npc_state = "CloseDoor"
+state_mapping = {
+"CloseDoor": "CloseDoor",
+"OpenDoor": "OpenDoor"
+}
+move_position = null
 
 [node name="Area2D" type="Area2D" parent="Guard"]
 collision_layer = 2
@@ -180,8 +193,7 @@ script = ExtResource("3_umfwp")
 
 [node name="Bubble" type="Node2D" parent="Guard/BubbleSlot"]
 script = ExtResource("4_ise4s")
-lines = Array[String](["You are never getting out of here!"])
-checkValue = "GuardBubble"
+checkValue = "NeverGettingOut"
 bubble_id = 1
 
 [node name="Run" type="Path2D" parent="."]
@@ -193,13 +205,21 @@ curve = SubResource("Curve2D_ox2ge")
 position = Vector2(402, 326)
 rotates = false
 script = ExtResource("9_ennpd")
-move_when = "GuardBubble"
+move_when = "Move"
+emit_message = "Nothing"
 
 [node name="PrisonMate" type="Node2D" parent="Run/PathFollow2D" node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
 position = Vector2(0, -1)
 script = ExtResource("7_7o32d")
 base_sprite = NodePath("Skeleton")
 highlight_sprite = NodePath("Skeleton_Highlighted")
+game_status = null
+use_state_manager = null
+npc_state = null
+state_mapping = {
+"BlockDoor": "BlockDoor"
+}
+move_position = null
 
 [node name="Area2D" type="Area2D" parent="Run/PathFollow2D/PrisonMate"]
 collision_layer = 2
@@ -234,13 +254,13 @@ script = ExtResource("3_umfwp")
 
 [node name="Bubble" type="Node2D" parent="Run/PathFollow2D/PrisonMate/BubbleSlot"]
 script = ExtResource("4_ise4s")
-lines = Array[String](["Come here, you rat!"])
-checkValue = "CellmateBubble"
+checkValue = "ComeHere"
 bubble_id = 3
 
 [node name="Door" parent="." instance=ExtResource("6_0flo3")]
 position = Vector2(579, 709)
-open_when = "CellmateBubble"
+open_when = "OpenDoor"
+npc_control = Array[String](["Guard"])
 
 [node name="CellWallDoorClosed-small" type="Sprite2D" parent="Door"]
 texture_filter = 1

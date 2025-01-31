@@ -6,15 +6,6 @@
 			"lines": [
 				{
 					"line":"....",
-				},
-				{
-					"line":"....",
-				},
-				{
-					"line":"....",
-				},
-				{
-					"line":"....",
 				}
 			]
 		},
@@ -26,14 +17,10 @@
 					"line":"....",
 				},
 				{
-					"line":"....",
-				},
-				{
-					"line":"....",
-				},
-				{
-					"line":"....",
-				}
+			        "line": "Where did you hide it?",
+			        "check": "WhereHideIt",
+			        "filename": "_WhereDidYouHideIt_FINAL.mp3"
+			    }
 			]
 		},
 		{
@@ -43,19 +30,7 @@
 				{
 			        "line": "I win again!",
 			        "filename": "_IWinAgain_FINAL.mp3"
-			    },
-			    {
-			        "line": "I win again!",
-			        "filename": "_IWinAgain_FINAL.mp3"
-			    },
-			    {
-			        "line": "I win again!",
-			        "filename": "_IWinAgain_FINAL.mp3"
-			    },
-			    {
-			        "line": "I win again!",
-			        "filename": "_IWinAgain_FINAL.mp3"
-			    },
+			    }
 			]
 		},
 		{
@@ -64,18 +39,7 @@
 			"lines": [
 			    {
 			        "line": "Another round.",
-			        "filename": "_AnotherRound_FINAL.mp3"
-			    },
-			    {
-			        "line": "Another round.",
-			        "filename": "_AnotherRound_FINAL.mp3"
-			    },
-			    {
-			        "line": "Another round.",
-			        "filename": "_AnotherRound_FINAL.mp3"
-			    },
-			    {
-			        "line": "Another round.",
+			        "check": "AnotherRound",
 			        "filename": "_AnotherRound_FINAL.mp3"
 			    }
 			]
@@ -89,15 +53,12 @@
 			        "filename": "_IAmSoRich_FINAL.mp3"
 			    },
 			    {
-			        "line": "I'm so rich.",
-			        "filename": "_IAmSoRich_FINAL.mp3"
-			    },
-			    {
 			        "line": "I'm not telling you sober.",
 			        "filename": "_IAmNotTelling_FINAL.mp3"
 			    },
 			    {
 			        "line": "It's in the bank.",
+			        "check": "SecretSpilled",
 			        "filename": "_ItsInTheBank_FINAL.mp3"
 			    }
 			]
@@ -108,19 +69,8 @@
 			"lines": [
 			    {
 			        "line": "You're lying.",
+			        "check": "YouAreLying",
 			        "filename": "_YouAreLying_FINAL.mp3"
-			    },
-			    {
-			        "line": "Where did you hide it?",
-			        "filename": "_WhereDidYouHideIt_FINAL.mp3"
-			    },
-			    {
-			        "line": "Where did you hide it?",
-			        "filename": "_WhereDidYouHideIt_FINAL.mp3"
-			    },
-			    {
-			        "line": "Where did you hide it?",
-			        "filename": "_WhereDidYouHideIt_FINAL.mp3"
 			    }
 			]
 		},
@@ -128,18 +78,6 @@
 			"id": 6,
 			"name":"TavernKeep",
 			"lines": [
-			    {
-			        "line": "Do you want a drink?",
-			        "filename": "_DoYouWantADrink_FINAL.mp3"
-			    },
-			    {
-			        "line": "Do you want a drink?",
-			        "filename": "_DoYouWantADrink_FINAL.mp3"
-			    },
-			    {
-			        "line": "Do you want a drink?",
-			        "filename": "_DoYouWantADrink_FINAL.mp3"
-			    },
 			    {
 			        "line": "Do you want a drink?",
 			        "filename": "_DoYouWantADrink_FINAL.mp3"
