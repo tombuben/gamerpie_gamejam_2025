@@ -1,15 +1,20 @@
-[gd_scene load_steps=22 format=3 uid="uid://c5icoj7eo4vaf"]
+[gd_scene load_steps=27 format=3 uid="uid://c5icoj7eo4vaf"]
 
 [ext_resource type="Script" path="res://scripts/state_checker.gd" id="1_47snb"]
 [ext_resource type="PackedScene" uid="uid://brvly23kxkjhu" path="res://levels/outro.tscn" id="2_gatvb"]
 [ext_resource type="PackedScene" uid="uid://b81oqoehgfrkh" path="res://player_character.tscn" id="3_7vndf"]
-[ext_resource type="Texture2D" uid="uid://covw78pd0uugf" path="res://assets/level_3/level_3_sketch.png" id="3_sp1ow"]
+[ext_resource type="Texture2D" uid="uid://hllj47sqm2uc" path="res://assets/level_3/Bank_background.png" id="3_pjlep"]
+[ext_resource type="Texture2D" uid="uid://d2haa26yeevl" path="res://assets/level_3/Bank_bottom_wall.png" id="4_uaw8c"]
 [ext_resource type="Script" path="res://scripts/bubble_slot_manager.gd" id="4_vbdgx"]
 [ext_resource type="Script" path="res://scripts/dialog_bubble.gd" id="5_ahv56"]
+[ext_resource type="Texture2D" uid="uid://cfh3b53xo22x6" path="res://assets/level_3/Bank_bydylka.png" id="5_rwgft"]
+[ext_resource type="Texture2D" uid="uid://b6qeotyvvjowi" path="res://assets/level_3/Bank_prepazky.png" id="6_qd7v3"]
+[ext_resource type="Texture2D" uid="uid://l3aigq3kcjk7" path="res://assets/level_3/Bank_psst_cedule.png" id="7_amvbi"]
 [ext_resource type="Script" path="res://scripts/papouch_manager.gd" id="8_dkm4x"]
 [ext_resource type="Texture2D" uid="uid://cgn0x4ivs25v4" path="res://assets/level_3/characters/HumanFrontSmall.png" id="8_hhst3"]
 [ext_resource type="Script" path="res://scripts/npc_character.gd" id="8_kxejn"]
-[ext_resource type="PackedScene" path="res://door.tscn" id="9_06q2w"]
+[ext_resource type="Texture2D" uid="uid://btvl4lrtkkkle" path="res://assets/level_3/Bank_truhla.png" id="8_v58de"]
+[ext_resource type="PackedScene" uid="uid://do3g3w77pww5q" path="res://door.tscn" id="9_06q2w"]
 [ext_resource type="Texture2D" uid="uid://bp44jksf6bbh3" path="res://assets/level_3/characters/New_Piskel_9.png" id="9_7d4ny"]
 [ext_resource type="Texture2D" uid="uid://dnk23jeysrggw" path="res://assets/level_3/characters/New_Piskel_16.png" id="9_43078"]
 [ext_resource type="Texture2D" uid="uid://bxk3pp0jdul0a" path="res://assets/level_3/characters/HumanFrontSmall_outline.png" id="9_lkc1g"]
@@ -50,25 +55,74 @@ offset_right = 1558.0
 offset_bottom = 1365.0
 color = Color(0, 0, 0, 1)
 
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(1, -86)
+[node name="Background" type="Node2D" parent="."]
 
-[node name="SketchLevel1" type="Sprite2D" parent="Node2D"]
+[node name="SketchLevel1" type="Sprite2D" parent="Background"]
 texture_filter = 1
 position = Vector2(-11, 98)
-scale = Vector2(0.35, 0.35)
-texture = ExtResource("3_sp1ow")
+scale = Vector2(8, 8)
+texture = ExtResource("3_pjlep")
+centered = false
+
+[node name="bottom_wall" type="Node2D" parent="."]
+position = Vector2(0, 900)
+
+[node name="SketchLevel1" type="Sprite2D" parent="bottom_wall"]
+texture_filter = 1
+position = Vector2(-11, -802)
+scale = Vector2(8, 8)
+texture = ExtResource("4_uaw8c")
+centered = false
+
+[node name="bydilka" type="Node2D" parent="."]
+position = Vector2(0, 804)
+
+[node name="SketchLevel1" type="Sprite2D" parent="bydilka"]
+texture_filter = 1
+position = Vector2(-11, -706)
+scale = Vector2(8, 8)
+texture = ExtResource("5_rwgft")
+centered = false
+
+[node name="prepazky" type="Node2D" parent="."]
+position = Vector2(0, 533)
+
+[node name="SketchLevel1" type="Sprite2D" parent="prepazky"]
+texture_filter = 1
+position = Vector2(-11, -435)
+scale = Vector2(8, 8)
+texture = ExtResource("6_qd7v3")
+centered = false
+
+[node name="psst_cedule" type="Node2D" parent="."]
+position = Vector2(0, 533)
+
+[node name="SketchLevel1" type="Sprite2D" parent="psst_cedule"]
+texture_filter = 1
+position = Vector2(-11, -435)
+scale = Vector2(8, 8)
+texture = ExtResource("7_amvbi")
+centered = false
+
+[node name="Truhlice" type="Node2D" parent="."]
+position = Vector2(0, 803)
+
+[node name="SketchLevel1" type="Sprite2D" parent="Truhlice"]
+texture_filter = 1
+position = Vector2(-11, -705)
+scale = Vector2(8, 8)
+texture = ExtResource("8_v58de")
 centered = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(685, 428)
+position = Vector2(684, 428)
 scale = Vector2(0.35, 0.35)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-2188.57, 1385.71, -2054.29, 1731.43, -1802.86, 1062.86, -1788.57, -8.57141, -1097.14, -5.71423, -1097.14, -182.857, -1790.6, -183.214, -1794.29, -500, -249.567, -497.207, -248.571, 37.1429, -205.714, 40, -202.857, -497.143, 1365.71, -494.286, 1369.83, 544.262, 665.714, 545.714, 662.857, 717.143, 1370.5, 714.822, 1371.43, 948.571, -184.378, 941.544, -188.571, 288.571, -251.429, 285.714, -245.714, 940, -1791.43, 934.286, -1674.29, 1585.71, 1594.29, 1274.29, 1780, 754.286, 1868.57, -1351.43, -2302.86, -1268.57)
+polygon = PackedVector2Array(-2188.57, 1385.71, -2054.29, 1731.43, -1805.71, 1222.86, -1805.71, 274.286, -1051.43, 271.429, -1051.43, 180, -1805.71, 180, -1805.71, -5.71423, -271.429, -5.71436, -271.429, 291.428, -225.714, 291.428, -111.429, 291.428, -111.429, 314.286, -65.7145, 314.286, -65.7145, 291.688, -0.00012207, 291.428, -0.00012207, 268.571, -65.7145, 268.571, -111.429, 268.571, -134.286, 268.571, -225.714, 268.571, -225.714, -120, 1305.71, -120, 1305.71, 200, 548.571, 202.857, 548.571, 271.429, 1305.71, 271.428, 1305.71, 1228.57, -225.714, 1228.57, -225.714, 611.428, -271.429, 611.428, -271.429, 1137.14, -554.286, 1002.86, -728.572, 1091.43, -500, 1091.43, -500, 1228.57, -1805.71, 1228.57, -1674.29, 1585.71, 1594.29, 1274.29, 1780, 754.286, 1868.57, -1351.43, -2302.86, -1268.57)
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("3_7vndf")]
-position = Vector2(1074, 356)
+position = Vector2(721, 683)
 friction = 0.2
 
 [node name="BubbleSlot" type="Node2D" parent="PlayerCharacter"]
@@ -81,7 +135,7 @@ lines = Array[String](["...", "...", "..."])
 checkValue = "empty"
 
 [node name="Worker2" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
-position = Vector2(206, 310)
+position = Vector2(167, 440)
 script = ExtResource("8_kxejn")
 base_sprite = NodePath("LizzyIdle")
 highlight_sprite = NodePath("LizzyOutline")
@@ -122,7 +176,7 @@ checkValue = "MoneyHere"
 bubble_id = 1
 
 [node name="Customer2" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
-position = Vector2(244, 449)
+position = Vector2(169, 584)
 script = ExtResource("8_kxejn")
 base_sprite = NodePath("LizzyIdle")
 highlight_sprite = NodePath("LizzyOutline")
@@ -164,7 +218,7 @@ checkValue = ""
 bubble_id = 2
 
 [node name="Worker1" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
-position = Vector2(981, 715)
+position = Vector2(983, 440)
 script = ExtResource("8_kxejn")
 base_sprite = NodePath("LizzyIdle")
 highlight_sprite = NodePath("LizzyOutline")
@@ -205,7 +259,7 @@ checkValue = "Code"
 bubble_id = 3
 
 [node name="Customer1" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
-position = Vector2(964, 570)
+position = Vector2(992, 575)
 script = ExtResource("8_kxejn")
 base_sprite = NodePath("LizzyIdle")
 highlight_sprite = NodePath("LizzyOutline")
@@ -256,7 +310,7 @@ P3 = NodePath("../Parrot3wrapper/Parrot")
 P4 = NodePath("../Parrot4wrapper/Parrot")
 
 [node name="Door" parent="." instance=ExtResource("9_06q2w")]
-position = Vector2(610, 476)
+position = Vector2(597, 572)
 open_when = "empty"
 starts_open = true
 
@@ -265,9 +319,10 @@ unique_name_in_owner = true
 volume_db = 7.0
 
 [node name="Parrot1wrapper" type="Node2D" parent="."]
+position = Vector2(115, 815)
 
 [node name="Parrot" type="Node2D" parent="Parrot1wrapper" node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
-position = Vector2(672, 251)
+position = Vector2(-3, -62)
 script = ExtResource("8_kxejn")
 base_sprite = NodePath("LizzyIdle")
 highlight_sprite = NodePath("LizzyOutline")
@@ -308,9 +363,10 @@ scale = Vector2(8, 8)
 texture = ExtResource("14_0pyq6")
 
 [node name="Parrot2wrapper" type="Node2D" parent="."]
+position = Vector2(1081, 821)
 
 [node name="Parrot" type="Node2D" parent="Parrot2wrapper" node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
-position = Vector2(539, 256)
+position = Vector2(-4, -74)
 script = ExtResource("8_kxejn")
 base_sprite = NodePath("LizzyIdle")
 highlight_sprite = NodePath("LizzyOutline")
