@@ -153,13 +153,9 @@ position = Vector2(590, 457)
 script = ExtResource("10_qb0na")
 base_sprite = NodePath("LizzyIdle")
 highlight_sprite = NodePath("LizzyOutline")
-game_status = null
-use_state_manager = null
-npc_state = null
 state_mapping = {
 "WhereHideIt": "advance_dialog"
 }
-move_position = null
 
 [node name="Area2D" type="Area2D" parent="CardPlayer1"]
 collision_layer = 2
@@ -200,11 +196,6 @@ position = Vector2(307, 436)
 script = ExtResource("10_qb0na")
 base_sprite = NodePath("LizzyIdle")
 highlight_sprite = NodePath("LizzyOutline")
-game_status = null
-use_state_manager = null
-npc_state = null
-state_mapping = null
-move_position = null
 
 [node name="Area2D" type="Area2D" parent="CardPlayer2"]
 collision_layer = 2
@@ -245,11 +236,6 @@ position = Vector2(444, 296)
 script = ExtResource("10_qb0na")
 base_sprite = NodePath("LizzyIdle")
 highlight_sprite = NodePath("LizzyOutline")
-game_status = null
-use_state_manager = null
-npc_state = null
-state_mapping = null
-move_position = null
 
 [node name="Area2D" type="Area2D" parent="CardPlayer3"]
 position = Vector2(0, 1)
@@ -292,15 +278,11 @@ position = Vector2(981, 651)
 script = ExtResource("10_qb0na")
 base_sprite = NodePath("Traitor")
 highlight_sprite = NodePath("TraitorOutline")
-game_status = null
-use_state_manager = null
-npc_state = null
 state_mapping = {
 "InTheBank": "advance_dialog",
 "LevelWon": "LevelWon",
 "NotTelling": "advance_dialog"
 }
-move_position = null
 
 [node name="Area2D" type="Area2D" parent="Traitor"]
 collision_layer = 2
@@ -341,14 +323,10 @@ position = Vector2(719, 689)
 script = ExtResource("10_qb0na")
 base_sprite = NodePath("LizzyIdle")
 highlight_sprite = NodePath("LizzyOutline")
-game_status = null
-use_state_manager = null
-npc_state = null
 state_mapping = {
 "RequestDrink": "RequestDrinkBottom",
 "WhereHideIt": "WhereHideIt"
 }
-move_position = null
 
 [node name="Area2D" type="Area2D" parent="Drunk"]
 collision_layer = 2
@@ -393,11 +371,6 @@ scale = Vector2(0.917977, 1)
 script = ExtResource("10_qb0na")
 base_sprite = NodePath("Penguin")
 highlight_sprite = NodePath("PenguinOutline")
-game_status = null
-use_state_manager = null
-npc_state = null
-state_mapping = null
-move_position = null
 
 [node name="Area2D" type="Area2D" parent="TavernPaths/TavernKeep"]
 collision_layer = 2

@@ -27,8 +27,19 @@ func swap_papouch():
 	P3.bubble_slot._end_dialog()
 	P4.bubble_slot._end_dialog()
 	
+	
+	P1.set_sprite_highlight(false)
+	P2.set_sprite_highlight(false)
+	P3.set_sprite_highlight(false)
+	P4.set_sprite_highlight(false)
+	
 	var P_pos = P4.global_position
 	P4.global_position = P3.global_position
 	P3.global_position = P2.global_position
 	P2.global_position = P1.global_position
 	P1.global_position = P_pos
+	
+	P1.flip_sprites()
+	P2.flip_sprites()
+	P3.flip_sprites()
+	P4.flip_sprites()

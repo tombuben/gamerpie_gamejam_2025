@@ -71,3 +71,7 @@ func _resolve_new_state(emit : String):
 func _resolve_state_change(check_value : String, npc_name : String):
 	if self.name != npc_name:
 		LevelStateManager.resolve_npc_state(self, check_value)
+
+func flip_sprites():
+	base_sprite.flip_h = !base_sprite.flip_h
+	highlight_sprite.flip_h = !highlight_sprite.flip_h
