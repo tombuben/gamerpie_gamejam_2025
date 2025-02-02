@@ -1,0 +1,60 @@
+{
+	"Level3": {
+		"Customer1": {
+			"Nothing": {
+				"Piratesson": {
+					"NextState":"Default"
+				}
+			},
+			"Piratesson": {
+				"Default": {
+					"NextState":"Piratesson",
+					"Emit":"PiratessonName",
+					"Wait":1.0
+				}
+			}
+		},
+		"Worker1": {
+			"PiratessonName": {
+				"Default": {
+					"NextState":"PiratessonVaultNumber",
+					"Emit":"advance_dialog",
+					"Wait":1.0
+				}
+			}
+		},
+		"Customer2": {
+			"Nothing": {
+				"PiratessonVault": {
+					"NextState":"Default"
+				}
+			},
+			"Vault9999": {
+				"Default": {
+					"NextState":"PiratessonVault",
+					"Emit":"PiratessonVault",
+					"Wait":1.0
+				}
+			}
+		},
+		"Worker2": {
+			"PiratessonVault": {
+				"Default": {
+					"NextState":"WithdrawTreasure",
+					"Emit":"advance_dialog",
+					"Wait":1.0
+				}
+			},
+			"MoneyWithdrawn": {
+				"WithdrawTreasure": {
+					"NextState":"TreasureGiven",
+					"Emit":"ObjectiveAchieved",
+					"Wait":2.0
+				}
+			}
+		},
+		"Parrot": {
+			
+		}
+	}
+}

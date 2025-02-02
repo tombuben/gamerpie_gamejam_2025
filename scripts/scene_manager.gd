@@ -13,5 +13,5 @@ func _ready() -> void:
 
 func _resolve_state_change(check_value : String, npc_name : String):
 	if check_value == "ObjectiveAchieved":
-		await get_tree().create_timer(3.0).timeout
+		await get_tree().create_timer(1.0).timeout
 		get_tree().change_scene_to_packed(scene)

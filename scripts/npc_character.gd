@@ -69,8 +69,9 @@ func _resolve_new_state(emit : String):
 	SignalBus.on_state_changed.emit(emit, self.name)
 	
 func _resolve_state_change(check_value : String, npc_name : String):
-	if self.name != npc_name:
-		LevelStateManager.resolve_npc_state(self, check_value)
+	if LevelStateManager.check_subscribers.has(check_value) \
+		&&	LevelStateManager.check_subscribers[check_value].has(self.name):
+			LevelStateManager.resolve_npc_state(self, check_value)
 
 func flip_sprites():
 	base_sprite.flip_h = !base_sprite.flip_h

@@ -424,6 +424,7 @@ move_when = "BringDrinkBottom"
 move_what = NodePath("../../TavernKeep")
 signal_out_trigger_npcs = Array[String](["Drunk", "Traitor"])
 emit_message = "DrinkDeliveredBottom"
+is_loop = true
 
 [node name="TavernPath2" type="Path2D" parent="TavernPaths"]
 y_sort_enabled = true
@@ -439,6 +440,7 @@ script = ExtResource("7_blrss")
 move_speed = 2
 move_when = "BringDrinkTop"
 move_what = NodePath("../../TavernKeep")
+is_loop = true
 
 [node name="DialoguePlayer" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true

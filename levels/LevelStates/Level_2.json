@@ -1,0 +1,130 @@
+{
+	"Level2": {
+		"CardPlayer1": {
+			"Nothing": {
+				"RequestDrink": {
+					"NextState":"Default"
+				}
+			},
+			"YouAreLying": {
+				"Default": {
+					"NextState":"WhereHideIt",
+					"Emit":"advance_dialog",
+					"Wait":2.0
+				}
+			},
+			"AnotherRound": {
+				"Default": {
+					"NextState":"RequestDrink",
+					"Emit":"BringDrinkTop",
+					"Wait":1.0
+				},
+			}
+		},
+		"CardPlayer2": {
+			"Nothing": {
+				"RequestDrink": {
+					"NextState":"Default"
+				}
+			},
+			"AnotherRound": {
+				"Default": {
+					"NextState":"RequestDrink",
+					"Emit":"BringDrinkTop",
+					"Wait":1.0
+				},
+			}
+		},
+		"CardPlayer3": {
+			"Nothing": {
+				"RequestDrink": {
+					"NextState":"Default"
+				}
+			},
+			"AnotherRound": {
+				"Default": {
+					"NextState":"RequestDrink",
+					"Emit":"BringDrinkTop",
+					"Wait":1.0
+				},
+			}
+		},
+		"Drunk": {
+			"Nothing": {
+				"WhereHideIt": {
+					"NextState":"Default"
+				},
+				"RequestDrink": {
+					"NextState":"Default"
+				}
+			},
+			"YouAreLying": {
+				"RequestDrink": {
+					"NextState":"Default"
+				}
+			},
+			"WhereHideIt": {
+				"Default": {
+					"NextState":"WhereHideIt",
+					"Emit":"QuestionTraitor",
+					"Wait":2.0
+				},
+				"RequestDrink": {
+					"NextState":"WhereHideIt",
+					"Emit":"QuestionTraitor",
+					"Wait":2.0
+				}
+			},
+			"AnotherRound": {
+				"Default": {
+					"NextState":"RequestDrink",
+					"Emit":"BringDrinkBottom",
+					"Wait":1.0
+				},
+				"WhereHideIt": {
+					"NextState":"RequestDrink",
+					"Emit":"BringDrinkBottom",
+					"Wait":1.0
+				},
+			}
+		},
+		"Traitor": {
+			"Nothing": {
+				"RequestDrink": {
+					"NextState":"Default"
+				}
+			},
+			"QuestionTraitor": {
+				"Default": {
+					"NextState":"NotTelling",
+					"Emit":"advance_dialog"
+				}
+			},
+			"AnotherRound": {
+				"Default": {
+					"NextState":"RequestDrink",
+					"Emit":"BringDrinkBottom",
+					"Wait":1.0
+				}
+			},
+			"DrinkDeliveredBottom": {
+				"NotTelling": {
+					"NextState":"InTheBank",
+					"Emit":"advance_dialog",
+					"Wait":2.0
+				}
+			},
+			"SecretSpilled": {
+				"InTheBank": {
+					"NextState":"SecretSpilled",
+					"Emit":"ObjectiveAchieved",
+					"Wait":1.0
+				}
+			}
+		},
+		"TavernKeep": {
+			"BringDrinkTop":{},
+			"BringDrinkBottom":{}
+		}
+	}
+}

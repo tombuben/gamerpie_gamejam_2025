@@ -1,10 +1,38 @@
 extends Node
 
-func resolve_npc_state(npc : Node2D, check_value : String) -> void:
-	#debug
-	if check_value == "SecretSpilled":
-		print(check_value)
+var base_path = "res://levels/LevelStates/"
+
+var NpcStateResolverDict : Dictionary
+
+@export var check_subscribers : Dictionary
+
+func load_level_states():
+	NpcStateResolverDict = load_json()
+
+func populate_check_subscribers():
+	var level = "Level" + String.num_int64(GameManager.current_level)
 	
+	if NpcStateResolverDict.has(level) == false:
+		print("Level " + level + " not found in state resolver")
+		return
+	
+	var check_values_array : Array[String]
+	
+	for npc in NpcStateResolverDict[level]:
+		var checks = NpcStateResolverDict[level][npc].keys()
+		for check in checks:
+			if !check_values_array.has(check):
+				check_values_array.append(check)
+	
+	for check in check_values_array:
+		var subscribe_npcs : Array[String]
+		for npc in NpcStateResolverDict[level]:
+			if NpcStateResolverDict[level][npc].keys().has(check):
+				subscribe_npcs.append(npc)
+		
+		check_subscribers[check] = subscribe_npcs
+
+func resolve_npc_state(npc : Node2D, check_value : String) -> void:	
 	var npc_name = npc.name
 	var current_state = npc.npc_state
 	var new_state : String
@@ -41,197 +69,31 @@ func resolve_npc_state(npc : Node2D, check_value : String) -> void:
 	await get_tree().create_timer(wait).timeout
 	npc.apply_new_state(new_state, emit)
 	
-	
-	
-const NpcStateResolverDict : Dictionary = {
-	"Level1": {
-		"NpcName": {
-			"Bubble_Check_Value": {
-				"CurrentNpcState": {
-					"NextState":"NpcStateToBeSwitchedToInThisSituation",
-					"Emit":"ValueToBeEmittedWhenThisSwitchHappens"
-				}
-			}
-		},
-		"Rat": {
-			
-		},
-		"PrisonMate": {
-			"Nothing": {
-				"BlockDoor": {
-					"NextState":"Default",
-					"Emit":"Move"
-				}
-			},
-			"NeverGettingOut": {
-				"Default": {
-					"NextState":"BlockDoor",
-					"Emit":"Move"
-				}
-			},
-			"ComeHere": {
-				"BlockDoor": {
-					"NextState":"Default",
-					"Emit":"Move"
-				}
-			}
-		},
-		"Guard": {
-			"Nothing": {
-				"OpenDoor": {
-					"NextState":"CloseDoor",
-					"Emit":"CloseDoor"
-				}
-			},
-			"NeverGettingOut": {
-				"OpenDoor": {
-					"NextState":"CloseDoor",
-					"Emit":"CloseDoor"
-				}
-			},
-			"ComeHere": {
-				"CloseDoor": {
-					"NextState":"OpenDoor",
-					"Emit":"OpenDoor"
-				}
-			}
-		}
-	},
-	"Level2": {
-		"CardPlayer1": {
-			"YouAreLying": {
-				"Default": {
-					"NextState":"WhereHideIt",
-					"Emit":"advance_dialog",
-					"Wait":2.0
-				}
-			}
-		},
-		"CardPlayer2": {
-			
-		},
-		"CardPlayer3": {
-			
-		},
-		"Traitor": {
-			"Nothing": {
-				
-			},
-			"QuestionTraitor": {
-				"Default": {
-					"NextState":"NotTelling",
-					"Emit":"advance_dialog"
-				}
-			},
-			"DrinkDeliveredBottom": {
-				"NotTelling": {
-					"NextState":"InTheBank",
-					"Emit":"advance_dialog",
-					"Wait":2.0
-				}
-			},
-			"SecretSpilled": {
-				"InTheBank": {
-					"NextState":"SecretSpilled",
-					"Emit":"ObjectiveAchieved",
-					"Wait":2.0
-				}
-			}
-		},
-		"Drunk": {
-			"Nothing": {
-				"WhereHideIt": {
-					"NextState":"Default"
-				},
-				"RequestDrink": {
-					"NextState":"Default"
-				}
-			},
-			"WhereHideIt": {
-				"Default": {
-					"NextState":"WhereHideIt",
-					"Emit":"QuestionTraitor",
-					"Wait":2.0
-				},
-				"RequestDrink": {
-					"NextState":"WhereHideIt",
-					"Emit":"QuestionTraitor",
-					"Wait":2.0
-				}
-			},
-			"AnotherRound": {
-				"Default": {
-					"NextState":"RequestDrink",
-					"Emit":"BringDrinkBottom",
-					"Wait":1.0
-				},
-				"WhereHideIt": {
-					"NextState":"RequestDrink",
-					"Emit":"BringDrinkBottom",
-					"Wait":1.0
-				},
-			}
-		},
-		"TavernKeep": {
-			
-		}
-	},
-	"Level3": {
-		"Customer1": {
-			"Nothing": {
-				"Piratesson": {
-					"NextState":"Default"
-				}
-			},
-			"Piratesson": {
-				"Default": {
-					"NextState":"Piratesson",
-					"Emit":"PiratessonName",
-					"Wait":1.0
-				}
-			}
-		},
-		"Worker1": {
-			"PiratessonName": {
-				"Default": {
-					"NextState":"PiratessonVaultNumber",
-					"Emit":"advance_dialog",
-					"Wait":1.0
-				}
-			}
-		},
-		"Customer2": {
-			"Nothing": {
-				"PiratessonVault": {
-					"NextState":"Default"
-				}
-			},
-			"Vault9999": {
-				"Default": {
-					"NextState":"PiratessonVault",
-					"Emit":"PiratessonVault",
-					"Wait":1.0
-				}
-			}
-		},
-		"Worker2": {
-			"PiratessonVault": {
-				"Default": {
-					"NextState":"WithdrawTreasure",
-					"Emit":"advance_dialog",
-					"Wait":1.0
-				}
-			},
-			"MoneyWithdrawn": {
-				"WithdrawTreasure": {
-					"NextState":"TreasureGiven",
-					"Emit":"ObjectiveAchieved",
-					"Wait":2.0
-				}
-			}
-		},
-		"Parrot": {
-			
-		}
-	}
-}
+func load_json() -> Dictionary:
+	var file_path = base_path + "Level_" + String.num_int64(GameManager.current_level) + ".json"
+	# Check if the file exists
+	if not FileAccess.file_exists(file_path):
+		print("File does not exist: ", file_path)
+		return {"Level": []}
+
+	# Open the file for reading
+	var file = FileAccess.open(file_path, FileAccess.READ)
+	if not file:
+		print("Failed to open file: ", file_path)
+		return {"Level": []}
+
+	# Read the contents of the file as text
+	var json_string = file.get_as_text()
+	file.close()
+
+	# Parse the JSON string
+	var json = JSON.new()
+	var result = json.parse(json_string)
+
+	# Check if parsing was successful
+	if result != OK:
+		print("JSON Parse Error: ", json.get_error_message(), " at line ", json.get_error_line())
+		return {}
+
+	# Return the parsed data as a dictionary
+	return json.data

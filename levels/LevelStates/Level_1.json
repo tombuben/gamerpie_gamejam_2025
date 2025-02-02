@@ -1,0 +1,53 @@
+{
+  "Level1": {
+    "NpcName": {
+      "Bubble_Check_Value": {
+        "CurrentNpcState": {
+          "NextState": "NpcStateToBeSwitchedToInThisSituation",
+          "Emit": "ValueToBeEmittedWhenThisSwitchHappens"
+        }
+      }
+    },
+    "Rat": {},
+    "PrisonMate": {
+      "Nothing": {
+        "BlockDoor": {
+          "NextState": "Default",
+          "Emit": "Move"
+        }
+      },
+      "NeverGettingOut": {
+        "Default": {
+          "NextState": "BlockDoor",
+          "Emit": "Move"
+        }
+      },
+      "ComeHere": {
+        "BlockDoor": {
+          "NextState": "Default",
+          "Emit": "Move"
+        }
+      }
+    },
+    "Guard": {
+      "Nothing": {
+        "OpenDoor": {
+          "NextState": "CloseDoor",
+          "Emit": "CloseDoor"
+        }
+      },
+      "NeverGettingOut": {
+        "OpenDoor": {
+          "NextState": "CloseDoor",
+          "Emit": "CloseDoor"
+        }
+      },
+      "ComeHere": {
+        "CloseDoor": {
+          "NextState": "OpenDoor",
+          "Emit": "OpenDoor"
+        }
+      }
+    }
+  }
+}

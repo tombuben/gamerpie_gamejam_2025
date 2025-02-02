@@ -5,6 +5,7 @@ extends PathFollow2D
 @export var move_what : Node2D
 @export var signal_out_trigger_npcs : Array[String]
 @export var emit_message : String
+@export var is_loop : bool
 
 func _ready() -> void:
 	SignalBus.connect("on_move_command", _on_npc_character_on_move_command)
@@ -43,7 +44,7 @@ func _on_npc_character_on_move_command(check_value : String, npc_name : String) 
 			#target = 1
 		var target : int
 				
-		if current_target_npc.move_position == 0:
+		if current_target_npc.move_position == 0 || is_loop:
 			target = 1
 			current_target_npc.move_position = 1
 		else:
