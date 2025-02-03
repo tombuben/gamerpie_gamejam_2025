@@ -14,30 +14,42 @@ class_name NPCCharacter extends Node2D
 
 @export var move_position : int = 0
 
+var player_node_in_collision : CharacterBody2D
+
 func _ready() -> void:
 	SignalBus.connect("on_state_changed", _resolve_state_change)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name != "PlayerCharacter":
 		return
-	toggle_sprite_highlight()
-	
-	await get_tree().process_frame
-	bubble_slot.start_dialog()
-	body._get_active_npc_bubble(self)
-	GameManager.open_swap_ui()
-
+	player_node_in_collision = body
+	player_entered()
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	print("npc exited")
 	if body.name != "PlayerCharacter":
 		return
+	player_exited()	
+	player_node_in_collision = null
+
+func player_entered():
+	if player_node_in_collision == null || player_node_in_collision.name != "PlayerCharacter":
+		return
+	toggle_sprite_highlight()
+	
+	await get_tree().process_frame
+	bubble_slot.start_dialog()
+	player_node_in_collision._get_active_npc_bubble(self)
+	GameManager.open_swap_ui()
+
+func player_exited():
+	if player_node_in_collision == null || player_node_in_collision.name != "PlayerCharacter":
+		return
 	toggle_sprite_highlight()
 	bubble_slot._end_dialog()
-	body._exit_npc_cleanup(self)
+	player_node_in_collision._exit_npc_cleanup(self)
 	AudioDialogManager.stop_dialog_play()
-		
-	
+
 func toggle_sprite_highlight():
 	if base_sprite != null && highlight_sprite != null:
 		base_sprite.visible = !base_sprite.visible
@@ -60,9 +72,6 @@ func apply_new_state(new_state : String, emit : String):
 func _resolve_new_state(emit : String):
 	if emit == "advance_dialog":
 		bubble_slot.advance_dialog()
-		return
-	if emit == "cycle_dialog":
-		bubble_slot.cycle_dialog()
 		return
 	
 	SignalBus.on_move_command.emit(emit, self.name)	

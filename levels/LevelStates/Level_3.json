@@ -15,11 +15,29 @@
 			}
 		},
 		"Worker1": {
-			"PiratessonName": {
+			"Nothing": {
+				"StartingVaultNumber": {
+					"NextState":"Default"
+				}
+			},
+			"StartVaultNumber": {
 				"Default": {
+					"NextState":"StartingVaultNumber",
+				},
+				"WaitingForStartVaultNumber": {
+					"NextState":"PiratessonVaultNumber",
+					"Emit":"advance_dialog",
+					"Wait":3.0
+				}
+			},
+			"PiratessonName": {
+				"StartingVaultNumber": {
 					"NextState":"PiratessonVaultNumber",
 					"Emit":"advance_dialog",
 					"Wait":1.0
+				},
+				"Default": {
+					"NextState":"WaitingForStartVaultNumber"
 				}
 			}
 		},

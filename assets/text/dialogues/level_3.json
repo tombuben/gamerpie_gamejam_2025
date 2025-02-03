@@ -39,6 +39,7 @@
 			"lines": [
 				{
 					"line": "Vault number: 4321",
+					"check": "StartVaultNumber",
 					"filename": "_VaultNumber4321_FINAL.mp3"
 				},
 				{
