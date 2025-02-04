@@ -11,6 +11,8 @@ var init_level : int
 
 var input_timeout = 0
 
+var swap_ui_active = false
+
 var swap_target = null
 var swap_box
 
@@ -61,11 +63,13 @@ func _bubble_switch():
 	var npc_bubble = other_bubble_slot.bubble
 	var player_bubble = Player.bubble_slot.bubble
 	
-	player_bubble_slot.remove_child(player_bubble)
-	other_bubble_slot.remove_child(npc_bubble)
+	swap_child_nodes(player_bubble_slot, player_bubble, other_bubble_slot, npc_bubble)
 	
-	player_bubble_slot.add_child(npc_bubble)
-	other_bubble_slot.add_child(player_bubble)
+	#player_bubble_slot.remove_child(player_bubble)
+	#other_bubble_slot.remove_child(npc_bubble)
+	#
+	#player_bubble_slot.add_child(npc_bubble)
+	#other_bubble_slot.add_child(player_bubble)
 	
 	player_bubble_slot.bubble = npc_bubble
 	other_bubble_slot.bubble = player_bubble
@@ -81,7 +85,8 @@ func _bubble_switch():
 	close_swap_ui()
 	open_swap_ui()
 
-func open_swap_ui():	
+func open_swap_ui():
+	swap_ui_active = true	
 	if swap_target != null:
 		swap_target.set_sprite_highlight(false)
 		swap_box.queue_free()
@@ -102,6 +107,12 @@ func close_swap_ui():
 	if swap_target != null:
 		swap_box.queue_free()
 		swap_target = null
+		swap_ui_active = false
+
+func reload_swap_ui():
+	if swap_ui_active:
+		close_swap_ui()
+		open_swap_ui()
 
 func next_level():
 	load_current_level()
@@ -109,3 +120,15 @@ func next_level():
 func _load_player(node : CharacterBody2D):
 	if Player == null:
 		Player = node
+
+func swap_child_nodes(parent1, child1, parent2, child2):
+	var index1 = child1.get_index()
+	var index2 = child2.get_index()
+	
+	parent1.remove_child(child1)
+	parent2.remove_child(child2)
+	parent1.add_child(child2)
+	parent2.add_child(child1)
+	
+	parent1.move_child(child2, index1)
+	parent2.move_child(child1, index2)

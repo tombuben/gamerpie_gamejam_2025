@@ -17,6 +17,8 @@ var text_box_position: Vector2
 var bubble_slot: Node2D
 
 var line_index = 0
+var active_bubble_index = 0
+var uses_anchor = false
 
 var is_dialog_active = false
 
@@ -24,12 +26,17 @@ func _ready():
 	bubbles_dict = DialogManager.get_bubbles_dict_by_id(bubble.bubble_id)
 	for key in bubbles_dict:
 		lines.append(key)
-	fill_bubble(lines[0])
+	if get_child_count() > 1:
+		fill_multiple_bubbles()
+	else:
+		fill_bubble(lines[0])
 	bubble_slot = self
+	
+	uses_anchor = _bubble_anchor_count() > 0
 
-func start_dialog(showSwap: bool = false):	
+func start_dialog(anchor = null):	
 	var parent = get_parent() 
-	bubble = $Bubble
+	#bubble = $Bubble
 	if is_dialog_active && parent.name == "PlayerCharacter":
 		_end_dialog()
 	elif is_dialog_active:
@@ -38,7 +45,8 @@ func start_dialog(showSwap: bool = false):
 	#print(bubble_slot.lines)
 	dialog_line = bubble.line
 	text_box_position = global_position
-	_show_text_box(showSwap)
+	
+	_show_text_box(anchor)
 	
 	#PREPARED FOR AUDIO DIALOGUES
 	var npc_name = get_parent().name
@@ -47,15 +55,18 @@ func start_dialog(showSwap: bool = false):
 	
 	is_dialog_active = true
 	
-
-func _show_text_box(showSwap: bool):
+func _show_text_box(anchor : Control):
 	text_box = text_box_scene.instantiate()
-	bubble_slot.add_child(text_box)
+	
+	if _bubble_anchor_count() > 0 && anchor != null:
+		anchor.add_child(text_box)
+	else:
+		bubble_slot.add_child(text_box)	
+	
 	text_box.position = Vector2.ZERO
 	#print(position)
 	#print(global_position)
 	#print(text_box.global_position)
-	text_box.swap_button.visible = showSwap
 	text_box.display_text(dialog_line)
 	
 	LevelStateManager.resolve_npc_state(get_parent(), bubble.checkValue)
@@ -80,7 +91,11 @@ func _bubble_slot_changed(check_value : String):
 	print("bubble slot changed")
 	if is_dialog_active:
 		_end_dialog()
-	start_dialog()
+	
+	if uses_anchor:
+		start_dialog(npc_parent._get_closest_bubble_slot_anchor())
+	else:
+		start_dialog()
 	#LevelStateManager.resolve_npc_state(npc_parent,check_value)
 
 func advance_dialog():
@@ -96,8 +111,7 @@ func _advance_dialog():
 		
 		if old_line != new_line:
 			fill_bubble(new_line)
-			GameManager.close_swap_ui()
-			GameManager.open_swap_ui()
+			GameManager.reload_swap_ui()
 			_bubble_slot_changed(bubble.checkValue)
 
 func _on_level_2_advance_bubble() -> void:
@@ -107,3 +121,28 @@ func fill_bubble(line : String):
 	bubble.line = line
 	if bubbles_dict[line].is_empty() == false:
 		bubble.checkValue = bubbles_dict[line]
+
+func fill_multiple_bubbles():
+	for i in get_bubble_child_count():
+		var child_bubble = get_child(i)
+		var line = lines[i]
+		
+		child_bubble.line = line
+		if bubbles_dict[line].is_empty() == false:
+			child_bubble.checkValue = bubbles_dict[line]
+
+func get_bubble_child_count():
+	var bubble_count = 0
+	for child in get_children():
+		if child is Node2D:
+			bubble_count += 1
+	
+	return bubble_count
+		
+func _bubble_anchor_count() -> int:
+	var anchor_count = 0
+	for child in get_children():
+		if child is Control:
+			anchor_count += 1
+	
+	return anchor_count

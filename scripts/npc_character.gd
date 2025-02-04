@@ -38,7 +38,13 @@ func player_entered():
 	toggle_sprite_highlight()
 	
 	await get_tree().process_frame
-	bubble_slot.start_dialog()
+	
+	if bubble_slot.uses_anchor:
+		bubble_slot.start_dialog(_get_closest_bubble_slot_anchor())
+	else:
+		bubble_slot.start_dialog()
+	
+	
 	player_node_in_collision._get_active_npc_bubble(self)
 	GameManager.open_swap_ui()
 
@@ -89,3 +95,21 @@ func _resolve_state_change(check_value : String, npc_name : String):
 func flip_sprites():
 	base_sprite.flip_h = !base_sprite.flip_h
 	highlight_sprite.flip_h = !highlight_sprite.flip_h
+
+func _get_closest_bubble_slot_anchor() -> Control:
+	var anchors : Array[Control]
+	
+	for child in bubble_slot.get_children():
+		if child is Control:
+			anchors.append(child)
+	
+	var min_dist = INF
+	var min_obj = null
+		
+	for anchor in anchors:	
+		var new_dist = player_node_in_collision.global_position.distance_to(anchor.global_position)
+		if new_dist < min_dist:
+			min_dist = new_dist
+			min_obj = anchor
+			
+	return min_obj

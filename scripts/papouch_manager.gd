@@ -9,6 +9,8 @@ extends Node2D
 @export var P3 : Node2D
 @export var P4 : Node2D
 
+@export var bubble_slot : Node2D
+
 var parrot_nodes : Array[Node2D]
 
 var time = 0
@@ -16,9 +18,9 @@ var time = 0
 func _ready():
 	
 	parrot_nodes.append(P1)
-	parrot_nodes.append(P2)
-	parrot_nodes.append(P3)
-	parrot_nodes.append(P4)	
+	#parrot_nodes.append(P2)
+	#parrot_nodes.append(P3)
+	#parrot_nodes.append(P4)	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -30,6 +32,29 @@ func _process(delta: float) -> void:
 		swap_papouch()
 
 func swap_papouch():
+		
+	P1.set_sprite_highlight(false)
+	
+	var p1_bubble_count = 0
+	
+	for child in bubble_slot.get_children():
+		if child is Node2D:
+			p1_bubble_count += 1
+	
+	bubble_slot.active_bubble_index += 1
+	
+	if bubble_slot.active_bubble_index >= p1_bubble_count:
+		bubble_slot.active_bubble_index = 0
+	
+	bubble_slot.bubble = bubble_slot.get_child(bubble_slot.active_bubble_index)
+	
+	GameManager.reload_swap_ui()
+	
+	if bubble_slot.is_dialog_active:
+		bubble_slot._end_dialog()
+		bubble_slot.start_dialog(P1._get_closest_bubble_slot_anchor())
+		
+func swap_papouch_new_old():
 	
 	P1.bubble_slot._end_dialog()
 	P2.bubble_slot._end_dialog()	

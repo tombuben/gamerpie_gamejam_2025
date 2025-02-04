@@ -64,7 +64,7 @@ func _clean_npc_storage(body):
 	body.set_sprite_highlight(false)
 
 func toggle_bubble_icon():
-	if bubble_slot.bubble.checkValue == "Nothing":
+	if bubble_slot.bubble.checkValue == "Empty":
 		#bubble_ico.queue_free()
 		bubble_slot.remove_child(bubble_ico)
 		bubble_ico_active = false
