@@ -137,7 +137,7 @@ scale = Vector2(8, 8)
 texture = ExtResource("6_jnx5q")
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("3_u8qeu")]
-position = Vector2(568, 543)
+position = Vector2(249, 702)
 friction = 0.5
 
 [node name="BubbleSlot" type="Node2D" parent="PlayerCharacter"]

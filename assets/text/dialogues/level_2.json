@@ -14,7 +14,8 @@
 			"name":"CardPlayer1",
 			"lines": [
 				{
-					"line":"....",
+					"line":"There are two same Aces!",
+			        "filename": "_SameAces_FINAL.mp3"
 				},
 				{
 			        "line": "Where did you hide it?",
