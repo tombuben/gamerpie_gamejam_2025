@@ -70,13 +70,13 @@ func _bubble_switch():
 	player_bubble_slot.bubble = npc_bubble
 	other_bubble_slot.bubble = player_bubble
 
-	Player.bubble_slot.on_slot_changed.emit(npc_bubble.checkValue)
+	#Player.bubble_slot.on_slot_changed.emit(npc_bubble.checkValue)
 	#my_bubble_slot.start_dialog()
 	Player.toggle_bubble_icon()
 	closest_npc.bubble_slot._bubble_slot_changed(closest_npc.bubble_slot.bubble.checkValue)
 	
-	other_bubble_slot = closest_npc.bubble_slot
-	other_bubble_slot._bubble_slot_changed(other_bubble_slot.bubble.checkValue)
+	#other_bubble_slot = closest_npc.bubble_slot
+	#other_bubble_slot._bubble_slot_changed(other_bubble_slot.bubble.checkValue)
 	
 	close_swap_ui()
 	open_swap_ui()

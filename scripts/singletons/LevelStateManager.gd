@@ -33,6 +33,7 @@ func populate_check_subscribers():
 		check_subscribers[check] = subscribe_npcs
 
 func resolve_npc_state(npc : Node2D, check_value : String) -> void:	
+	print("Resolving state for " + npc.name)
 	var npc_name = npc.name
 	var current_state = npc.npc_state
 	var new_state : String

@@ -35,7 +35,7 @@ func start_dialog(showSwap: bool = false):
 	elif is_dialog_active:
 		return
 	bubble_slot = self
-	print(bubble_slot.lines)
+	#print(bubble_slot.lines)
 	dialog_line = bubble.line
 	text_box_position = global_position
 	_show_text_box(showSwap)
@@ -52,12 +52,13 @@ func _show_text_box(showSwap: bool):
 	text_box = text_box_scene.instantiate()
 	bubble_slot.add_child(text_box)
 	text_box.position = Vector2.ZERO
-	print(position)
-	print(global_position)
-	print(text_box.global_position)
+	#print(position)
+	#print(global_position)
+	#print(text_box.global_position)
 	text_box.swap_button.visible = showSwap
 	text_box.display_text(dialog_line)
 	
+	LevelStateManager.resolve_npc_state(get_parent(), bubble.checkValue)
 
 func _end_dialog():
 	if is_dialog_active:
@@ -80,7 +81,7 @@ func _bubble_slot_changed(check_value : String):
 	if is_dialog_active:
 		_end_dialog()
 	start_dialog()
-	LevelStateManager.resolve_npc_state(npc_parent,check_value)
+	#LevelStateManager.resolve_npc_state(npc_parent,check_value)
 
 func advance_dialog():
 	_advance_dialog()

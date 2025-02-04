@@ -19,6 +19,11 @@
 					"Emit":"BringDrinkTop",
 					"Wait":1.0
 				},
+				"RequestDrink": {
+					"NextState":"RequestDrink",
+					"Emit":"BringDrinkTop",
+					"Wait":1.0
+				}
 			}
 		},
 		"CardPlayer2": {
@@ -33,6 +38,11 @@
 					"Emit":"BringDrinkTop",
 					"Wait":1.0
 				},
+				"RequestDrink": {
+					"NextState":"RequestDrink",
+					"Emit":"BringDrinkTop",
+					"Wait":1.0
+				}
 			}
 		},
 		"CardPlayer3": {
@@ -41,12 +51,17 @@
 					"NextState":"Default"
 				}
 			},
-			"AnotherRound": {
+			"AnotherRound": {				
 				"Default": {
 					"NextState":"RequestDrink",
 					"Emit":"BringDrinkTop",
 					"Wait":1.0
 				},
+				"RequestDrink": {
+					"NextState":"RequestDrink",
+					"Emit":"BringDrinkTop",
+					"Wait":1.0
+				}
 			}
 		},
 		"Drunk": {
@@ -86,6 +101,11 @@
 					"Emit":"BringDrinkBottom",
 					"Wait":1.0
 				},
+				"RequestDrink": {
+					"NextState":"RequestDrink",
+					"Emit":"BringDrinkBottom",
+					"Wait":1.0
+				}
 			}
 		},
 		"Traitor": {
@@ -103,6 +123,16 @@
 			"AnotherRound": {
 				"Default": {
 					"NextState":"RequestDrink",
+					"Emit":"BringDrinkBottom",
+					"Wait":1.0
+				},
+				"RequestDrink": {
+					"NextState":"RequestDrink",
+					"Emit":"BringDrinkBottom",
+					"Wait":1.0
+				},
+				"NotTelling": {
+					"NextState":"NotTelling",
 					"Emit":"BringDrinkBottom",
 					"Wait":1.0
 				}

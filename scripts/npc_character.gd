@@ -61,16 +61,20 @@ func set_sprite_highlight(highlighted):
 		highlight_sprite.visible = highlighted
 
 func apply_new_state(new_state : String, emit : String):
-	if new_state == npc_state:
-		return
+	#if new_state == npc_state:
+		#return
+	print("Applying state for " + self.name)
+	var previous_state = npc_state
 	npc_state = new_state
 	if !emit.is_empty():
-		_resolve_new_state(emit)
+		_resolve_new_state(emit, previous_state)
 	#else:
 		#print("NPC ["+self.name+"] state not found: "+npc_state)
 
-func _resolve_new_state(emit : String):
-	if emit == "advance_dialog":
+func _resolve_new_state(emit : String, previous_state : String):
+	print("Resolving NEW state for " + self.name)
+	if emit == "advance_dialog" && previous_state != npc_state:
+		print("Advance dialog for " + self.name)
 		bubble_slot.advance_dialog()
 		return
 	
