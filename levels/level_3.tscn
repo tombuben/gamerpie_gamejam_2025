@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://c5icoj7eo4vaf"]
+[gd_scene load_steps=27 format=3 uid="uid://c5icoj7eo4vaf"]
 
 [ext_resource type="Script" path="res://scripts/scene_manager.gd" id="1_ub0w7"]
 [ext_resource type="PackedScene" uid="uid://brvly23kxkjhu" path="res://levels/outro.tscn" id="2_sbk1s"]
@@ -11,19 +11,17 @@
 [ext_resource type="Texture2D" uid="uid://b6qeotyvvjowi" path="res://assets/level_3/Bank_prepazky.png" id="6_qd7v3"]
 [ext_resource type="Texture2D" uid="uid://l3aigq3kcjk7" path="res://assets/level_3/Bank_psst_cedule.png" id="7_amvbi"]
 [ext_resource type="Script" path="res://scripts/papouch_manager.gd" id="8_dkm4x"]
-[ext_resource type="Texture2D" uid="uid://cgn0x4ivs25v4" path="res://assets/level_3/characters/HumanFrontSmall.png" id="8_hhst3"]
 [ext_resource type="Script" path="res://scripts/npc_character.gd" id="8_kxejn"]
 [ext_resource type="Texture2D" uid="uid://btvl4lrtkkkle" path="res://assets/level_3/Bank_truhla.png" id="8_v58de"]
 [ext_resource type="PackedScene" path="res://door.tscn" id="9_06q2w"]
-[ext_resource type="Texture2D" uid="uid://bp44jksf6bbh3" path="res://assets/level_3/characters/New_Piskel_9.png" id="9_7d4ny"]
-[ext_resource type="Texture2D" uid="uid://dnk23jeysrggw" path="res://assets/level_3/characters/New_Piskel_16.png" id="9_43078"]
-[ext_resource type="Texture2D" uid="uid://bxk3pp0jdul0a" path="res://assets/level_3/characters/HumanFrontSmall_outline.png" id="9_lkc1g"]
-[ext_resource type="Texture2D" uid="uid://dhq33tir7l1yt" path="res://assets/level_3/characters/New_Piskel_16_outline.png" id="10_7bin5"]
-[ext_resource type="Texture2D" uid="uid://desen7tqgwm3s" path="res://assets/level_3/characters/New_Piskel_9_outline.png" id="10_bfr58"]
-[ext_resource type="Texture2D" uid="uid://ck1bo4irx0pwj" path="res://assets/level_3/characters/HumanBackSmall.png" id="12_i0cly"]
 [ext_resource type="Texture2D" uid="uid://b3l5op4d2d5ne" path="res://assets/level_3/characters/New_Piskel.png" id="13_5pvuy"]
-[ext_resource type="Texture2D" uid="uid://xop1ak2pm6kl" path="res://assets/level_3/characters/HumanBack_outline.png" id="13_wtlgb"]
+[ext_resource type="Texture2D" uid="uid://748yqk3qshvu" path="res://assets/level_3/characters/NT_human_front.png" id="13_a4k2j"]
 [ext_resource type="Texture2D" uid="uid://cxu2t6aybgdnl" path="res://assets/level_3/characters/New_Piskel_outline.png" id="14_0pyq6"]
+[ext_resource type="Texture2D" uid="uid://8claxw8p6ymn" path="res://assets/level_3/characters/NT_human_front_outline.png" id="14_wintj"]
+[ext_resource type="Texture2D" uid="uid://b6yuujqp86ghq" path="res://assets/level_3/characters/nt_lion_base.png" id="15_8o1vw"]
+[ext_resource type="Texture2D" uid="uid://dluu1b086scit" path="res://assets/level_3/characters/nt_lion_outline.png" id="16_r151w"]
+[ext_resource type="Texture2D" uid="uid://c3rbl8xxtbb0c" path="res://assets/level_3/characters/NT_capybara.png" id="17_vvg66"]
+[ext_resource type="Texture2D" uid="uid://c1sm208r57fr6" path="res://assets/level_3/characters/NT_capybara_outline.png" id="18_qq5en"]
 [ext_resource type="Texture2D" uid="uid://bvr54plvn8wio" path="res://assets/level_3/characters/papousek_base.png" id="23_yyibw"]
 [ext_resource type="Texture2D" uid="uid://dc0y84jrpdo1a" path="res://assets/level_3/characters/papousek_outline.png" id="25_6ubh1"]
 
@@ -150,14 +148,14 @@ shape = SubResource("CircleShape2D_v3qrx")
 texture_filter = 1
 position = Vector2(0, -48)
 scale = Vector2(8, 8)
-texture = ExtResource("8_hhst3")
+texture = ExtResource("13_a4k2j")
 
 [node name="LizzyOutline" type="Sprite2D" parent="Worker2"]
 visible = false
 texture_filter = 1
 position = Vector2(0, -48)
 scale = Vector2(8, 8)
-texture = ExtResource("9_lkc1g")
+texture = ExtResource("14_wintj")
 
 [node name="BubbleSlot" type="Node2D" parent="Worker2"]
 position = Vector2(0, -200)
@@ -190,14 +188,14 @@ shape = SubResource("CircleShape2D_v3qrx")
 texture_filter = 1
 position = Vector2(0, -48)
 scale = Vector2(8, 8)
-texture = ExtResource("9_43078")
+texture = ExtResource("15_8o1vw")
 
 [node name="LizzyOutline" type="Sprite2D" parent="Customer2"]
 visible = false
 texture_filter = 1
 position = Vector2(0, -48)
 scale = Vector2(8, 8)
-texture = ExtResource("10_7bin5")
+texture = ExtResource("16_r151w")
 
 [node name="BubbleSlot" type="Node2D" parent="Customer2"]
 position = Vector2(0, -200)
@@ -232,14 +230,14 @@ shape = SubResource("CircleShape2D_v3qrx")
 texture_filter = 1
 position = Vector2(0, -48)
 scale = Vector2(8, 8)
-texture = ExtResource("12_i0cly")
+texture = ExtResource("13_a4k2j")
 
 [node name="LizzyOutline" type="Sprite2D" parent="Worker1"]
 visible = false
 texture_filter = 1
 position = Vector2(0, -48)
 scale = Vector2(8, 8)
-texture = ExtResource("13_wtlgb")
+texture = ExtResource("14_wintj")
 
 [node name="BubbleSlot" type="Node2D" parent="Worker1"]
 position = Vector2(0, -200)
@@ -270,16 +268,16 @@ shape = SubResource("CircleShape2D_v3qrx")
 
 [node name="LizzyIdle" type="Sprite2D" parent="Customer1"]
 texture_filter = 1
-position = Vector2(20, -36)
+position = Vector2(-7, -56)
 scale = Vector2(8, 8)
-texture = ExtResource("9_7d4ny")
+texture = ExtResource("17_vvg66")
 
 [node name="LizzyOutline" type="Sprite2D" parent="Customer1"]
 visible = false
 texture_filter = 1
 position = Vector2(20, -36)
 scale = Vector2(8, 8)
-texture = ExtResource("10_bfr58")
+texture = ExtResource("18_qq5en")
 
 [node name="BubbleSlot" type="Node2D" parent="Customer1"]
 position = Vector2(0, -200)
