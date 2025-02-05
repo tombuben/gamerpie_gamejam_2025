@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c5icoj7eo4vaf"]
+[gd_scene load_steps=29 format=3 uid="uid://c5icoj7eo4vaf"]
 
 [ext_resource type="Script" path="res://scripts/scene_manager.gd" id="1_ub0w7"]
 [ext_resource type="PackedScene" uid="uid://brvly23kxkjhu" path="res://levels/outro.tscn" id="2_sbk1s"]
@@ -16,7 +16,9 @@
 [ext_resource type="PackedScene" path="res://door.tscn" id="9_06q2w"]
 [ext_resource type="Texture2D" uid="uid://b3l5op4d2d5ne" path="res://assets/level_3/characters/New_Piskel.png" id="13_5pvuy"]
 [ext_resource type="Texture2D" uid="uid://748yqk3qshvu" path="res://assets/level_3/characters/NT_human_front.png" id="13_a4k2j"]
+[ext_resource type="Texture2D" uid="uid://dmrhj4btd4ko3" path="res://assets/level_3/characters/NT_human_front_2.png" id="13_lf1bo"]
 [ext_resource type="Texture2D" uid="uid://cxu2t6aybgdnl" path="res://assets/level_3/characters/New_Piskel_outline.png" id="14_0pyq6"]
+[ext_resource type="Texture2D" uid="uid://b2oij8kqjttte" path="res://assets/level_3/characters/NT_human_front_2_outline.png" id="14_tbjrh"]
 [ext_resource type="Texture2D" uid="uid://8claxw8p6ymn" path="res://assets/level_3/characters/NT_human_front_outline.png" id="14_wintj"]
 [ext_resource type="Texture2D" uid="uid://b6yuujqp86ghq" path="res://assets/level_3/characters/nt_lion_base.png" id="15_8o1vw"]
 [ext_resource type="Texture2D" uid="uid://dluu1b086scit" path="res://assets/level_3/characters/nt_lion_outline.png" id="16_r151w"]
@@ -148,14 +150,14 @@ shape = SubResource("CircleShape2D_v3qrx")
 texture_filter = 1
 position = Vector2(0, -48)
 scale = Vector2(8, 8)
-texture = ExtResource("13_a4k2j")
+texture = ExtResource("13_lf1bo")
 
 [node name="LizzyOutline" type="Sprite2D" parent="Worker2"]
 visible = false
 texture_filter = 1
 position = Vector2(0, -48)
 scale = Vector2(8, 8)
-texture = ExtResource("14_wintj")
+texture = ExtResource("14_tbjrh")
 
 [node name="BubbleSlot" type="Node2D" parent="Worker2"]
 position = Vector2(0, -200)
