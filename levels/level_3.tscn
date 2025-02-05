@@ -275,6 +275,7 @@ scale = Vector2(8, 8)
 texture = ExtResource("17_vvg66")
 
 [node name="LizzyOutline" type="Sprite2D" parent="Customer1"]
+visible = false
 texture_filter = 1
 position = Vector2(-7, -56)
 scale = Vector2(8, 8)
@@ -371,15 +372,18 @@ bubble_id = 5
 [node name="BubbleAnchor1" type="Control" parent="Parrot1wrapper/Parrot/BubbleSlot"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 72.0
+offset_top = 44.0
+offset_right = 112.0
+offset_bottom = 84.0
 
 [node name="BubbleAnchor2" type="Control" parent="Parrot1wrapper/Parrot/BubbleSlot"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 923.0
-offset_right = 963.0
-offset_bottom = 40.0
+offset_left = 847.0
+offset_top = 34.0
+offset_right = 887.0
+offset_bottom = 74.0
 
 [node name="P1Sprite" type="Sprite2D" parent="Parrot1wrapper/Parrot"]
 texture_filter = 1
