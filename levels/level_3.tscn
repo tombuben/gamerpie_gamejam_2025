@@ -275,9 +275,8 @@ scale = Vector2(8, 8)
 texture = ExtResource("17_vvg66")
 
 [node name="LizzyOutline" type="Sprite2D" parent="Customer1"]
-visible = false
 texture_filter = 1
-position = Vector2(20, -36)
+position = Vector2(-7, -56)
 scale = Vector2(8, 8)
 texture = ExtResource("18_qq5en")
 
