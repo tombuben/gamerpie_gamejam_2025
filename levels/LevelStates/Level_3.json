@@ -60,7 +60,7 @@
 				"Default": {
 					"NextState":"WithdrawTreasure",
 					"Emit":"advance_dialog",
-					"Wait":1.0
+					"Wait":2.0
 				}
 			},
 			"MoneyWithdrawn": {

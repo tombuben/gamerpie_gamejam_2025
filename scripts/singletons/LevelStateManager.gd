@@ -40,7 +40,7 @@ func resolve_npc_state(npc : Node2D, incoming_check_value : String) -> void:
 	var emit : String
 	var wait : float = 0
 	var level = "Level" + String.num_int64(GameManager.current_level)
-	var check_value : String
+	var check_value = incoming_check_value
 	
 	if incoming_check_value == "Empty":
 		check_value = "Nothing"
