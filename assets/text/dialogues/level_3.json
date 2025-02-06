@@ -5,7 +5,8 @@
 			"name": "Player",
 			"lines": [
 				{
-					"line": "...."
+					"line": "....",
+					"check": "Empty"
 				}
 			]
 		},
@@ -67,6 +68,21 @@
 					"line": "News!",
 					"check": "CycleParrot",
 					"filename": "_News_FINAL.mp3"
+				},
+				{
+					"line": "Big treasure stolen!",
+					"check": "CycleParrot",
+					"filename": "_BigTreasureStolen_FINAL.mp3"
+				},
+				{
+					"line": "Suspect:",
+					"check": "CycleParrot",
+					"filename": "_Suspect_FINAL.mp3"
+				},
+				{
+					"line": "Pirate Piratesson",
+					"check": "Piratesson",
+					"filename": "_PiratePiratesson_FINAL.mp3"
 				}
 			]
 		},

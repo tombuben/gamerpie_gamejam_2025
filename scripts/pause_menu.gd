@@ -23,17 +23,11 @@ func open_menu():
 		restart,
 		mute
 	]
-	var root = get_tree().root
 	
-	if root.get_node("Level1"):
-		objective.text = objectives["Level1"]
-		return
-	if root.get_node("Level2"):
-		objective.text = objectives["Level2"]
-		return
-	if root.get_node("Level3"):
-		objective.text = objectives["Level3"]
-		return
+	match GameManager.current_level:
+		1: objective.text = objectives["Level1"]
+		2: objective.text = objectives["Level2"]
+		3: objective.text = objectives["Level3"]
 	
 
 func _input(event):

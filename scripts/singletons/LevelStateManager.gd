@@ -32,7 +32,7 @@ func populate_check_subscribers():
 		
 		check_subscribers[check] = subscribe_npcs
 
-func resolve_npc_state(npc : Node2D, check_value : String) -> void:	
+func resolve_npc_state(npc : Node2D, incoming_check_value : String) -> void:	
 	print("Resolving state for " + npc.name)
 	var npc_name = npc.name
 	var current_state = npc.npc_state
@@ -40,6 +40,11 @@ func resolve_npc_state(npc : Node2D, check_value : String) -> void:
 	var emit : String
 	var wait : float = 0
 	var level = "Level" + String.num_int64(GameManager.current_level)
+	var check_value = incoming_check_value
+	
+	if incoming_check_value == "Empty":
+		check_value = "Nothing"
+	
 	if NpcStateResolverDict.has(level) == false:
 		print("Level " + level + " not found in state resolver")
 		return

@@ -141,7 +141,7 @@
 				"NotTelling": {
 					"NextState":"InTheBank",
 					"Emit":"advance_dialog",
-					"Wait":2.0
+					"Wait":1.0
 				}
 			},
 			"SecretSpilled": {

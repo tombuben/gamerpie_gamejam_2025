@@ -41,11 +41,11 @@ func convert_node_path_keys(dict : Dictionary):
 	return ret_dict
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 
-func _on_bubble_slot_on_slot_changed(check_value: String) -> void:
+func _on_bubble_slot_on_slot_changed(_check_value: String) -> void:
 	check_current_state()
 	pass # Replace with function body.
 	
@@ -82,7 +82,7 @@ func advance_state():
 		#GameManager.next_level()
 		#DialogManager.next_level()
 		
-func _resolve_state_change(check_value : String, npc_name : String):
+func _resolve_state_change(check_value : String, _npc_name : String):
 	if check_value == "ObjectiveAchieved":
 		await get_tree().create_timer(3.0).timeout
 		get_tree().change_scene_to_packed(scene)
