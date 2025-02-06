@@ -87,7 +87,7 @@ func _resolve_new_state(emit : String, previous_state : String):
 	SignalBus.on_move_command.emit(emit, self.name)	
 	SignalBus.on_state_changed.emit(emit, self.name)
 	
-func _resolve_state_change(check_value : String, npc_name : String):
+func _resolve_state_change(check_value : String, _npc_name : String):
 	if LevelStateManager.check_subscribers.has(check_value) \
 		&&	LevelStateManager.check_subscribers[check_value].has(self.name):
 			LevelStateManager.resolve_npc_state(self, check_value)

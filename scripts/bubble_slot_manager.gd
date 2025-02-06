@@ -79,14 +79,8 @@ func _end_dialog():
 
 func _get_current_line() -> String:
 	return bubble.line
-
-#func _bubble_slot_changed(check_value : String):
-	#on_slot_changed.emit(check_value)
-	#print("bubble slot changed")
-	#_end_dialog()
-	#start_dialog()
 	
-func _bubble_slot_changed(check_value : String):
+func _bubble_slot_changed():
 	var npc_parent = get_parent()
 	print("bubble slot changed")
 	if is_dialog_active:
@@ -96,7 +90,6 @@ func _bubble_slot_changed(check_value : String):
 		start_dialog(npc_parent._get_closest_bubble_slot_anchor())
 	else:
 		start_dialog()
-	#LevelStateManager.resolve_npc_state(npc_parent,check_value)
 
 func advance_dialog():
 	_advance_dialog()
@@ -112,7 +105,7 @@ func _advance_dialog():
 		if old_line != new_line:
 			fill_bubble(new_line)
 			GameManager.reload_swap_ui()
-			_bubble_slot_changed(bubble.checkValue)
+			_bubble_slot_changed()
 
 func _on_level_2_advance_bubble() -> void:
 	_advance_dialog()

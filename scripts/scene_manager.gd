@@ -11,7 +11,7 @@ func _enter_tree():
 func _ready() -> void:
 	SignalBus.connect("on_state_changed", _resolve_state_change)
 
-func _resolve_state_change(check_value : String, npc_name : String):
+func _resolve_state_change(check_value : String, _npc_name : String):
 	if check_value == "ObjectiveAchieved":
 		await get_tree().create_timer(1.0).timeout
 		get_tree().change_scene_to_packed(scene)
