@@ -36,7 +36,7 @@ func display_text(text_to_display: String):
 	
 	await label.resized
 	label.custom_minimum_size.x = min(max(min_width, label.size.x), max_width)
-	if size.x > max_width:
+	if label.size.x > max_width:
 		label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		await label.resized # wait for y resize
 		label.custom_minimum_size.y = size.y - 40

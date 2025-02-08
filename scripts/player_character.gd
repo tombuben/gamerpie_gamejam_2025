@@ -17,7 +17,7 @@ var bubble_ico_active = false
 #var pause_menu
 
 func _ready():
-	GameManager._load_player(self)
+	GameManager.Player = self
 	sprite.play("default")
 
 func get_input():

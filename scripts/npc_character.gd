@@ -14,46 +14,31 @@ class_name NPCCharacter extends Node2D
 
 @export var move_position : int = 0
 
-var player_node_in_collision : CharacterBody2D
-
 func _ready() -> void:
 	SignalBus.connect("on_state_changed", _resolve_state_change)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name != "PlayerCharacter":
 		return
-	player_node_in_collision = body
-	player_entered()
-
-func _on_area_2d_body_exited(body: Node2D) -> void:
-	print("npc exited")
-	if body.name != "PlayerCharacter":
-		return
-	player_exited()	
-	player_node_in_collision = null
-
-func player_entered():
-	if player_node_in_collision == null || player_node_in_collision.name != "PlayerCharacter":
-		return
+	
 	toggle_sprite_highlight()
 	
 	await get_tree().process_frame
-	
 	if bubble_slot.uses_anchor:
 		bubble_slot.start_dialog(_get_closest_bubble_slot_anchor())
 	else:
 		bubble_slot.start_dialog()
-	
-	
-	player_node_in_collision._get_active_npc_bubble(self)
+
+	GameManager.Player._get_active_npc_bubble(self)
 	GameManager.open_swap_ui()
 
-func player_exited():
-	if player_node_in_collision == null || player_node_in_collision.name != "PlayerCharacter":
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body.name != "PlayerCharacter":
 		return
+
 	toggle_sprite_highlight()
 	bubble_slot._end_dialog()
-	player_node_in_collision._exit_npc_cleanup(self)
+	GameManager.Player._exit_npc_cleanup(self)
 	AudioDialogManager.stop_dialog_play()
 
 func toggle_sprite_highlight():
@@ -107,9 +92,9 @@ func _get_closest_bubble_slot_anchor() -> Control:
 	var min_obj = null
 		
 	for anchor in anchors:	
-		var new_dist = player_node_in_collision.global_position.distance_to(anchor.global_position)
+		var new_dist = GameManager.Player.global_position.distance_to(anchor.global_position)
 		if new_dist < min_dist:
 			min_dist = new_dist
 			min_obj = anchor
-			
+
 	return min_obj

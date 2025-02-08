@@ -107,10 +107,6 @@ func reload_swap_ui():
 func next_level():
 	load_current_level()
 
-func _load_player(node : CharacterBody2D):
-	if Player == null:
-		Player = node
-
 func swap_child_nodes(parent1, child1, parent2, child2):
 	var index1 = child1.get_index()
 	var index2 = child2.get_index()
