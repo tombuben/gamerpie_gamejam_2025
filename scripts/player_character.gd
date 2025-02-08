@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var bubble_slot : Node2D = $BubbleSlot
-@onready var sprite : Sprite2D = $Sprite2D
+@onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
 
 @onready var bubble_ico_scene = preload("res://ui/bubble ico/bubble_ico.tscn")
 
@@ -18,6 +18,7 @@ var bubble_ico_active = false
 
 func _ready():
 	GameManager._load_player(self)
+	sprite.play("default")
 
 func get_input():
 	var input = Vector2()
@@ -40,6 +41,10 @@ func _physics_process(_delta):
 	
 	sprite.flip_h = velocity.x < 0
 	
+	var animation_speed = velocity.length() / 25
+	sprite.speed_scale = animation_speed
+	if animation_speed < 0.1:
+		sprite.set_frame_and_progress(0, 0.0)
 	move_and_slide()
 	
 func _get_active_npc_bubble(parent: NPCCharacter):

@@ -55,9 +55,9 @@ point_count = 5
 
 [sub_resource type="Curve2D" id="Curve2D_fl1dp"]
 _data = {
-"points": PackedVector2Array(220.122, 27.8107, -220.122, -27.8107, 980.417, 274, -14.9514, -66.4503, 14.9514, 66.4503, 577.357, 331, -38.3053, 12.8817, 38.3053, -12.8817, 752.742, 302, 57.6476, 3.82968, -57.6476, -3.82968, 913.966, 255, 2.65483, -13.9261, -2.65483, 13.9261, 980.417, 274)
+"points": PackedVector2Array(220.122, 27.8107, -220.122, -27.8107, 980.417, 274, -14.9514, -66.4503, 14.9514, 66.4503, 577.357, 331, -38.3053, 12.8817, 38.3053, -12.8817, 752.742, 302, 2.65483, -13.9261, -2.65483, 13.9261, 980.417, 274)
 }
-point_count = 5
+point_count = 4
 
 [node name="Level2" type="Node2D"]
 y_sort_enabled = true
@@ -95,11 +95,11 @@ polygon = PackedVector2Array(-1905.71, 785.714, -1660, 1288.57, -1245.71, 1062.8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 z_index = 100
-position = Vector2(-434.286, -114.286)
+position = Vector2(-420, -80.0013)
 shape = SubResource("CircleShape2D_ptk7u")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(731.429, 591.429)
+position = Vector2(748.571, 631.429)
 shape = SubResource("CircleShape2D_ptk7u")
 
 [node name="Bar" type="Node2D" parent="."]

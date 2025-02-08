@@ -13,7 +13,7 @@
 [ext_resource type="Script" path="res://scripts/papouch_manager.gd" id="8_dkm4x"]
 [ext_resource type="Script" path="res://scripts/npc_character.gd" id="8_kxejn"]
 [ext_resource type="Texture2D" uid="uid://btvl4lrtkkkle" path="res://assets/level_3/Bank_truhla.png" id="8_v58de"]
-[ext_resource type="PackedScene" path="res://door.tscn" id="9_06q2w"]
+[ext_resource type="PackedScene" uid="uid://do3g3w77pww5q" path="res://door.tscn" id="9_06q2w"]
 [ext_resource type="Texture2D" uid="uid://b3l5op4d2d5ne" path="res://assets/level_3/characters/New_Piskel.png" id="13_5pvuy"]
 [ext_resource type="Texture2D" uid="uid://748yqk3qshvu" path="res://assets/level_3/characters/NT_human_front.png" id="13_a4k2j"]
 [ext_resource type="Texture2D" uid="uid://dmrhj4btd4ko3" path="res://assets/level_3/characters/NT_human_front_2.png" id="13_lf1bo"]
@@ -35,6 +35,7 @@ radius = 41.0488
 
 [node name="Level3" type="Node2D"]
 y_sort_enabled = true
+position = Vector2(0, -150)
 script = ExtResource("1_ub0w7")
 level_index = 3
 scene = ExtResource("2_sbk1s")
