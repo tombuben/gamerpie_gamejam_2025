@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://crrtoqghkde4t"]
+[gd_scene load_steps=35 format=3 uid="uid://crrtoqghkde4t"]
 
 [ext_resource type="Script" path="res://scripts/state_checker.gd" id="1_jttpe"]
 [ext_resource type="PackedScene" uid="uid://dmdwu8xu7h45d" path="res://levels/intro_3.tscn" id="2_37u5h"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://kdw8rqeo1nta" path="res://assets/level_2/Drunk_highlight.png" id="17_pkpw3"]
 [ext_resource type="Texture2D" uid="uid://bvs3twmath61c" path="res://assets/level_2/TavernKeep_highlight.png" id="20_1swnn"]
 [ext_resource type="AudioStream" uid="uid://dtxixsexvhyqc" path="res://assets/audio/music/saloon-bg.mp3" id="21_gygey"]
+[ext_resource type="AudioStream" uid="uid://c12bjfniow7gk" path="res://assets/audio/SFX/Drink_final.wav" id="24_cxf41"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ptk7u"]
 radius = 187.116
@@ -462,6 +463,9 @@ signal_out_trigger_npcs = Array[String](["Drunk", "Traitor"])
 emit_message = "DrinkDeliveredBottom"
 is_loop = true
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="TavernPaths/TavernPath1/PathFollow2D"]
+stream = ExtResource("24_cxf41")
+
 [node name="TavernPath2" type="Path2D" parent="TavernPaths"]
 y_sort_enabled = true
 position = Vector2(0, 10)
@@ -477,6 +481,9 @@ move_speed = 2
 move_when = "BringDrinkTop"
 move_what = NodePath("../../TavernKeep")
 is_loop = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="TavernPaths/TavernPath2/PathFollow2D"]
+stream = ExtResource("24_cxf41")
 
 [node name="DialoguePlayer" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true

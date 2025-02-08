@@ -7,6 +7,8 @@ extends PathFollow2D
 @export var emit_message : String
 @export var is_loop : bool
 
+@onready var audio = $AudioStreamPlayer2D
+
 func _ready() -> void:
 	SignalBus.connect("on_move_command", _on_npc_character_on_move_command)
 
@@ -24,6 +26,8 @@ func _on_bubble_slot_on_slot_changed(check_value: String) -> void:
 		target = 1
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "progress_ratio", target, 1)
+	if audio:
+		audio.play()
 
 func _on_npc_character_on_move_command(check_value : String, npc_name : String) -> void:
 	if check_value == move_when && npc_name != self.name:
@@ -56,3 +60,7 @@ func _on_npc_character_on_move_command(check_value : String, npc_name : String) 
 		
 		if signal_out_trigger_npcs.has(npc_name):
 			SignalBus.on_state_changed.emit(emit_message, self.name)
+			
+		if audio:
+			await get_tree().create_timer(move_speed / 2 + 0.5).timeout
+			audio.play()
