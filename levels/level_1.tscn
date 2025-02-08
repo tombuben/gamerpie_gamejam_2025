@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cxjyxcbcxxydo"]
+[gd_scene load_steps=29 format=3 uid="uid://cxjyxcbcxxydo"]
 
 [ext_resource type="Script" path="res://scripts/scene_manager.gd" id="1_evs3j"]
 [ext_resource type="PackedScene" uid="uid://b81oqoehgfrkh" path="res://player_character.tscn" id="1_q2wdn"]
@@ -18,6 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://bmnwxb7x2qh72" path="res://assets/audio/music/jail_cell_bgmusic-v2.mp3" id="15_frws4"]
 [ext_resource type="Texture2D" uid="uid://bgvsrahkaw1f0" path="res://assets/level_1/Cell_Wall_DoorClosed-small.png" id="15_wik2p"]
 [ext_resource type="Script" path="res://scripts/win_area.gd" id="16_a7mtj"]
+[ext_resource type="AudioStream" uid="uid://dudpnn7c5hm53" path="res://assets/audio/SFX/DoorOpen_Final.wav" id="17_41by2"]
 [ext_resource type="PackedScene" uid="uid://c3ggxrvsseq0d" path="res://levels/intro_2.tscn" id="17_x1ffy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mmaku"]
@@ -268,6 +269,9 @@ texture_filter = 1
 position = Vector2(21, -256)
 scale = Vector2(8, 8)
 texture = ExtResource("15_wik2p")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Door"]
+stream = ExtResource("17_41by2")
 
 [node name="BG-music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_frws4")
