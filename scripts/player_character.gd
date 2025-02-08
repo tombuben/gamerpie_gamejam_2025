@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var bubble_slot : Node2D = $BubbleSlot
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
+@onready var audio = $AudioStreamPlayer2D
 
 @onready var bubble_ico_scene = preload("res://ui/bubble ico/bubble_ico.tscn")
 
@@ -13,6 +14,9 @@ var npc_parents = []
 
 var bubble_ico
 var bubble_ico_active = false
+
+var last_played_position : Vector2
+@export var sound_every_x_pixels : float = 65
 
 #var pause_menu
 
@@ -43,9 +47,17 @@ func _physics_process(_delta):
 	
 	var animation_speed = velocity.length() / 25
 	sprite.speed_scale = animation_speed
-	if animation_speed < 0.1:
+	if animation_speed < 0.05:
 		sprite.set_frame_and_progress(0, 0.0)
+		last_played_position = global_position
+		
 	move_and_slide()
+	
+	var step = last_played_position.distance_to(global_position)
+	if step > sound_every_x_pixels:
+		audio.pitch_scale = randf_range(0.8, 1.2)
+		audio.play()
+		last_played_position = global_position
 	
 func _get_active_npc_bubble(parent: NPCCharacter):
 	npc_parents.push_back(parent)
