@@ -33,7 +33,7 @@ patch_margin_top = 32
 patch_margin_right = 32
 patch_margin_bottom = 32
 
-[node name="Control" type="Control" parent="NinePatchRect"]
+[node name="CenterNotch" type="Control" parent="NinePatchRect"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -46,8 +46,39 @@ offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Sprite2D" type="Sprite2D" parent="NinePatchRect/Control"]
+[node name="Sprite2D" type="Sprite2D" parent="NinePatchRect/CenterNotch"]
 position = Vector2(11.5, 53)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("3_j3sni")
+
+[node name="LeftNotch" type="Control" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="NinePatchRect/LeftNotch"]
+position = Vector2(61, 53)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("3_j3sni")
+
+[node name="RightNotch" type="Control" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="NinePatchRect/RightNotch"]
+position = Vector2(-21, 53)
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("3_j3sni")
 

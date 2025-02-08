@@ -2,6 +2,10 @@ extends MarginContainer
 
 @onready var timer = $LetterDisplayTimer
 
+@onready var left_notch = $NinePatchRect/LeftNotch
+@onready var center_notch = $NinePatchRect/CenterNotch
+@onready var right_notch = $NinePatchRect/RightNotch
+
 @export var swap_button: Control
 @export var label : RichTextLabel
 @export var min_width = 100
@@ -18,6 +22,9 @@ var punctuation_time = 0.2
 
 signal finished_displaying()
 
+func _ready() -> void:
+	set_notch(0)
+
 func faster():
 	letter_time /= 2
 	space_time /= 2
@@ -30,16 +37,16 @@ func display_text(text_to_display: String):
 	label.visible_characters_behavior = TextServer.VC_CHARS_AFTER_SHAPING
 	label.visible_characters = letter_index
 	
-	await resized
-	label.custom_minimum_size.x = min(max(min_width, size.x), max_width)
+	await label.resized
+	label.custom_minimum_size.x = min(max(min_width, label.size.x), max_width)
 	if size.x > max_width:
 		label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		await resized # wait for y resize
+		await label.resized # wait for y resize
 		label.custom_minimum_size.y = size.y - 40
 	
 	print(global_position)
 	_display_letter()
-	
+		
 func _display_letter():
 	
 	label.visible_characters = letter_index + 1
@@ -57,6 +64,21 @@ func _display_letter():
 		_:
 			timer.start(letter_time)	
 
+func set_notch(notch : int):
+	if notch == -1:
+		left_notch.visible = true
+		center_notch.visible = false
+		right_notch.visible = false
+		
+	if notch == 0:
+		left_notch.visible = false
+		center_notch.visible = true
+		right_notch.visible = false
+		
+	if notch == 1:
+		left_notch.visible = false
+		center_notch.visible = false
+		right_notch.visible = true
 
 func _on_letter_display_timer_timeout() -> void:
 	_display_letter()
