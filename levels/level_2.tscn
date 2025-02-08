@@ -193,6 +193,12 @@ script = ExtResource("5_f23u2")
 lines = Array[String](["....", "....", "....", "...."])
 bubble_id = 1
 
+[node name="Anchor" type="Control" parent="CardPlayer1/BubbleSlot"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="CardPlayer2" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
 position = Vector2(307, 436)
 script = ExtResource("10_qb0na")
@@ -227,11 +233,18 @@ texture = ExtResource("11_emlg0")
 [node name="BubbleSlot" type="Node2D" parent="CardPlayer2"]
 position = Vector2(0, -200)
 script = ExtResource("4_kk4t1")
+notch_position = -1
 
 [node name="Bubble" type="Node2D" parent="CardPlayer2/BubbleSlot"]
 script = ExtResource("5_f23u2")
 lines = Array[String](["I win again!", "I win again!", "I win again!", "I win again!"])
 bubble_id = 2
+
+[node name="Anchor" type="Control" parent="CardPlayer2/BubbleSlot"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="CardPlayer3" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
 position = Vector2(444, 296)
@@ -275,6 +288,12 @@ script = ExtResource("5_f23u2")
 lines = Array[String](["Another round.", "Another round.", "Another round.", "Another round."])
 bubble_id = 3
 
+[node name="Anchor" type="Control" parent="CardPlayer3/BubbleSlot"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="Traitor" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
 position = Vector2(981, 651)
 script = ExtResource("10_qb0na")
@@ -314,11 +333,18 @@ texture = ExtResource("16_hmpfp")
 [node name="BubbleSlot" type="Node2D" parent="Traitor"]
 position = Vector2(0, -200)
 script = ExtResource("4_kk4t1")
+notch_position = 1
 
 [node name="Bubble" type="Node2D" parent="Traitor/BubbleSlot"]
 script = ExtResource("5_f23u2")
 lines = Array[String](["I'm so rich.", "I'm so rich.", "I'm not telling you sober.", "It's in the bank."])
 bubble_id = 4
+
+[node name="Anchor" type="Control" parent="Traitor/BubbleSlot"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="Drunk" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
 position = Vector2(719, 689)
@@ -363,6 +389,14 @@ script = ExtResource("4_kk4t1")
 script = ExtResource("5_f23u2")
 lines = Array[String](["You're lying.", "Where did you hide it?", "Where did you hide it?", "Where did you hide it?"])
 bubble_id = 5
+
+[node name="Anchor" type="Control" parent="Drunk/BubbleSlot"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="TavernPaths" type="Node2D" parent="."]
 y_sort_enabled = true

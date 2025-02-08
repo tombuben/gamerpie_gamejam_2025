@@ -6,13 +6,15 @@ signal on_slot_changed(check_value : String)
 
 @onready var bubble : Node2D = $Bubble
 
+@export var notch_position : int
+
 @export var lines: Array[String]
 
 @export var bubbles_dict : Dictionary
 
 var dialog_line: String
 
-var text_box
+var text_box : Container
 var text_box_position: Vector2
 var bubble_slot: Node2D
 
@@ -58,12 +60,22 @@ func start_dialog(anchor = null):
 func _show_text_box(anchor : Control):
 	text_box = text_box_scene.instantiate()
 	
+	if anchor and "notch_position_override" in anchor:
+		notch_position = anchor.notch_position_override
+	
+	text_box.set_notch(notch_position)
+	
 	if _bubble_anchor_count() > 0 && anchor != null:
 		anchor.add_child(text_box)
+		if notch_position == -1:
+			text_box.grow_horizontal = Control.GROW_DIRECTION_END
+		if notch_position == 0:
+			text_box.grow_horizontal = Control.GROW_DIRECTION_BOTH
+		if notch_position == 1:
+			text_box.grow_horizontal = Control.GROW_DIRECTION_BEGIN	
 	else:
 		bubble_slot.add_child(text_box)	
-	
-	text_box.position = Vector2.ZERO
+		text_box.position = Vector2.ZERO
 	#print(position)
 	#print(global_position)
 	#print(text_box.global_position)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://c5icoj7eo4vaf"]
+[gd_scene load_steps=30 format=3 uid="uid://c5icoj7eo4vaf"]
 
 [ext_resource type="Script" path="res://scripts/scene_manager.gd" id="1_ub0w7"]
 [ext_resource type="PackedScene" uid="uid://brvly23kxkjhu" path="res://levels/outro.tscn" id="2_sbk1s"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://dluu1b086scit" path="res://assets/level_3/characters/nt_lion_outline.png" id="16_r151w"]
 [ext_resource type="Texture2D" uid="uid://c3rbl8xxtbb0c" path="res://assets/level_3/characters/NT_capybara.png" id="17_vvg66"]
 [ext_resource type="Texture2D" uid="uid://c1sm208r57fr6" path="res://assets/level_3/characters/NT_capybara_outline.png" id="18_qq5en"]
+[ext_resource type="Script" path="res://scripts/Anchor.gd" id="23_sragg"]
 [ext_resource type="Texture2D" uid="uid://bvr54plvn8wio" path="res://assets/level_3/characters/papousek_base.png" id="23_yyibw"]
 [ext_resource type="Texture2D" uid="uid://dc0y84jrpdo1a" path="res://assets/level_3/characters/papousek_outline.png" id="25_6ubh1"]
 
@@ -163,11 +164,18 @@ texture = ExtResource("14_tbjrh")
 [node name="BubbleSlot" type="Node2D" parent="Worker2"]
 position = Vector2(0, -200)
 script = ExtResource("4_vbdgx")
+notch_position = -1
 
 [node name="Bubble" type="Node2D" parent="Worker2/BubbleSlot"]
 script = ExtResource("5_ahv56")
 lines = Array[String](["Here's your money.", "Here's your money.", "Here's your money, Mr. Piratesson!", "Here's your money, Mr. Piratesson!"])
 bubble_id = 1
+
+[node name="Anchor" type="Control" parent="Worker2/BubbleSlot"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="Customer2" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
 position = Vector2(169, 584)
@@ -203,12 +211,19 @@ texture = ExtResource("16_r151w")
 [node name="BubbleSlot" type="Node2D" parent="Customer2"]
 position = Vector2(0, -200)
 script = ExtResource("4_vbdgx")
+notch_position = -1
 
 [node name="Bubble" type="Node2D" parent="Customer2/BubbleSlot"]
 position = Vector2(11, 69)
 script = ExtResource("5_ahv56")
 lines = Array[String](["Vault number: 1234", "Vault number: 1234", "Vault number: 1234"])
 bubble_id = 2
+
+[node name="Anchor" type="Control" parent="Customer2/BubbleSlot"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="Worker1" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
 position = Vector2(983, 440)
@@ -245,11 +260,18 @@ texture = ExtResource("14_wintj")
 [node name="BubbleSlot" type="Node2D" parent="Worker1"]
 position = Vector2(0, -200)
 script = ExtResource("4_vbdgx")
+notch_position = 1
 
 [node name="Bubble" type="Node2D" parent="Worker1/BubbleSlot"]
 script = ExtResource("5_ahv56")
 lines = Array[String](["Vault number: 4321", "Vault number: 9999", "Vault number: 9999"])
 bubble_id = 3
+
+[node name="Anchor" type="Control" parent="Worker1/BubbleSlot"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="Customer1" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
 position = Vector2(992, 575)
@@ -285,11 +307,18 @@ texture = ExtResource("18_qq5en")
 [node name="BubbleSlot" type="Node2D" parent="Customer1"]
 position = Vector2(0, -200)
 script = ExtResource("4_vbdgx")
+notch_position = 1
 
 [node name="Bubble" type="Node2D" parent="Customer1/BubbleSlot"]
 script = ExtResource("5_ahv56")
 lines = Array[String](["Norman Person", "Norman Person", "Norman Person"])
 bubble_id = 4
+
+[node name="Anchor" type="Control" parent="Customer1/BubbleSlot"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="Door" parent="." instance=ExtResource("9_06q2w")]
 position = Vector2(597, 572)
@@ -373,18 +402,22 @@ bubble_id = 5
 [node name="BubbleAnchor1" type="Control" parent="Parrot1wrapper/Parrot/BubbleSlot"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 72.0
-offset_top = 44.0
-offset_right = 112.0
-offset_bottom = 84.0
+offset_left = -5.0
+offset_top = 54.0
+offset_right = 35.0
+offset_bottom = 94.0
+script = ExtResource("23_sragg")
+notch_position_override = -1
 
 [node name="BubbleAnchor2" type="Control" parent="Parrot1wrapper/Parrot/BubbleSlot"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 847.0
-offset_top = 34.0
-offset_right = 887.0
-offset_bottom = 74.0
+offset_left = 984.0
+offset_top = 53.0
+offset_right = 1024.0
+offset_bottom = 93.0
+script = ExtResource("23_sragg")
+notch_position_override = 1
 
 [node name="P1Sprite" type="Sprite2D" parent="Parrot1wrapper/Parrot"]
 texture_filter = 1

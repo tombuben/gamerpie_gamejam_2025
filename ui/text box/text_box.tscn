@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://24ap7tirtxxp" path="res://ui/text box/Swap_button_base.png" id="4_1qdx1"]
 [ext_resource type="Theme" path="res://ui/textbox_fancy_font.tres" id="5_oqh8a"]
 
-[node name="TextBox" type="MarginContainer" node_paths=PackedStringArray("swap_button", "label")]
+[node name="TextBox" type="MarginContainer" node_paths=PackedStringArray("left_notch", "center_notch", "right_notch", "swap_button", "label")]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -20,6 +20,9 @@ grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_vf4pf")
+left_notch = NodePath("NinePatchRect/LeftNotch")
+center_notch = NodePath("NinePatchRect/CenterNotch")
+right_notch = NodePath("NinePatchRect/RightNotch")
 swap_button = NodePath("NinePatchRect/Swap")
 label = NodePath("MarginContainer/RichTextLabel")
 
@@ -52,6 +55,7 @@ scale = Vector2(0.35, 0.35)
 texture = ExtResource("3_j3sni")
 
 [node name="LeftNotch" type="Control" parent="NinePatchRect"]
+visible = false
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -66,6 +70,7 @@ scale = Vector2(0.35, 0.35)
 texture = ExtResource("3_j3sni")
 
 [node name="RightNotch" type="Control" parent="NinePatchRect"]
+visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0

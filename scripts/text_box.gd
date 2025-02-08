@@ -2,9 +2,9 @@ extends MarginContainer
 
 @onready var timer = $LetterDisplayTimer
 
-@onready var left_notch = $NinePatchRect/LeftNotch
-@onready var center_notch = $NinePatchRect/CenterNotch
-@onready var right_notch = $NinePatchRect/RightNotch
+@export var left_notch : Control
+@export var center_notch : Control
+@export var right_notch : Control
 
 @export var swap_button: Control
 @export var label : RichTextLabel
@@ -21,9 +21,6 @@ var space_time = 0.03
 var punctuation_time = 0.2
 
 signal finished_displaying()
-
-func _ready() -> void:
-	set_notch(0)
 
 func faster():
 	letter_time /= 2
