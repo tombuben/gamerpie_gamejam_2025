@@ -36,7 +36,7 @@ func _ready():
 	
 	uses_anchor = _bubble_anchor_count() > 0
 
-func start_dialog(anchor = null):	
+func start_dialog(anchor = null):
 	var parent = get_parent() 
 	#bubble = $Bubble
 	if is_dialog_active && parent.name == "PlayerCharacter":
@@ -118,6 +118,10 @@ func _advance_dialog():
 			fill_bubble(new_line)
 			GameManager.reload_swap_ui()
 			_bubble_slot_changed()
+			
+		await get_tree().create_timer(3.0).timeout
+		if is_dialog_active and GameManager.swap_target != get_parent():
+			_end_dialog()
 
 func _on_level_2_advance_bubble() -> void:
 	_advance_dialog()
