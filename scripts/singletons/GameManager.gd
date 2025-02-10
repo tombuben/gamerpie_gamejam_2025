@@ -18,6 +18,8 @@ var swap_box
 
 var pause_menu
 
+var player_has_bubble = false
+
 func _ready():
 	return
 
@@ -72,6 +74,10 @@ func _bubble_switch():
 	Player.toggle_bubble_icon()
 	closest_npc.bubble_slot._bubble_slot_changed()
 	
+	if Player.bubble_slot.bubble.checkValue == "Empty":
+		player_has_bubble = false
+	else:
+		player_has_bubble = true
 	
 	close_swap_ui()
 	open_swap_ui()

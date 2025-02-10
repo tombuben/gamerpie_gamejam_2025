@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://c5icoj7eo4vaf"]
+[gd_scene load_steps=32 format=3 uid="uid://c5icoj7eo4vaf"]
 
 [ext_resource type="Script" path="res://scripts/scene_manager.gd" id="1_ub0w7"]
 [ext_resource type="PackedScene" uid="uid://brvly23kxkjhu" path="res://levels/outro.tscn" id="2_sbk1s"]
@@ -10,10 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://cfh3b53xo22x6" path="res://assets/level_3/Bank_bydylka.png" id="5_rwgft"]
 [ext_resource type="Texture2D" uid="uid://b6qeotyvvjowi" path="res://assets/level_3/Bank_prepazky.png" id="6_qd7v3"]
 [ext_resource type="Texture2D" uid="uid://l3aigq3kcjk7" path="res://assets/level_3/Bank_psst_cedule.png" id="7_amvbi"]
+[ext_resource type="Script" path="res://scripts/psst_cedule.gd" id="7_hsqrd"]
 [ext_resource type="Script" path="res://scripts/papouch_manager.gd" id="8_dkm4x"]
 [ext_resource type="Script" path="res://scripts/npc_character.gd" id="8_kxejn"]
 [ext_resource type="Texture2D" uid="uid://btvl4lrtkkkle" path="res://assets/level_3/Bank_truhla.png" id="8_v58de"]
-[ext_resource type="PackedScene" uid="uid://do3g3w77pww5q" path="res://door.tscn" id="9_06q2w"]
+[ext_resource type="PackedScene" uid="uid://de41qilfbghwx" path="res://door.tscn" id="9_06q2w"]
+[ext_resource type="Texture2D" uid="uid://bp6cjiu1viiup" path="res://assets/level_3/Bank_psst_cedule_outline.png" id="9_ld3r0"]
 [ext_resource type="Texture2D" uid="uid://b3l5op4d2d5ne" path="res://assets/level_3/characters/New_Piskel.png" id="13_5pvuy"]
 [ext_resource type="Texture2D" uid="uid://748yqk3qshvu" path="res://assets/level_3/characters/NT_human_front.png" id="13_a4k2j"]
 [ext_resource type="Texture2D" uid="uid://dmrhj4btd4ko3" path="res://assets/level_3/characters/NT_human_front_2.png" id="13_lf1bo"]
@@ -24,9 +26,11 @@
 [ext_resource type="Texture2D" uid="uid://dluu1b086scit" path="res://assets/level_3/characters/nt_lion_outline.png" id="16_r151w"]
 [ext_resource type="Texture2D" uid="uid://c3rbl8xxtbb0c" path="res://assets/level_3/characters/NT_capybara.png" id="17_vvg66"]
 [ext_resource type="Texture2D" uid="uid://c1sm208r57fr6" path="res://assets/level_3/characters/NT_capybara_outline.png" id="18_qq5en"]
-[ext_resource type="Script" path="res://scripts/Anchor.gd" id="23_sragg"]
 [ext_resource type="Texture2D" uid="uid://bvr54plvn8wio" path="res://assets/level_3/characters/papousek_base.png" id="23_yyibw"]
 [ext_resource type="Texture2D" uid="uid://dc0y84jrpdo1a" path="res://assets/level_3/characters/papousek_outline.png" id="25_6ubh1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2kgvi"]
+size = Vector2(90, 76.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_um8bn"]
 radius = 45.0111
@@ -36,7 +40,6 @@ radius = 41.0488
 
 [node name="Level3" type="Node2D"]
 y_sort_enabled = true
-position = Vector2(0, -150)
 script = ExtResource("1_ub0w7")
 level_index = 3
 scene = ExtResource("2_sbk1s")
@@ -91,8 +94,11 @@ scale = Vector2(8, 8)
 texture = ExtResource("6_qd7v3")
 centered = false
 
-[node name="psst_cedule" type="Node2D" parent="."]
+[node name="psst_cedule" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
 position = Vector2(0, 533)
+script = ExtResource("7_hsqrd")
+base_sprite = NodePath("SketchLevel1")
+highlight_sprite = NodePath("psst_outline")
 
 [node name="SketchLevel1" type="Sprite2D" parent="psst_cedule"]
 texture_filter = 1
@@ -100,6 +106,22 @@ position = Vector2(-11, -435)
 scale = Vector2(8, 8)
 texture = ExtResource("7_amvbi")
 centered = false
+
+[node name="psst_outline" type="Sprite2D" parent="psst_cedule"]
+visible = false
+texture_filter = 1
+position = Vector2(-11, -435)
+scale = Vector2(8, 8)
+texture = ExtResource("9_ld3r0")
+centered = false
+
+[node name="Area2D" type="Area2D" parent="psst_cedule"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="psst_cedule/Area2D"]
+position = Vector2(597, 39.75)
+shape = SubResource("RectangleShape2D_2kgvi")
 
 [node name="Truhlice" type="Node2D" parent="."]
 position = Vector2(0, 803)
@@ -164,18 +186,11 @@ texture = ExtResource("14_tbjrh")
 [node name="BubbleSlot" type="Node2D" parent="Worker2"]
 position = Vector2(0, -200)
 script = ExtResource("4_vbdgx")
-notch_position = -1
 
 [node name="Bubble" type="Node2D" parent="Worker2/BubbleSlot"]
 script = ExtResource("5_ahv56")
 lines = Array[String](["Here's your money.", "Here's your money.", "Here's your money, Mr. Piratesson!", "Here's your money, Mr. Piratesson!"])
 bubble_id = 1
-
-[node name="Anchor" type="Control" parent="Worker2/BubbleSlot"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="Customer2" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
 position = Vector2(169, 584)
@@ -211,19 +226,12 @@ texture = ExtResource("16_r151w")
 [node name="BubbleSlot" type="Node2D" parent="Customer2"]
 position = Vector2(0, -200)
 script = ExtResource("4_vbdgx")
-notch_position = -1
 
 [node name="Bubble" type="Node2D" parent="Customer2/BubbleSlot"]
 position = Vector2(11, 69)
 script = ExtResource("5_ahv56")
 lines = Array[String](["Vault number: 1234", "Vault number: 1234", "Vault number: 1234"])
 bubble_id = 2
-
-[node name="Anchor" type="Control" parent="Customer2/BubbleSlot"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="Worker1" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
 position = Vector2(983, 440)
@@ -260,18 +268,11 @@ texture = ExtResource("14_wintj")
 [node name="BubbleSlot" type="Node2D" parent="Worker1"]
 position = Vector2(0, -200)
 script = ExtResource("4_vbdgx")
-notch_position = 1
 
 [node name="Bubble" type="Node2D" parent="Worker1/BubbleSlot"]
 script = ExtResource("5_ahv56")
 lines = Array[String](["Vault number: 4321", "Vault number: 9999", "Vault number: 9999"])
 bubble_id = 3
-
-[node name="Anchor" type="Control" parent="Worker1/BubbleSlot"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="Customer1" type="Node2D" parent="." node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
 position = Vector2(992, 575)
@@ -307,21 +308,14 @@ texture = ExtResource("18_qq5en")
 [node name="BubbleSlot" type="Node2D" parent="Customer1"]
 position = Vector2(0, -200)
 script = ExtResource("4_vbdgx")
-notch_position = 1
 
 [node name="Bubble" type="Node2D" parent="Customer1/BubbleSlot"]
 script = ExtResource("5_ahv56")
 lines = Array[String](["Norman Person", "Norman Person", "Norman Person"])
 bubble_id = 4
 
-[node name="Anchor" type="Control" parent="Customer1/BubbleSlot"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="Door" parent="." instance=ExtResource("9_06q2w")]
-position = Vector2(597, 572)
+position = Vector2(596, 572)
 open_when = "Empty"
 starts_open = true
 
@@ -402,22 +396,18 @@ bubble_id = 5
 [node name="BubbleAnchor1" type="Control" parent="Parrot1wrapper/Parrot/BubbleSlot"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -5.0
-offset_top = 54.0
-offset_right = 35.0
-offset_bottom = 94.0
-script = ExtResource("23_sragg")
-notch_position_override = -1
+offset_left = 72.0
+offset_top = 44.0
+offset_right = 112.0
+offset_bottom = 84.0
 
 [node name="BubbleAnchor2" type="Control" parent="Parrot1wrapper/Parrot/BubbleSlot"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 984.0
-offset_top = 53.0
-offset_right = 1024.0
-offset_bottom = 93.0
-script = ExtResource("23_sragg")
-notch_position_override = 1
+offset_left = 847.0
+offset_top = 34.0
+offset_right = 887.0
+offset_bottom = 74.0
 
 [node name="P1Sprite" type="Sprite2D" parent="Parrot1wrapper/Parrot"]
 texture_filter = 1
@@ -578,6 +568,8 @@ script = ExtResource("5_ahv56")
 lines = Array[String]([])
 bubble_id = 8
 
+[connection signal="body_entered" from="psst_cedule/Area2D" to="psst_cedule" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="psst_cedule/Area2D" to="psst_cedule" method="_on_area_2d_body_exited"]
 [connection signal="on_slot_changed" from="PlayerCharacter/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
 [connection signal="on_slot_changed" from="PlayerCharacter/BubbleSlot" to="Door" method="_on_bubble_slot_on_slot_changed"]
 [connection signal="body_entered" from="Worker2/Area2D" to="Worker2" method="_on_area_2d_body_entered"]
