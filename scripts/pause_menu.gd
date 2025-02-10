@@ -31,7 +31,7 @@ func open_menu():
 	
 
 func _input(event):
-	if event is InputEventKey:
+	if event is InputEventKey or event is InputEventJoypadMotion or event is InputEventJoypadButton:
 		if event.is_action_pressed('left'):
 			move_select_left()
 			set_select()
