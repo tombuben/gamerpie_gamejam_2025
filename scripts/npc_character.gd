@@ -4,6 +4,8 @@ class_name NPCCharacter extends Node2D
 
 @export var base_sprite: Sprite2D
 @export var highlight_sprite: Sprite2D
+@export var base_sprite_2: Sprite2D
+@export var highlight_sprite_2: Sprite2D
 
 @export var game_status : String
 @export var use_state_manager : bool = false
@@ -17,11 +19,11 @@ class_name NPCCharacter extends Node2D
 func _ready() -> void:
 	SignalBus.connect("on_state_changed", _resolve_state_change)
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_area_2d_body_entered(body: Node2D, papouchArea : String = "") -> void:
 	if body.name != "PlayerCharacter":
 		return
 	
-	toggle_sprite_highlight()
+	toggle_sprite_highlight(papouchArea)
 	
 	await get_tree().process_frame
 	if bubble_slot.uses_anchor:
@@ -32,19 +34,24 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	GameManager.Player._get_active_npc_bubble(self)
 	GameManager.open_swap_ui()
 
-func _on_area_2d_body_exited(body: Node2D) -> void:
+func _on_area_2d_body_exited(body: Node2D, papouchArea : String = "") -> void:
 	if body.name != "PlayerCharacter":
 		return
 
-	toggle_sprite_highlight()
+	toggle_sprite_highlight(papouchArea)
 	bubble_slot._end_dialog()
 	GameManager.Player._exit_npc_cleanup(self)
 	AudioDialogManager.stop_dialog_play()
 
-func toggle_sprite_highlight():
-	if base_sprite != null && highlight_sprite != null:
-		base_sprite.visible = !base_sprite.visible
-		highlight_sprite.visible = !highlight_sprite.visible
+func toggle_sprite_highlight(papouchArea : String = ""):
+	if papouchArea == "" || papouchArea == "papouch1":
+		if base_sprite != null && highlight_sprite != null:
+			base_sprite.visible = !base_sprite.visible
+			highlight_sprite.visible = !highlight_sprite.visible	
+	elif papouchArea == "papouch2":
+		if base_sprite_2 != null && highlight_sprite_2 != null:
+			base_sprite_2.visible = !base_sprite_2.visible
+			highlight_sprite_2.visible = !highlight_sprite_2.visible
 		
 func set_sprite_highlight(highlighted):
 	if base_sprite != null && highlight_sprite != null:

@@ -366,11 +366,13 @@ P3 = NodePath("../../Parrot3wrapper/Parrot")
 P4 = NodePath("../../Parrot4wrapper/Parrot")
 bubble_slot = NodePath("../Parrot/BubbleSlot")
 
-[node name="Parrot" type="Node2D" parent="Parrot1wrapper" node_paths=PackedStringArray("base_sprite", "highlight_sprite")]
+[node name="Parrot" type="Node2D" parent="Parrot1wrapper" node_paths=PackedStringArray("base_sprite", "highlight_sprite", "base_sprite_2", "highlight_sprite_2")]
 position = Vector2(2, -55)
 script = ExtResource("8_kxejn")
 base_sprite = NodePath("P1Sprite")
 highlight_sprite = NodePath("P1SpriteOutline")
+base_sprite_2 = NodePath("P2Sprite")
+highlight_sprite_2 = NodePath("P2SpriteOutline")
 
 [node name="TriggerAreaP1" type="Area2D" parent="Parrot1wrapper/Parrot"]
 collision_layer = 2
@@ -464,7 +466,7 @@ texture = ExtResource("23_yyibw")
 [node name="P2SpriteOutline" type="Sprite2D" parent="Parrot1wrapper/Parrot"]
 visible = false
 texture_filter = 1
-position = Vector2(4, -5)
+position = Vector2(964, -18)
 scale = Vector2(-8, 8)
 texture = ExtResource("25_6ubh1")
 
@@ -617,10 +619,10 @@ bubble_id = 8
 [connection signal="body_entered" from="Customer1/Area2D" to="Customer1" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Customer1/Area2D" to="Customer1" method="_on_area_2d_body_exited"]
 [connection signal="on_slot_changed" from="Customer1/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
-[connection signal="body_entered" from="Parrot1wrapper/Parrot/TriggerAreaP1" to="Parrot1wrapper/Parrot" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Parrot1wrapper/Parrot/TriggerAreaP1" to="Parrot1wrapper/Parrot" method="_on_area_2d_body_exited"]
-[connection signal="body_entered" from="Parrot1wrapper/Parrot/TriggerAreaP2" to="Parrot1wrapper/Parrot" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Parrot1wrapper/Parrot/TriggerAreaP2" to="Parrot1wrapper/Parrot" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Parrot1wrapper/Parrot/TriggerAreaP1" to="Parrot1wrapper/Parrot" method="_on_area_2d_body_entered" binds= ["papouch1"]]
+[connection signal="body_exited" from="Parrot1wrapper/Parrot/TriggerAreaP1" to="Parrot1wrapper/Parrot" method="_on_area_2d_body_exited" binds= ["papouch1"]]
+[connection signal="body_entered" from="Parrot1wrapper/Parrot/TriggerAreaP2" to="Parrot1wrapper/Parrot" method="_on_area_2d_body_entered" binds= ["papouch2"]]
+[connection signal="body_exited" from="Parrot1wrapper/Parrot/TriggerAreaP2" to="Parrot1wrapper/Parrot" method="_on_area_2d_body_exited" binds= ["papouch2"]]
 [connection signal="on_slot_changed" from="Parrot1wrapper/Parrot/BubbleSlot" to="." method="_on_bubble_slot_on_slot_changed"]
 [connection signal="body_entered" from="Parrot2wrapper/Parrot/Area2D" to="Parrot2wrapper/Parrot" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Parrot2wrapper/Parrot/Area2D" to="Parrot2wrapper/Parrot" method="_on_area_2d_body_exited"]
