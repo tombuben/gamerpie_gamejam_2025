@@ -44,6 +44,7 @@ func load_current_level():
 	DialogManager.load_level_dialogs()
 	LevelStateManager.load_level_states()
 	LevelStateManager.populate_check_subscribers()
+	GameManager.player_has_bubble = false
 
 func _spacebar_pressed():	
 	if Player != null && len(Player.npc_parents) == 0 && input_timeout <= 0:
